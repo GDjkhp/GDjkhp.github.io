@@ -19,7 +19,6 @@ Welcome to the repository of my website!
 [GitHub](https://github.com/GDjkhp/)
 \
 [Reddit](https://reddit.com/user/gdjkhp)
-\
 
 # ToDo
 
@@ -34,4 +33,3 @@ Cubeshots
 Beginning Words
 \
 Music Downloads, maybe?
-\

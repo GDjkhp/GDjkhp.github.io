@@ -21,7 +21,7 @@ function setup() {
   createCanvas(400, 400);
   w = width / 3;
   h = height / 3;
-  bestMove();
+  // bestMove();
 }
 
 function equals3(a, b, c) {

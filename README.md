@@ -8,11 +8,11 @@ Welcome to the repository of my website!
 [Tic Tac Toe](https://gdjkhp.github.io/games/tic-tac-toe)
 
 # Social Links:
-[Facebook](https://www.facebook.com/johnkennedy.pena.9)
+[Facebook](https://facebook.com/johnkennedy.pena.9)
 \
 [Newgrounds](http://jkhp.newgrounds.com/)
 \
-[YouTube](https://www.youtube.com/channel/UCDGRP1W4QbkDlweqoykRgmw/)
+[YouTube](https://youtube.com/channel/UCDGRP1W4QbkDlweqoykRgmw/)
 \
 [Soundcloud](https://soundcloud.com/john-kennedy-pena)
 \

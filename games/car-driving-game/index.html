@@ -3,6 +3,7 @@
 <head>
 <title>car driving game</title>
 <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+<script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
 <style type="text/css">
 body{
 background:rgba(212,80,100,1);
@@ -29,6 +30,16 @@ display:none;
 </style>
 </head>
 <body>
+
+<script> 
+
+function setup() {
+let mus = createAudio('galaxy man perfect loop.wav');
+mus.autoplay();
+mus.loop();
+}
+
+</script>
 
 <canvas id="canvas" width="302px" height="300px" ></canvas>
 <button id="retry" >RETRY</button>

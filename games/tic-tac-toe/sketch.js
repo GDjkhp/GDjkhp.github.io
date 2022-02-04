@@ -15,7 +15,7 @@ let h; // = height / 3;
 
 let ai = 'X';
 let human = 'O';
-let currentPlayer = ai;
+let currentPlayer = human;
 
 let dumb = false;
 
@@ -23,11 +23,11 @@ function setup() {
   createCanvas(400, 400);
   w = width / 3;
   h = height / 3;
-  bestMove();
+  // bestMove();
   
   let resultP = createP('');
   resultP.style('font-size', '32pt');
-  resultP.html(`whitefire update: opponent first, might revert later`);
+  resultP.html(`if you beat ths game, i'll delete my account, i need video proof`);
 }
 
 function equals3(a, b, c) {

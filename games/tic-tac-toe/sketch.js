@@ -15,7 +15,7 @@ let h; // = height / 3;
 
 let ai = 'X';
 let human = 'O';
-let currentPlayer = human;
+let currentPlayer = ai;
 
 let dumb = false;
 
@@ -23,7 +23,11 @@ function setup() {
   createCanvas(400, 400);
   w = width / 3;
   h = height / 3;
-  // bestMove();
+  bestMove();
+  
+  let resultP = createP('');
+  resultP.style('font-size', '32pt');
+  resultP.html(`whitefire update: opponent first, might revert later`);
 }
 
 function equals3(a, b, c) {
@@ -121,7 +125,7 @@ function draw() {
       }
     }
   }
-
+  
   let result = checkWinner();
   if (result != null) {
     noLoop();

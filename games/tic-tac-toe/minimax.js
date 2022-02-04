@@ -26,6 +26,18 @@ function bestMove() {
   currentPlayer = human;
 }
 
+function dumbAI() {
+	let i = int(random(3));
+	let j = int(random(3));
+	
+	if (board[i][j] == '') {
+        board[i][j] = ai;
+		currentPlayer = human;
+	} else {
+		dumbAI();
+	}
+}
+
 let scores = {
   X: 10,
   O: -10,

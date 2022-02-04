@@ -17,6 +17,8 @@ let ai = 'X';
 let human = 'O';
 let currentPlayer = human;
 
+let dumb = false;
+
 function setup() {
   createCanvas(400, 400);
   w = width / 3;
@@ -78,9 +80,20 @@ function mousePressed() {
     if (board[i][j] == '') {
       board[i][j] = human;
       currentPlayer = ai;
-      bestMove();
+      if (!dumb) bestMove();
+	  else dumbAI();
     }
   }
+}
+
+function keyPressed() {
+	if (keyCode === 78)
+		dumb = true;
+}
+
+function keyReleased() {
+	if (keyCode === 78)
+		dumb = false;
 }
 
 function draw() {
@@ -117,7 +130,11 @@ function draw() {
     if (result == 'tie') {
       resultP.html('Tie!');
     } else {
-      resultP.html(`${result} wins!`);
+	  // resultP.html(`${result} wins!`);
+	  if (result == 'O')
+		  resultP.html(`PLAYER (O) won!`);
+	  if (result == 'X')
+		  resultP.html(`AI (X) won!`);
     }
   }
 }

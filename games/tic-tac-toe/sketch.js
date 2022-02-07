@@ -25,9 +25,9 @@ function setup() {
   h = height / 3;
   // bestMove();
   
-  let resultP = createP('');
-  resultP.style('font-size', '32pt');
-  resultP.html(`if you beat ths game, i'll delete my account, i need video proof`);
+  let test = createP('');
+  test.style('font-size', '32pt');
+  test.html(`Tic Tac Toe (Minimax Algorithm Demo)`);
 }
 
 function equals3(a, b, c) {

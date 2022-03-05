@@ -26,7 +26,7 @@ Welcome to the repository of my website!
 
 # ToDo
 
-[Anime](https://gdjkhp.github.io/anime)
+[Anime](https://myanimelist.net/animelist/GDjkhp)
 \
 [Games](https://gdjkhp.github.io/games)
 \

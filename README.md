@@ -3,15 +3,15 @@ Welcome to the repository of my website!
 \
 ![:GDjkhp](https://count.getloli.com/get/@:GDjkhp?theme=rule34)
 
-# Useful Links:
+# Useful Links
 [Home](https://gdjkhp.github.io)
 
-# Games:
+# Games
 [Tic Tac Toe](https://gdjkhp.github.io/games/tic-tac-toe)
 \
 [car driving game](https://gdjkhp.github.io/games/car-driving-game)
 
-# Social Links:
+# Social Links
 [Facebook](https://facebook.com/johnkennedy.pena.9)
 \
 [Newgrounds](http://jkhp.newgrounds.com/)
@@ -24,7 +24,7 @@ Welcome to the repository of my website!
 \
 [Reddit](https://reddit.com/user/gdjkhp)
 
-# ToDo
+# TODO
 
 [Anime](https://myanimelist.net/animelist/GDjkhp)
 \

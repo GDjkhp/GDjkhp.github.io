@@ -6,7 +6,7 @@
 
 		<TITLE> this is kennedy's website, do not enter! </TITLE>
 		
-		<meta name="viewport" content="width=1024"> <!-- FIX FOR DIFFERENT DEVICE RESOLUTIONS -->
+		<!-- <meta name="viewport" content="width=1024">  <!-- FIX FOR DIFFERENT DEVICE RESOLUTIONS -->
 		
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
 		
@@ -109,7 +109,7 @@
 				float: left;
 				width: 33.33%;
 				padding: 10px;
-				height: 400px; /* Should be removed. Only for demonstration */
+				height: 500px; /* Should be removed. Only for demonstration */
 				border: 5px solid white;
 				text-align: center;
 			}
@@ -200,6 +200,10 @@
 			
 			.logo {
 				text-align: center;
+			}
+			
+			a {
+				color: #fff;
 			}
 		
 		</style>
@@ -305,6 +309,9 @@
 			}
 		</script>
 
+
+		
+		
 	</head>
 	
 	<BODY id="Home" onload="startTime(); initsnow();">
@@ -560,6 +567,17 @@
 			</div>
 		
 		</div>
+		
+		<script>
+			if(window.innerHeight > window.innerWidth){
+				alert("Please use Landscape!");
+				
+				const collection = document.getElementsByClassName("column");
+				collection[0].style.height = "min-height";
+				collection[1].style.height = "min-height";
+				collection[2].style.height = "min-height";
+			}
+		</script>
 		
 		<div id="Extras" class="footer">
 		

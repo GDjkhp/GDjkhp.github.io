@@ -8,7 +8,7 @@
 		
 		<!-- <meta name="viewport" content="width=1024">  <!-- FIX FOR DIFFERENT DEVICE RESOLUTIONS -->
 		
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
 		
 		<link rel="icon" href="./42247211_1895555103813303_6679866282172481536_n.jpg">
 		
@@ -109,7 +109,7 @@
 				float: left;
 				width: 33.33%;
 				padding: 10px;
-				height: 500px; /* Should be removed. Only for demonstration */
+				height: min-height; /* Should be removed. Only for demonstration */
 				border: 5px solid white;
 				text-align: center;
 			}
@@ -569,13 +569,11 @@
 		</div>
 		
 		<script>
-			if(window.innerHeight > window.innerWidth){
-				alert("Please use Landscape!");
-				
+			if(window.innerHeight < window.innerWidth){
 				const collection = document.getElementsByClassName("column");
-				collection[0].style.height = "min-height";
-				collection[1].style.height = "min-height";
-				collection[2].style.height = "min-height";
+				collection[0].style.height = "500px";
+				collection[1].style.height = "500px";
+				collection[2].style.height = "500px";
 			}
 		</script>
 		

@@ -310,9 +310,6 @@
 				window.onload=initsnow;
 			}
 		</script>
-
-
-		
 		
 	</head>
 	
@@ -458,7 +455,7 @@
 				
 				<a href="http://jkhp.newgrounds.com"><img class="social" src="dl-tank.gif" style="width:64px;height:64px;"></a>
 				
-				<a href="https://soundcloud.com/john-kennedy-pena"><img class="social" src="soundcloud-icon.png" style="width:64px;height:64px;"></a>
+				<!-- <a href="https://soundcloud.com/john-kennedy-pena"><img class="social" src="soundcloud-icon.png" style="width:64px;height:64px;"></a> -->
 				
 				<a href="https://github.com/GDjkhp/"><img class="social" src="git.png" style="width:64px;height:64px;"></a>
 				
@@ -571,12 +568,42 @@
 		</div>
 		
 		<script>
-			if(window.innerHeight < window.innerWidth){
+			// Find matches
+			var mql = window.matchMedia("(orientation: portrait)");
+
+			// If there are matches, we're in portrait
+			if(mql.matches) {  
+				// Portrait orientation
+				const collection = document.getElementsByClassName("column");
+				collection[0].style.height = "auto";
+				collection[1].style.height = "auto";
+				collection[2].style.height = "auto";
+			} else {  
+				// Landscape orientation
 				const collection = document.getElementsByClassName("column");
 				collection[0].style.height = "500px";
 				collection[1].style.height = "500px";
 				collection[2].style.height = "500px";
 			}
+
+			// Add a media query change listener
+			mql.addListener(function(m) {
+				if(m.matches) {
+					// Changed to portrait
+					const collection = document.getElementsByClassName("column");
+				collection[0].style.height = "auto";
+				collection[1].style.height = "auto";
+				collection[2].style.height = "auto";
+				}
+				else {
+					// Changed to landscape
+					const collection = document.getElementsByClassName("column");
+				collection[0].style.height = "500px";
+				collection[1].style.height = "500px";
+				collection[2].style.height = "500px";
+				}
+			});
+			
 		</script>
 		
 		<div id="Extras" class="footer">

@@ -1,0 +1,94 @@
+<body>
+
+<!-- geoplugin -->
+<script src="http://www.geoplugin.net/javascript.gp"></script>
+
+<script>
+
+	function print(value) {
+		const el = document.createElement('p');
+		const node = document.createTextNode(value);
+		el.appendChild(node);
+		document.body.appendChild(el);
+	}
+	
+	print(`IP ADDRESS: ${geoplugin_request()}`);
+	print(`LOCATION: ${geoplugin_city()}, ${geoplugin_regionName()}, ${geoplugin_region()}, ${geoplugin_countryName()} (${geoplugin_latitude()}, ${geoplugin_longitude()})`);
+	print(`YOUR WORTH: ${geoplugin_currencySymbol_UTF8()} ${geoplugin_currencyConverter(1, false)}`);
+	print(`PING: ${geoplugin_delay()}`);
+	
+	function info() {
+		console.log(geoplugin_request());
+		print(geoplugin_request());
+		
+		console.log(geoplugin_status());
+		print(geoplugin_status());
+		
+		console.log(geoplugin_credit());
+		print(geoplugin_credit());
+		
+		console.log(geoplugin_delay());
+		print(geoplugin_delay());
+		
+		console.log(geoplugin_city());
+		print(geoplugin_city());
+		
+		console.log(geoplugin_region());
+		print(geoplugin_region());
+		
+		console.log(geoplugin_regionCode());
+		print(geoplugin_regionCode());
+		
+		console.log(geoplugin_regionName());
+		print(geoplugin_regionName());
+		
+		console.log(geoplugin_areaCode());
+		print(geoplugin_areaCode());
+		
+		console.log(geoplugin_dmaCode());
+		print(geoplugin_dmaCode());
+		
+		console.log(geoplugin_countryCode());
+		print(geoplugin_countryCode());
+		
+		console.log(geoplugin_countryName());
+		print(geoplugin_countryName());
+		
+		console.log(geoplugin_inEU());
+		print(geoplugin_inEU());
+		
+		console.log(geoplugin_euVATrate());
+		print(geoplugin_euVATrate());
+		
+		console.log(geoplugin_continentCode());
+		print(geoplugin_continentCode());
+		
+		console.log(geoplugin_latitude());
+		print(geoplugin_latitude());
+		
+		console.log(geoplugin_longitude());
+		print(geoplugin_longitude());
+		
+		console.log(geoplugin_locationAccuracyRadius());
+		print(geoplugin_locationAccuracyRadius());
+		
+		console.log(geoplugin_timezone());
+		print(geoplugin_timezone());
+		
+		console.log(geoplugin_currencyCode());
+		print(geoplugin_currencyCode());
+		
+		console.log(geoplugin_currencySymbol());
+		print(geoplugin_currencySymbol());
+		
+		console.log(geoplugin_currencySymbol_UTF8());
+		print(geoplugin_currencySymbol_UTF8());
+		
+		var amt = 1; var symbol = false;
+		console.log(geoplugin_currencyConverter(amt, symbol));
+		print(geoplugin_currencyConverter(amt, symbol));
+	}
+
+</script>
+
+</body>

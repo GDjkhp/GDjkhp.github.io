@@ -1,0 +1,194 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.container {
+	color: white;
+	display: -webkit-flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	justify-content: center;
+}
+
+@font-face {
+	font-family: font;
+	src: url(./fonts/AmaticSC-Regular.ttf);
+	
+}
+
+body {
+	font-family: font;
+	font-size: 100%;
+	-webkit-animation: mymove 3s infinite alternate;
+	
+	border-radius: 22px;
+	border: 5px solid white;
+	color: #ffffff;
+	background-color: #000000;
+}
+
+.social {
+	border: 5px solid white;
+}
+
+.imgtest {
+	border-radius: 25px;
+	border: 5px solid white;
+	
+	margin: -20px; // ignore padding, ez fix
+}
+
+.invert {
+	-webkit-filter: invert(1);
+	filter: invert(1);
+	border: 5px solid black;
+}
+
+outline {
+	border: 5px solid white;
+	
+	text-align: center;
+}
+
+table {
+	border: 5px solid white;
+	border-collapse: collapse;
+	margin: 0 auto; /* or margin: 0 auto 0 auto */
+}
+
+td, tr {
+	border: 5px solid white;
+}
+
+p {
+	padding: 15px;
+	font-size: 15px;
+	text-align: center;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* Style the header */
+.header {
+	padding: 20px;
+	font-size: 35px;
+	
+	border-radius: 15px 15px 0px 0px;
+	border: 5px solid white;
+}
+
+.headertwo {
+	padding: 15px;
+	font-size: 15px;
+	
+	border: 5px solid white;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 33.33%;
+	padding: 10px;
+	height: min-height; /* Should be removed. Only for demonstration */
+	border: 5px solid white;
+	text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Style the footer */
+.footer {
+	padding: 10px;
+	text-align: center;
+	
+	border: 5px solid white;
+	
+	/*background-image: linear-gradient(red, orange, yellow, green, blue, indigo);*/
+}
+
+.footertwo {
+	padding: 10px;
+	text-align: center;
+	
+	border-radius: 0px 0px 15px 15px;
+	border: 5px solid white;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+	.column {
+		width: 100%;
+	}
+}
+
+/* Chrome, Safari, Opera */
+
+/*
+@-webkit-keyframes mymove {
+0%		{background-color: red;}
+20%		{background-color: orange;}
+40%		{background-color: yellow;}
+60%		{background-color: green;}
+80%		{background-color: blue;}
+100%		{background-color: indigo;}
+}
+*/
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover {
+	color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+.logo {
+	text-align: center;
+}
+
+a {
+	color: #fff;
+}

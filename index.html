@@ -10,310 +10,17 @@
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
 		
-		<link rel="icon" href="./42247211_1895555103813303_6679866282172481536_n.jpg">
+		<link rel="icon" href="./img/42247211_1895555103813303_6679866282172481536_n.jpg">
 		
-		<style>
-			html {
-				scroll-behavior: smooth;
-			}
-
-			.container {
-				color: white;
-				display: -webkit-flexbox;
-				display: -ms-flexbox;
-				display: -webkit-flex;
-				display: flex;
-				-webkit-flex-align: center;
-				-ms-flex-align: center;
-				-webkit-align-items: center;
-				align-items: center;
-				justify-content: center;
-			}
-			
-			@font-face {
-				font-family: font;
-				src: url(./AmaticSC-Regular.ttf);
-				
-			}
-			
-			body {
-				font-family: font;
-				font-size: 100%;
-				-webkit-animation: mymove 3s infinite alternate;
-				
-				border-radius: 25px;
-				border: 5px solid white;
-				color: #ffffff;
-				background-color: #000000;
-			}
-			
-			.social {
-				border: 5px solid white;
-			}
-			
-			.imgtest {
-				border-radius: 25px;
-				border: 5px solid white;
-				
-				margin: -20px; // ignore padding, ez fix
-			}
-			
-			.invert {
-				-webkit-filter: invert(1);
-				filter: invert(1);
-				border: 5px solid black;
-			}
-			
-			outline {
-				border: 5px solid white;
-				
-				text-align: center;
-			}
-			
-			table {
-				border: 5px solid white;
-				border-collapse: collapse;
-				margin: 0 auto; /* or margin: 0 auto 0 auto */
-			}
-			
-			td, tr {
-				border: 5px solid white;
-			}
-			
-			p {
-				padding: 15px;
-				font-size: 15px;
-				text-align: center;
-			}
-			
-			* {
-				box-sizing: border-box;
-			}
-			
-			/* Style the header */
-			.header {
-				padding: 20px;
-				font-size: 35px;
-				
-				border-radius: 15px 15px 0px 0px;
-				border: 5px solid white;
-			}
-			
-			.headertwo {
-				padding: 15px;
-				font-size: 15px;
-				
-				border: 5px solid white;
-			}
-
-			/* Create three equal columns that floats next to each other */
-			.column {
-				float: left;
-				width: 33.33%;
-				padding: 10px;
-				height: min-height; /* Should be removed. Only for demonstration */
-				border: 5px solid white;
-				text-align: center;
-			}
-
-			/* Clear floats after the columns */
-			.row:after {
-				content: "";
-				display: table;
-				clear: both;
-			}
-
-			/* Style the footer */
-			.footer {
-				padding: 10px;
-				text-align: center;
-				
-				border: 5px solid white;
-				
-				/*background-image: linear-gradient(red, orange, yellow, green, blue, indigo);*/
-			}
-			
-			.footertwo {
-				padding: 10px;
-				text-align: center;
-				
-				border-radius: 0px 0px 15px 15px;
-				border: 5px solid white;
-			}
-			
-			/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-			@media (max-width: 600px) {
-				.column {
-					width: 100%;
-				}
-			}
-			
-			/* Chrome, Safari, Opera */
-			
-			/*
-			@-webkit-keyframes mymove {
-			0%		{background-color: red;}
-			20%		{background-color: orange;}
-			40%		{background-color: yellow;}
-			60%		{background-color: green;}
-			80%		{background-color: blue;}
-			100%		{background-color: indigo;}
-			}
-			*/
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: #111;
-				overflow-x: hidden;
-				overflow-y: auto;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
-
-			.sidenav a {
-				padding: 8px 8px 8px 32px;
-				text-decoration: none;
-				font-size: 20px;
-				color: #818181;
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenav a:hover {
-				color: #f1f1f1;
-			}
-
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 25px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-
-			@media screen and (max-height: 450px) {
-				.sidenav {padding-top: 15px;}
-				.sidenav a {font-size: 18px;}
-			}
-			
-			.logo {
-				text-align: center;
-			}
-			
-			a {
-				color: #fff;
-			}
+		<link rel="stylesheet" href="style.css">
 		
-		</style>
+		<script src="scripts/clock.js"></script>
 		
-		<script>
-			function startTime() {
-				var today = new Date();
-				var h = today.getHours();
-				var m = today.getMinutes();
-				var s = today.getSeconds();
-				m = checkTime(m);
-				s = checkTime(s);
-				document.getElementById('txt').innerHTML =
-				h + ":" + m + ":" + s;
-				var t = setTimeout(startTime, 500);
-			}
-			function checkTime(i) {
-				if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-				return i;
-			}
-		</script>
-		
-		<!-- HFCM by 99 Robots - Snippet # 16: WinterIsComing -->
-		<script>
-			var snowmax=25;
-			var snowcolor=new Array("#AAAACC","#DDDDFF","#CCCCDD","#F3F3F3","#F0FFFF","#FFFFFF","#EFF5FF")
-			var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS");
-			var snowletter="*";
-			var sinkspeed=0.6; 
-			var snowmaxsize=20;
-			var snowminsize=8;
-			var snowingzone=1;
-			  
-			  
-			var snow=new Array();
-			var marginbottom;
-			var marginright;
-			var timer;
-			var i_snow=0;
-			var x_mv=new Array();
-			var crds=new Array();
-			var lftrght=new Array();
-			var browserinfos=navigator.userAgent;
-			var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/);
-			var ns6=document.getElementById&&!document.all;
-			var opera=browserinfos.match(/Opera/);
-			var browserok=ie5||ns6||opera;
-			function randommaker(range) {
-				rand=Math.floor(range*Math.random());
-				return rand;
-			}
-			function initsnow() {
-				if (ie5 || opera) {
-					marginbottom=document.body.clientHeight;
-					marginright=document.body.clientWidth;
-				}
-				else if (ns6) {
-					marginbottom=window.innerHeight;
-					marginright=window.innerWidth;
-				}
-				var snowsizerange=snowmaxsize-snowminsize;
-				for (i=0;i<=snowmax;i++) {
-					crds[i]=0;
-					lftrght[i]=Math.random()*15;
-					x_mv[i]=0.03+Math.random()/10;
-					snow[i]=document.getElementById("s"+i);
-					snow[i].style.fontFamily=snowtype[randommaker(snowtype/length)];
-					snow[i].size=randommaker(snowsizerange)+snowminsize;
-					snow[i].style.fontSize=snow[i].size+"px";
-					snow[i].style.color=snowcolor[randommaker(snowcolor.length)];
-					snow[i].sink=sinkspeed*snow[i].size/5;
-					if (snowingzone==1) {snow[i].posx=randommaker(marginright-snow[i].size)}
-					if (snowingzone==2) {snow[i].posx=randommaker(marginright/2-snow[i].size)}
-					if (snowingzone==3) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/4}
-					if (snowingzone==4) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/2}
-					snow[i].posy=randommaker(2*marginbottom-marginbottom-2*snow[i].size);
-					snow[i].style.left=snow[i].posx+"px";
-					snow[i].style.top=snow[i].posy+"px";
-				}
-				movesnow();
-			}
-			function movesnow() {
-				for(i=0;i<=snowmax;i++) {
-					crds[i]+=x_mv[i];
-					snow[i].posy+=snow[i].sink;
-					snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i])+"px";
-					snow[i].style.top=snow[i].posy+"px";
-					if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])) {
-						if (snowingzone==1) {snow[i].posx=randommaker(marginright-snow[i].size)}
-						if (snowingzone==2) {snow[i].posx=randommaker(marginright/2-snow[i].size)}
-						if (snowingzone==3) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/4}
-						if (snowingzone==4) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/2}
-						snow[i].posy=0;
-					}
-				}
-				var timer=setTimeout("movesnow()",50);
-			}
-			for (i=0;i<=snowmax;i++) {
-				document.write("<span id='s"+i+"' style='position:absolute;top:-"+snowmaxsize+"px;'>"+snowletter+"</span>");
-			}
-			if (browserok) {
-				window.onload=initsnow;
-			}
-		</script>
+		<script src="scripts/snow.js"></script>
 		
 	</head>
 	
-	<BODY id="Home" onload="startTime(); initsnow();">
+	<BODY id="Home" onload="startTime();">
 	
 		<div class="header">
 		
@@ -332,7 +39,7 @@
 			
 			</div>
 
-			<span style="font-size:30px;cursor:pointer;float:" onclick="openNav()"> &#9776 </span>
+			<span style="font-size: 30px; cursor: pointer;" onclick="openNav()"> &#9776 </span>
 
 			<script>
 			
@@ -345,16 +52,16 @@
 				}
 			
 			</script>
+			
+			<span id="txt" style="float: right;"> TIME TO YOUR DEATH </span>
 		
 			<div class="logo">
 			
-				<img class="invert" src="creeper face.png" width=100 height=100>
-				
+				<img class="invert" src="img/creeper face.png" width=100 height=100>
+		
 				<h2> WELCOME TO MY WEBSITE!!! </h2>
 			
 				<img class="imgtest" src="https://count.getloli.com/get/@:GDjkhp?theme=rule34" alt=":GDjkhp" />
-			
-				<h3 id="txt"> TIME TO YOUR DEATH </h3>
 			
 			</div>
 		
@@ -451,19 +158,19 @@
 			
 				<h3> Social Links </h3>
 				
-				<a href="https://facebook.com/johnkennedy.pena.9"><img class="social" src="fb.png" style="width:64px;height:64px;"></a>
+				<a href="https://facebook.com/johnkennedy.pena.9"><img class="social" src="img/fb.png" style="width:64px;height:64px;"></a>
 				
-				<a href="http://jkhp.newgrounds.com"><img class="social" src="dl-tank.gif" style="width:64px;height:64px;"></a>
+				<a href="http://jkhp.newgrounds.com"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
 				
-				<!-- <a href="https://soundcloud.com/john-kennedy-pena"><img class="social" src="soundcloud-icon.png" style="width:64px;height:64px;"></a> -->
+				<!-- <a href="https://soundcloud.com/john-kennedy-pena"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a> -->
 				
-				<a href="https://github.com/GDjkhp/"><img class="social" src="git.png" style="width:64px;height:64px;"></a>
+				<a href="https://github.com/GDjkhp/"><img class="social" src="img/git.png" style="width:64px;height:64px;"></a>
 				
-				<a href="https://youtube.com/channel/UCDGRP1W4QbkDlweqoykRgmw/"><img class="social" class="social" src="771384-512.png" style="width:64px;height:64px;"></a>
+				<a href="https://youtube.com/channel/UCDGRP1W4QbkDlweqoykRgmw/"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
 				
 				<!--
 				
-				<a href="https://www.reddit.com/user/GDjkhp"><img src="icon-reddit.png" style="width:64px;height:64px;"></a>
+				<a href="https://www.reddit.com/user/GDjkhp"><img src="img/icon-reddit.png" style="width:64px;height:64px;"></a>
 				
 				-->
 				
@@ -567,44 +274,7 @@
 		
 		</div>
 		
-		<script>
-			// Find matches
-			var mql = window.matchMedia("(orientation: portrait)");
-
-			// If there are matches, we're in portrait
-			if(mql.matches) {  
-				// Portrait orientation
-				const collection = document.getElementsByClassName("column");
-				collection[0].style.height = "auto";
-				collection[1].style.height = "auto";
-				collection[2].style.height = "auto";
-			} else {  
-				// Landscape orientation
-				const collection = document.getElementsByClassName("column");
-				collection[0].style.height = "500px";
-				collection[1].style.height = "500px";
-				collection[2].style.height = "500px";
-			}
-
-			// Add a media query change listener
-			mql.addListener(function(m) {
-				if(m.matches) {
-					// Changed to portrait
-					const collection = document.getElementsByClassName("column");
-				collection[0].style.height = "auto";
-				collection[1].style.height = "auto";
-				collection[2].style.height = "auto";
-				}
-				else {
-					// Changed to landscape
-					const collection = document.getElementsByClassName("column");
-				collection[0].style.height = "500px";
-				collection[1].style.height = "500px";
-				collection[2].style.height = "500px";
-				}
-			});
-			
-		</script>
+		<script src="scripts/orientation.js"></script>
 		
 		<div id="Extras" class="footer">
 		
@@ -633,18 +303,19 @@
 			
 			<!-- <iframe src="https://discord.com/widget?id=838360905916874802&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
 			
+			<!-- <iframe src="https://www.whatismybrowser.com/feature/iframe?bgcolor=000000&size=small&version_check=true&capabilities=true&screen=true&ip_address=true&viewmore=true"></iframe> -->
+	
+<script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script>
+<script src="scripts/anime_img_script.js"></script>
+			
 			<br>
 			
 			<!-- DONUT CODE START -->
 			<div class="container">
 			<pre class="center" id="d"></pre>
 			</div>
-			<script src="donut.bbc2533d.js"></script>
+			<script src="scripts/donut.bbc2533d.js"></script>
 			<!-- DONUT CODE END -->
-			
-			<br>
-			
-			<iframe src="https://www.whatismybrowser.com/feature/iframe?bgcolor=90B5B5&size=small&version_check=true&capabilities=true&screen=true&ip_address=true&viewmore=true"></iframe>
 		
 		</div>
 		

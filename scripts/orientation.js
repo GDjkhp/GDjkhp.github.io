@@ -1,3 +1,5 @@
+var landscapeState;
+
 // Find matches
 var mql = window.matchMedia("(orientation: portrait)");
 
@@ -23,6 +25,8 @@ mql.addListener(function(m) {
 });
 
 function portrait() {
+	landscapeState = false;
+	
 	const collection = document.getElementsByClassName("column");
 	collection[0].style.height = "auto";
 	collection[1].style.height = "auto";
@@ -30,6 +34,8 @@ function portrait() {
 }
 
 function landscape() {
+	landscapeState = true;
+	
 	const collection = document.getElementsByClassName("column");
 	collection[0].style.height = "500px";
 	collection[1].style.height = "500px";

@@ -8,8 +8,8 @@ function startTime() {
 	m = checkTime(m);
 	s = checkTime(s);
 	
-	document.getElementById('txt').innerHTML =
-	(h < 13 ? h : h - 12) + ":" + m + ":" + s + (h < 13 ? " AM" : " PM");
+	document.getElementById('txt').innerHTML = 
+	landscapeState ? strftime("%a %b %e %r %Y %Z", today) : (h < 13 ? h : h - 12) + ":" + m + ":" + s + (h < 13 ? " AM" : " PM");
 	
 	var t = setTimeout(startTime, 500);
 }

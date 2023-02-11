@@ -12,7 +12,12 @@ async function getAllLink(){
 		
 		const img = document.createElement("img");
 		img.src = seriesData.images.jpg.image_url;
-		data[x].insertBefore(img, document.getElementsByClassName('rss2html-embed-item-title')[x]);
+		
+		const tag = document.createElement("a"); 
+		tag.href = res;
+		tag.appendChild(img);
+		
+		data[x].insertBefore(tag, document.getElementsByClassName('rss2html-embed-item-title')[x]);
 		
 		await delay();
 	}

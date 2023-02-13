@@ -1,5 +1,7 @@
 var landscapeState;
 
+// https://davidwalsh.name/orientation-change
+
 // Find matches
 var mql = window.matchMedia("(orientation: portrait)");
 

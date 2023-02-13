@@ -27,16 +27,26 @@ mql.addListener(function(m) {
 function portrait() {
 	landscapeState = false;
 	
-	const collection = document.getElementsByClassName("column");
-	collection[0].style.height = "auto";
-	collection[1].style.height = "auto";
-	collection[2].style.height = "auto";
+	// check if columns are top
+	var _w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	var _h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	
+	if (_w < _h && _w > 600) landscape();
+	
+	else {
+		const collection = document.getElementsByClassName("column");
+		
+		collection[0].style.height = "auto";
+		collection[1].style.height = "auto";
+		collection[2].style.height = "auto";
+	}
 }
 
 function landscape() {
 	landscapeState = true;
 	
 	const collection = document.getElementsByClassName("column");
+	
 	collection[0].style.height = "500px";
 	collection[1].style.height = "500px";
 	collection[2].style.height = "500px";

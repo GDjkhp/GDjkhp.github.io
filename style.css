@@ -48,7 +48,6 @@ body {
 .invert {
 	-webkit-filter: invert(1);
 	filter: invert(1);
-	border: 5px solid black;
 }
 
 outline {

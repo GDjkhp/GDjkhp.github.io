@@ -1,7 +1,8 @@
 var pretag = document.getElementById('d');
 var canvastag = document.getElementById('canvasdonut');
+var canvastag2 = document.getElementById('canvasdonut2');
 
-var tmr1 = undefined, tmr2 = undefined;
+var tmr1 = undefined, tmr2 = undefined, tmr3 = undefined;
 var A=1, B=1;
 
 // This is copied, pasted, reformatted, and ported directly from my original
@@ -81,7 +82,7 @@ var canvasframe=function() {
 			var L=0.7*(cp*ct*sB - cA*ct*sp - sA*st + cB*(cA*st - ct*sA*sp));
 			if(L > 0) {
 				ctx.fillStyle = 'rgba(255,255,255,'+L+')';
-				ctx.fillRect(xp, yp, 1.5, 1.5);
+				ctx.fillRect(xp, yp, 3, 3);
 			}
 		}
 	}
@@ -96,5 +97,118 @@ anim2 = function() {
 	}
 };
 
+var spacing = .0625;
+var distance = 1;
+var size = 200;
+var pixel = 1;
+var canvas = document.getElementById('canvasdonut2');
+
+var canvasframe2=function() {
+	var ctx = canvastag2.getContext('2d');
+	ctx.fillStyle='#000';
+	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+	if(tmr1 === undefined) { // only update A and B if the first animation isn't doing it already
+		A += 0.07;
+		B += 0.03;
+	}
+	
+	// precompute cosines and sines of A, B, theta, phi, same as before
+	var cA=Math.cos(A), sA=Math.sin(A),
+		cB=Math.cos(B), sB=Math.sin(B);
+
+    // precomputer rotation matrix
+	var rotx = [
+		[1, 0, 0],
+		[0, cA, sA],
+		[0, -sA, cA]
+	];
+
+	var rotz = [
+		[cB, sB, 0],
+		[-sB, cB, 0],
+		[0, 0, 1]
+	];
+
+    for (var h = -1; h < 1 + spacing; h+=spacing) {
+		for (var v = -1; v < 1 + spacing; v+=spacing) {
+			for (var side = 0; side < 6; side++) {
+				// compute 6 sides
+				var x = 0;
+				var y = 0;
+				var z = 0;
+
+				if (side == 0) { // (0,0,1)
+					x = h;
+					y = v;
+					z = 1;
+				}
+				if (side == 1) { // (0,0,-1)
+					x = h;
+					y = v;
+					z = -1;
+				}
+				if (side == 2) { // (0,1,0)
+					x = h;
+					y = 1;
+					z = v;
+				}
+				if (side == 3) { // (0,-1,0)
+					x = h;
+					y = -1;
+					z = v;
+				}
+				if (side == 4) { // (1,0,0)
+					x = 1;
+					y = h;
+					z = v;
+				}
+				if (side == 5) { // (-1,0,0)
+					x = -1;
+					y = h;
+					z = v;
+				}
+
+				var point = [x, y, z];
+				// apply rotation to the point
+				point = rotate(point, rotx);
+				point = rotate(point, rotz);
+
+				// project point onto 2D screen
+				var xp = point[0] * distance / (point[2] + distance);
+				var yp = point[1] * distance / (point[2] + distance);
+
+				// adjust projection to fit inside canvas
+				xp = xp * size + canvas.width/2;
+				yp = -yp * size + canvas.height/2;
+
+				ctx.fillStyle = 'rgba(255,255,255)';
+                ctx.fillRect(xp, yp, pixel, pixel);
+			}
+		}
+	}
+}
+
+function rotate(point, matrix) {
+	var result = [0, 0, 0];
+	for (var i = 0; i < 3; i++) {
+		result[i] = 0;
+		for (var j = 0; j < 3; j++) {
+			result[i] += point[j] * matrix[j][i];
+		}
+	}
+	return result;
+}
+
+anim3 = function() {
+	if(tmr3 === undefined) {
+		tmr3 = setInterval(canvasframe2, 50);
+	} else {
+		clearInterval(tmr3);
+		tmr3 = undefined;
+	}
+};
+
 anim1();
 anim2();
+anim3();

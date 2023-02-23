@@ -80,4 +80,11 @@ if (browserok) {
 	window.onload=initsnow;
 }
 
-initsnow();
+async function check() {
+	const season = await fetch(`https://api.jikan.moe/v4/seasons/now`).then(res => res.json());
+	const seasonData = season.data[0];
+	console.log(seasonData.season);
+	if (seasonData.season == "winter") initsnow();
+}
+
+check();

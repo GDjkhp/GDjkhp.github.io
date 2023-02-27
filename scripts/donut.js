@@ -209,6 +209,6 @@ anim3 = function() {
 	}
 };
 
-anim1();
-anim2();
+//anim1();
+//anim2();
 anim3();

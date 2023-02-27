@@ -23,7 +23,6 @@ html {
 
 body {
 	font-family: font;
-	font-size: 100%;
 	-webkit-animation: mymove 3s infinite alternate;
 	
 	border-radius: 22px;
@@ -66,12 +65,6 @@ td, tr {
 	border: 5px solid white;
 }
 
-p {
-	padding: 15px;
-	font-size: 15px;
-	text-align: center;
-}
-
 * {
 	box-sizing: border-box;
 }
@@ -79,7 +72,7 @@ p {
 /* Style the header */
 .header {
 	padding: 20px;
-	font-size: 35px;
+	/*font-size: 35px;*/
 	
 	border-radius: 15px 15px 0px 0px;
 	border: 5px solid white;
@@ -87,7 +80,7 @@ p {
 
 .headertwo {
 	padding: 15px;
-	font-size: 15px;
+	font-size: 25px;
 	
 	border: 5px solid white;
 }
@@ -200,7 +193,7 @@ a:hover {
 }
 
 .stats {
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 }
 

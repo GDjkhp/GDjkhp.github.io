@@ -19,6 +19,9 @@
 	</head>
 	
 	<BODY id="Home" onload="startTime();">
+
+		<canvas class="back" id="canvasdonut2" width="1500" height="1500"></canvas>
+		<script src="scripts/donut.js"></script>
 	
 		<div class="header">
 		
@@ -51,7 +54,7 @@
 			
 			</script>
 			
-			<span id="txt" style="float: right;"> TIME TO YOUR DEATH </span>
+			<span id="txt" style="float: right; font-size: 30px;"> TIME TO YOUR DEATH </span>
 		
 			<div class="logo">
 			
@@ -300,14 +303,10 @@
 			<iframe width="100%" height="480" src="https://www.youtube.com/embed/Z51gqcSM8EI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			
 			<br>
-
-			<canvas class="back" id="canvasdonut2" width="1500" height="1500"></canvas>
-			
-			<br>
 			
 			<a href="https://malheatmap.com/users/GDjkhp" style="text-decoration: none;"> 
 				
-				<span style="font-size: 20px; font-weight: bold;"> GDjkhp's MyAnimeList Heatmap </span>
+				<span style="font-size: 25px; font-weight: bold;"> GDjkhp's MyAnimeList Heatmap </span>
 				<br>
 				<img class="invert" src="https://malheatmap.com/users/GDjkhp/signature" width="100%" alt="malheatmap.com is down!" title="Fuck you! I'm not a fucking weeb! Fuck you DarkGamma!"></img> 
 				<br>
@@ -316,6 +315,10 @@
 				<span class="stats"> On-Hold... </span>
 				<span class="stats"> Dropped... </span>
 				<span class="stats"> Plan to Watch... </span>
+				<br>
+				<span class="stats"> Total Entries... </span>
+				<span class="stats"> Rewatched... </span>
+				<span class="stats"> Episodes... </span>
 			</a>
 			
 			<script src="scripts/anime_stats_script.js"></script>
@@ -326,18 +329,36 @@
 			
 			<!-- <iframe src="https://www.whatismybrowser.com/feature/iframe?bgcolor=000000&size=small&version_check=true&capabilities=true&screen=true&ip_address=true&viewmore=true"></iframe> -->
 	
+			<!--
 			<a href="https://www.a1k0n.net/2011/07/20/donut-math.html" title="Click here to learn how the fuck this work!">
 			<div class="container">
 			<canvas id="canvasdonut" width="300" height="240"></canvas>
 			</div>
 			</a>
-	
-			<script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script>
-			<script src="scripts/anime_img_script.js"></script>
+			-->
+
+			<a href="javascript:void(0)" onclick="openRecent()" style="font-size: 25px;">GDjkhp's Recent Anime</a>
+
+			<div id="recent">
+				<script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script>
+				<script src="scripts/anime_img_script.js"></script>
+			</div>
+
+			<script>
+			var recent = document.getElementById("recent");
+			recent.style.display = "none";
+			function openRecent() {
+				if (recent.style.display === "none") {
+					recent.style.display = "block";
+				} else {
+					recent.style.display = "none";
+				}
+			}
+			</script>
 			
 			<br>
 			
-			<!-- DONUT CODE START -->
+			<!-- DONUT CODE START 
 			<a href="https://www.youtube.com/watch?v=sW9npZVpiMI" style="text-decoration: none;" title="Based from the JomaTech video.">
 			<div class="container">
 			<pre class="center" id="d"></pre>
@@ -345,8 +366,8 @@
 			
 			<script src="scripts/donut.js"></script>
 			</a>
-			<!-- DONUT CODE END -->
-			
+			DONUT CODE END -->
+
 			<!--
 			<button onclick="anim1();">toggle animation</button>
 			<button onclick="anim2();">toggle animation</button>

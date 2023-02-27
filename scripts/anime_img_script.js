@@ -1,5 +1,6 @@
 async function getAllLink(){
 	const data = document.getElementsByClassName('rss2html-embed-item');
+	const title = document.getElementsByClassName('rss2html-embed-item-title');
 	data[data.length-1].parentNode.removeChild(data[data.length-1]); // remove credits
 	
 	for(x = 0; x < data.length; x++){
@@ -17,7 +18,7 @@ async function getAllLink(){
 		tag.href = res;
 		tag.appendChild(img);
 		
-		data[x].insertBefore(tag, document.getElementsByClassName('rss2html-embed-item-title')[x]);
+		data[x].insertBefore(tag, title[x]);
 		
 		await delay();
 	}

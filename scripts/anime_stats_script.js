@@ -6,6 +6,7 @@ async function getStats() {
 	console.log(data);
 	
 	var stat = document.getElementsByClassName('stats');
+	var stat2 = document.getElementsByClassName('stats2');
 	
 	stat[0].style = "background-color: #2db039;";
 	stat[0].innerHTML = "Watching: " + data.watching;
@@ -22,9 +23,10 @@ async function getStats() {
 	stat[4].style = "background-color: #c3c3c3;";
 	stat[4].innerHTML = "Plan to Watch: " + data.plan_to_watch;
 
-	stat[5].innerHTML = "Total Entries: " + data.total_entries;
-	stat[6].innerHTML = "Rewatched: " + data.rewatched;
-	stat[7].innerHTML = "Episodes: " + data.episodes_watched;
+	stat2[0].innerHTML = "Total Entries: " + data.total_entries;
+	stat2[1].innerHTML = "Rewatched: " + data.rewatched;
+	stat2[2].innerHTML = "Episodes: " + data.episodes_watched;
+	stat2[3].innerHTML = "Mean Score: " + data.mean_score;
 }
 
 getStats();

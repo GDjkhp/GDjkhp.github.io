@@ -101,7 +101,6 @@ var spacing = .0625;
 var distance = 1;
 var size = 200;
 var pixel = 1;
-var canvas = document.getElementById('canvasdonut2');
 
 var canvasframe2=function() {
 	var ctx = canvastag2.getContext('2d');
@@ -179,8 +178,8 @@ var canvasframe2=function() {
 				var yp = point[1] * distance / (point[2] + distance);
 
 				// adjust projection to fit inside canvas
-				xp = xp * size + canvas.width/2;
-				yp = -yp * size + canvas.height/2;
+				xp = xp * size + canvastag2.width/2;
+				yp = -yp * size + canvastag2.height/2;
 
 				ctx.fillStyle = 'rgba(255,255,255)';
                 ctx.fillRect(xp, yp, pixel, pixel);

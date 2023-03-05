@@ -151,7 +151,6 @@ function darw() {
         var xoff = 0;
         for (var x = 0; x < limit; x++) {
             terrain[x][y] = map(noise.simplex2(xoff, yoff), 0, 1, -range, range);
-            //console.log(terrain[x][y]);
             xoff += 0.2;
         }
         yoff += 0.2;
@@ -183,18 +182,13 @@ function darw() {
     var triangleStrip = new Tetrahedron(triangles);
     // TODO: add transform codes
     triangleStrip.rotate(true, -xDif, -yDif, -zDif);
-    //console.log(triangleStrip);
-
     triangleStrip.render(ctx);
 }
-
-zoomOut();
-zoomOut();
-zoomOut();
-zoomOut();
-zoomOut(); // zoom out x5
 
 range = 25;
 var r = Math.floor(Math.random() * 256), g = Math.floor(Math.random() * 256), b = Math.floor(Math.random() * 256), a = 1;
 col = r + "," + g + "," + b + "," + a;
+
+zoomOut();
+zoomOut();
 setInterval(darw, 1);

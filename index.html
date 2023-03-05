@@ -1,30 +1,19 @@
 <!DOCTYPE HTML>
-
 <HTML>
-
 	<HEAD>
-
 		<TITLE> this is kennedy's website, do not enter! </TITLE>
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
-		
 		<link rel="icon" href="./img/42247211_1895555103813303_6679866282172481536_n.jpg">
-		
 		<link rel="stylesheet" href="style.css">
-		
 		<script src="scripts/clock.js"></script>
-		
 		<script src="scripts/snow.js"></script>
-		
 	</head>
-	
-	<BODY id="Home" onload="startTime();">
 
+	<BODY id="Home" onload="startTime();">
 		<canvas class="back" id="canvasdonut2" width="1500" height="1500"></canvas>
 		<script src="scripts/donut.js"></script>
-	
+
 		<div class="header">
-		
 			<div id="mySidenav" class="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
 				<!-- TODO -->
@@ -37,41 +26,32 @@
 				<a href="https://gdbrowser.com/u/gdjkhp" target="_blank"><img src="data:image/png;base64,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" 
 					style="width:32px;height:32px;"></a>
 			</div>
-
 			<span style="font-size: 30px; cursor: pointer;" onclick="openNav()"> &#9776 </span>
 
 			<script>
 				function openNav() {
 					document.getElementById("mySidenav").style.width = "250px";
 				}
-
 				function closeNav() {
-					if (document.readyState == "complete") document.getElementById("mySidenav").style.width = "0";
+					document.getElementById("mySidenav").style.width = "0";
 				}
 			</script>
-			
+
 			<span id="txt" style="float: right; font-size: 30px;"> TIME TO YOUR DEATH </span>
-		
 			<div class="logo">
-			
 			<!--
 				<img class="invert" src="img/creeper face.png" width=100 height=100>
-		
 				<h2> WELCOME TO MY WEBSITE!!! </h2>
 			-->
-			
 				<a href="#Home" onclick="closeNav(); toggleAbout();">
-				<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
+					<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
+					</a>
+					<br>
+					<a href="https://count.getloli.com/">
+					<img class="imgtest" src="https://count.getloli.com/get/@:GDjkhp?theme=rule34" alt="Rule34 visitor counter broke. We'll be right back!" title="No, this is not a direct link to Rule34.">
 				</a>
-				<br>
-				<a href="https://count.getloli.com/">
-				<img class="imgtest" src="https://count.getloli.com/get/@:GDjkhp?theme=rule34" alt="Rule34 visitor counter broke. We'll be right back!" title="No, this is not a direct link to Rule34.">
-				</a>
-			
 			</div>
-		
 		</div>
-		
 		<!--
 		<div class="header">
 		
@@ -86,18 +66,14 @@
 		</div>
 		
 		-->
-		
 		<div id="Extras" class="footer">
 
 			<div id="About" class="row">
-		
 				<div class="column">
 					<!--
 					<img src="IMG_20181108_185015.jpg" width=60 height=80>
 					-->
-					
 					<h3> My Personal Information </h3>
-	
 					<table>
 						<tr>
 							<th> Full Name </th>
@@ -136,42 +112,28 @@
 					</a>
 					
 					<h3> Social Links </h3>
-					
 					<a href="https://facebook.com/johnkennedy.pena.9" target="_blank"><img class="social" src="img/fb.png" style="width:64px;height:64px;"></a>
-	
 					<a href="https://twitter.com/GDjkhp" target="_blank"><img class="social" src="img/Twitter social icons - square - blue.png" style="width:64px;height:64px;"></a>
-	
 					<a href="https://discord.com/users/729554186777133088" target="_blank"><img class="social" src="img/dc.png" style="width:64px;height:64px;"></a>
-	
 					<a href="https://myanimelist.net/profile/GDjkhp" target="_blank"><img class="social" src="img/MyAnimeList_Logo.png" style="width:64px;height:64px;"></a>
-	
 					<br>
-	
 					<a href="https://youtube.com/channel/UCDGRP1W4QbkDlweqoykRgmw" target="_blank"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
-	
 					<a href="https://www.reddit.com/user/GDjkhp" target="_blank"><img class="social" src="img/icon-reddit.png" style="width:64px;height:64px;"></a>
-	
-					<a href="https://jkhp.newgrounds.com" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
-	
+					<a href="https://jkhp.newgrounds.com" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>	
 					<a href="https://github.com/GDjkhp" target="_blank"><img class="social" src="img/git.png" style="width:64px;height:64px;"></a>
-	
 					<!--
 					<a href="https://soundcloud.com/john-kennedy-pena" target="_blank"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
 					-->
-	
 					<!-- remove this cringe ass shit
 					<h3> :::::DJ🎧 Pianist🎹 Hacker😈::::: <br> -----🎮Plays🎮----- <br> Geometry Dash🔥 <br> Minecraft⛏ <br> Tekken🥋 <br> GTA👊 <br> CS🔫 </h3>
 					-->
 				</div>
 				
 				<div class="column">
-				
 					<h3> My PC Specifications </h3>
-					
 					<!--
 					<img src="acer.png" width=120 height=67.5>
-					-->
-					
+					-->					
 					<table>
 						<tr>
 							<th> System Manufacturer </th>
@@ -214,58 +176,42 @@
 							<td> 12 </td>
 						</tr>
 					</table>
-				
 				</div>
-			
 			</div>
-			
 			<script src="scripts/orientation.js"></script>
-				
+
 			<div id="Anime">
 				<span style="font-size: 25px; font-weight: bold;"> GDjkhp's MyAnimeList Heatmap </span>
 				<br>
-
 				<a href="https://malheatmap.com/users/GDjkhp" target="_blank"> 
 					<img class="invert" src="https://malheatmap.com/users/GDjkhp/signature" width="100%" alt="malheatmap.com is down!" title="Fuck you! I'm not a fucking weeb! Fuck you DarkGamma!"></img> 
 				</a>
-
 				<br>
-
 				<a href="https://myanimelist.net/animelist/GDjkhp?status=1" style="text-decoration: none;" target="mal"> 
 					<span class="stats"> Watching... </span>
 				</a>
-
 				<a href="https://myanimelist.net/animelist/GDjkhp?status=2" style="text-decoration: none;" target="mal"> 
 					<span class="stats"> Completed... </span>
 				</a>
-
 				<a href="https://myanimelist.net/animelist/GDjkhp?status=3" style="text-decoration: none;" target="mal"> 
 					<span class="stats"> On-Hold... </span>
 				</a>
-
 				<a href="https://myanimelist.net/animelist/GDjkhp?status=4" style="text-decoration: none;" target="mal"> 
 					<span class="stats"> Dropped... </span>
 				</a>
-
 				<a href="https://myanimelist.net/animelist/GDjkhp?status=6" style="text-decoration: none;" target="mal"> 
 					<span class="stats"> Plan to Watch... </span>
 				</a>
-
 				<br>
-
 				<a href="https://myanimelist.net/animelist/GDjkhp" style="text-decoration: none;" target="mal"> 
 					<span class="stats2"> Total Entries... </span>
 					<span class="stats2"> Rewatched... </span>
 					<span class="stats2"> Episodes... </span>
 					<span class="stats2"> Mean Score... </span>
 				</a>
-				
 				<script src="scripts/anime_stats_script.js"></script>
-
 				<br>
-
 				<a href="javascript:void(0)" onclick="openRecent()" style="font-size: 25px;">GDjkhp's Recent Anime</a>
-
 				<div id="recent">
 					<script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script>
 					<script src="scripts/anime_img_script.js"></script>
@@ -274,7 +220,6 @@
 				<script>
 					var recent = document.getElementById("recent");
 					recent.style.display = "none";
-
 					function openRecent() {
 						if (recent.style.display === "none") {
 							recent.style.display = "block";
@@ -301,7 +246,7 @@
 				</div>
 
 				<br>
-				<canvas id="canvas" width="500" height="500"></canvas>
+				<canvas id="canvas" width="1000" height="1000" style="width: 100%;"></canvas>
 				<script src="scripts/perlin.js"></script>
 				<script src="scripts/terrain.js"></script>
 			</div>
@@ -335,13 +280,12 @@
 
 			<!-- Responsible for extras pages -->
 			<script>
+				var extras = document.getElementById('Extras').children;
 				var moosic = document.getElementById('Music');
 				var anime = document.getElementById('Anime');
 				var games = document.getElementById('Games');
 				var aum = document.getElementById('AUM');
 				var about = document.getElementById('About');
-
-				var extras = document.getElementById('Extras').children;
 
 				function killChildren() {
 					for (var sel = 0; sel < extras.length; sel++)
@@ -413,15 +357,10 @@
 		</div>
 
 		<div class="footertwo">
-		
 			<marquee> <a href="https://discord.gg/geometrydash"> JOIN THE OFFICIAL GEOMETRY DASH DISCORD SERVER!!! </a> </marquee>
-			
 			<a href="https://www.facebook.com/johnkennedy.pena.9"> © The Karakters Kompany, <span id="year">201X</span> </a>
-		
 		</div>
-		
+
 		<script src="scripts/utility.js"></script>
-		
 	</BODY>
-	
 </HTML>

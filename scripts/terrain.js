@@ -56,6 +56,8 @@ class Polygon {
             ctx.lineTo(poly.points[i].x, poly.points[i].y);
         }
         ctx.closePath();
+        // ctx.fillStyle = "black";
+        // ctx.fill();
         ctx.strokeStyle = "rgba("+col+")";
         ctx.stroke();
     }
@@ -142,8 +144,7 @@ var col = "255,255,255,1";
 
 function darw() {
     var ctx = canvastag.getContext('2d');
-	ctx.fillStyle='#000';
-	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     flying -= 0.1;
     var yoff = flying;
@@ -189,6 +190,5 @@ range = 25;
 var r = Math.floor(Math.random() * 256), g = Math.floor(Math.random() * 256), b = Math.floor(Math.random() * 256), a = 1;
 col = r + "," + g + "," + b + "," + a;
 
-zoomOut();
-zoomOut();
+zoomIn();
 setInterval(darw, 1);

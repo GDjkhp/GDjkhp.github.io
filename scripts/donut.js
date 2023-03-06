@@ -181,7 +181,7 @@ var canvasframe2=function() {
 				xp = xp * size + canvastag2.width/2;
 				yp = -yp * size + canvastag2.height/2;
 
-				ctx.fillStyle = 'rgba(255,255,255)';
+				ctx.fillStyle = 'rgba(255,255,255,.5)';
                 ctx.fillRect(xp, yp, pixel, pixel);
 			}
 		}

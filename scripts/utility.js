@@ -1,6 +1,6 @@
 var _today = new Date();
 
-//age
+// age
 var age = document.getElementById('age');
 
 if (strftime("%b", _today) == "Jan" && strftime("%e", _today) < 29) 

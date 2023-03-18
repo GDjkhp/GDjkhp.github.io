@@ -105,7 +105,7 @@ var pixel = 1;
 var canvasframe2=function() {
 	var ctx = canvastag2.getContext('2d');
 	ctx.fillStyle='#000';
-	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 	if(tmr1 === undefined) { // only update A and B if the first animation isn't doing it already
 		A += 0.07;

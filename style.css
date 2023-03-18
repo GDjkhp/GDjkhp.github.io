@@ -18,7 +18,6 @@ html {
 @font-face {
 	font-family: font;
 	src: url(./fonts/AmaticSC-Regular.ttf);
-	
 }
 
 body {
@@ -222,3 +221,10 @@ a:hover {
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
+
+/* item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22 */
+
+/* .rss2html-embed-item {
+	width: 300px;
+	display: inline-block;
+} */

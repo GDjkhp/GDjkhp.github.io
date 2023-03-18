@@ -1,9 +1,9 @@
-async function getAllLink(){
+async function getAllLink() {
 	const data = document.getElementsByClassName('rss2html-embed-item');
 	const title = document.getElementsByClassName('rss2html-embed-item-title');
 	data[data.length-1].parentNode.removeChild(data[data.length-1]); // remove credits
 	
-	for(x = 0; x < data.length; x++){
+	for(x = 0; x < data.length; x++) {
 		const str = data[x].getElementsByTagName('a')[0].href;
 		const res = str.split("?"); 
 		const id = res[0].slice(30, res[0].lastIndexOf("/"));

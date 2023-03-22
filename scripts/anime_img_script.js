@@ -13,6 +13,15 @@ async function getAllLink() {
 		
 		const img = document.createElement("img");
 		img.src = seriesData.images.jpg.image_url;
+		// airing, duration, episodes, genres[0].name, rank, rating, score, season, source, status, studios[0].name, synopsis, title, type, year
+		img.title = seriesData.title + "\n" + seriesData.type + ", " + seriesData.episodes + " episode/s";
+		img.title += "\n" + capitalize(seriesData.season) + " " + seriesData.year;
+		img.title += "\n" + joinStrings(seriesData.studios);
+		img.title += "\n" + joinStrings(seriesData.genres);
+		img.title += "\n" + seriesData.duration;
+		img.title += "\n" + seriesData.rating;
+		img.title += "\nRank: #" + seriesData.rank + ", Score: " + seriesData.score;
+		img.title += "\n\n" + seriesData.synopsis;
 		
 		const tag = document.createElement("a"); 
 		tag.href = res;
@@ -30,4 +39,16 @@ function delay() {
 	return new Promise((resolve, reject) => {
 		setTimeout(resolve, 500);
 	});
+}
+function capitalize(s) {
+    if (s!=null)return s[0].toUpperCase() + s.slice(1);
+	else return null;
+}
+function joinStrings(s) {
+	var ss = "";
+	s.forEach(element => {
+		ss += element.name + ", ";
+	});
+	//console.log(ss.slice(0, -2));
+	return ss.slice(0, -2);
 }

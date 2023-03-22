@@ -3,7 +3,7 @@ async function getAllLink() {
 	const title = document.getElementsByClassName('rss2html-embed-item-title');
 	data[data.length-1].parentNode.removeChild(data[data.length-1]); // remove credits
 	
-	for(x = 0; x < data.length; x++) {
+	for (x = 0; x < data.length; x++) {
 		const str = data[x].getElementsByTagName('a')[0].href;
 		const res = str.split("?"); 
 		const id = res[0].slice(30, res[0].lastIndexOf("/"));
@@ -15,7 +15,7 @@ async function getAllLink() {
 		img.src = seriesData.images.jpg.image_url;
 		// airing, duration, episodes, genres[0].name, rank, rating, score, season, source, status, studios[0].name, synopsis, title, type, year
 		img.title = seriesData.title + "\n" + seriesData.type + ", " + seriesData.episodes + " episode/s";
-		img.title += "\n" + capitalize(seriesData.season) + " " + seriesData.year;
+		img.title += nullDate(seriesData);
 		img.title += "\n" + joinStrings(seriesData.studios);
 		img.title += "\n" + joinStrings(seriesData.genres);
 		img.title += "\n" + seriesData.duration;
@@ -51,4 +51,8 @@ function joinStrings(s) {
 	});
 	//console.log(ss.slice(0, -2));
 	return ss.slice(0, -2);
+}
+function nullDate(data) {
+	if (data.year != null) return "\n" + capitalize(data.season) + " " + data.year;
+	else return "\n" + data.aired.string;
 }

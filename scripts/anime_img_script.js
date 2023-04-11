@@ -13,6 +13,7 @@ async function getAllLink() {
 		
 		const img = document.createElement("img");
 		img.src = seriesData.images.jpg.image_url;
+		
 		// airing, duration, episodes, genres[0].name, rank, rating, score, season, source, status, studios[0].name, synopsis, title, type, year
 		img.title = seriesData.title + "\n" + seriesData.type + ", " + seriesData.episodes + " episode/s";
 		img.title += nullDate(seriesData);

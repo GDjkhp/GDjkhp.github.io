@@ -1,7 +1,7 @@
 async function getStats() {
 	// https://api.jikan.moe/v4/users/{username}/statistics
 
-	const result = await fetch(`https://api.jikan.moe/v4/users/GDjkhp/statistics`).then(res => res.json());
+	const result = await fetch(`https://api.jikan.moe/v4/users/gdjkhp/statistics`).then(res => res.json());
 	const data = result.data.anime;
 	console.log(data);
 	

@@ -19,7 +19,7 @@
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
 				<!-- TODO -->
 				<a href="#Home" onclick="closeNav(); toggleAbout();">Home</a>
-				<a href="#Extras" onclick="toggleGames(); closeNav();">Games</a>
+				<a href="#Extras" onclick="toggleGames(); closeNav();">Extras</a>
 				<a href="#Anime" onclick="toggleAnime(); closeNav();">Anime</a>
 				<a href="#Music" onclick="toggleMusic(); closeNav();">Music</a>
 				<a href="#About" onclick="closeNav(); toggleAbout();">About</a>
@@ -46,9 +46,9 @@
 			-->
 				<a href="#Home" onclick="closeNav(); toggleAbout();">
 					<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
-					</a>
-					<br>
-					<a href="https://count.getloli.com/">
+				</a>
+				<br>
+				<a href="https://count.getloli.com/">
 					<img class="imgtest" src="https://count.getloli.com/get/@:GDjkhp?theme=rule34" alt="Rule34 visitor counter broke. We'll be right back!" title="No, this is not a direct link to Rule34.">
 				</a>
 			</div>
@@ -255,7 +255,44 @@
 			</div>
 
 			<!-- TODO -->
-			<div id="Games"></div>
+			<div id="Games">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 16px;">
+					<a href="https://gdjkhp.github.io/NoobGPT/">
+						<img src="https://gdjkhp.github.io/NoobGPT/noob%20new.png" width="128">
+						<h1>NoobGPT</h1>
+					</a>
+					<span>A <b>very simple yet complicated</b> multi-purpose Discord bot that does pretty much nothing but insult you.</span>
+				</div>
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 16px;">
+					<a href="https://gdjkhp.github.io/meeseeks-leaderboard-api/">
+						<img src="https://gdjkhp.github.io/meeseeks-leaderboard-api/mee6.png" width="128">
+						<h1>meeseeks-leaderboard-api</h1>
+					</a>
+					<span>Pointless efforts to brag your meeseeks rank instead of typing !rank that no one asked.</span>
+				</div>
+				<h1>github contributions</h1>
+				<!-- Include the library. -->
+				<script
+				src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"
+				></script>
+
+				<!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+				<link
+				rel="stylesheet"
+				href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+				/>
+
+				<!-- Prepare a container for your calendar. -->
+				<div class="calendar">
+				<!-- Loading stuff -->
+				Loading the data just for you.
+				</div>
+
+				<script>
+				GitHubCalendar(".calendar", "GDjkhp", { tooltips: true, responsive: true });
+				</script>
+				<h1>old works</h1>
+			</div>
 
 			<div id="AUM"></div>
 
@@ -309,10 +346,8 @@
 				}
 				// TODO
 				function toggleGames() {
-					/*
 					killChildren();
 					games.style.display = "block";
-					*/
 				}
 				function toggleAUM() {
 					killChildren();
@@ -331,11 +366,14 @@
 						case 'Anime':
 							toggleAnime();
 							break;
+						case 'Extras':
+							toggleGames();
+							break;
 					}
 				} else {
 					// The URL does not contain an id value after the # symbol
 					console.log('The URL does not contain an id');
-}
+				}
 			</script>
 
 			<!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/964763980&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/john-kennedy-pena" title="GDjkhp" target="_blank" style="color: #cccccc; text-decoration: none;">GDjkhp</a> · <a href="https://soundcloud.com/john-kennedy-pena/cicada-3301-the-instar-emergence-traphip-hop-remix" title="Cicada 3301 - The Instar Emergence (Trap/Hip-Hop Remix)" target="_blank" style="color: #cccccc; text-decoration: none;">Cicada 3301 - The Instar Emergence (Trap/Hip-Hop Remix)</a></div> -->

@@ -44,6 +44,31 @@
 				<img class="invert" src="img/creeper face.png" width=100 height=100>
 				<h2> WELCOME TO MY WEBSITE!!! </h2>
 			-->
+				<span id="ban" style="float: right; font-size: 30px;"></span>
+				<script>
+					// APPEAL COOLDOWN
+					function countdown0(timerElBan, timerId, date) {
+						// Calculate time difference between now and end time
+						const timeDiff = new Date(date) - new Date();
+						// Calculate days, hours, minutes, seconds, and milliseconds
+						const days = String(Math.floor(timeDiff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+						const hours = String(Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+						const minutes = String(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+						const seconds = String(Math.floor((timeDiff % (1000 * 60)) / 1000)).padStart(2, '0');
+						const milliseconds = String(Math.floor((timeDiff % 1000) / 10)).padStart(2, '0');
+						const displayTime = `${days}:${hours}:${minutes}:${seconds}.${milliseconds}`;
+						// Update timer display
+						timerElBan.innerText = displayTime;
+						// Stop the countdown when timeLeft reaches 0
+						if (timeDiff <= 0) {
+							clearInterval(timerId);
+							timerElBan.innerText = `00:00:00:00.00`;
+						}
+					}
+					let timerIdGDjkhp, others = document.getElementById('ban');
+					clearInterval(timerIdGDjkhp);
+					timerIdGDjkhp = setInterval(() => countdown0(others, timerIdGDjkhp, "2023-10-26"), 1);
+				</script>
 				<a href="#Home" onclick="closeNav(); toggleAbout();">
 					<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
 				</a>
@@ -68,7 +93,6 @@
 		
 		-->
 		<div id="Extras" class="footer">
-
 			<div id="About" class="row">
 				<div class="column">
 					<!--
@@ -216,7 +240,7 @@
 				<div id="recent">
 					<!-- Deprecated -->
 					<!-- <script src="https://rss2html.gdjkhp.repl.co/?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&showicon=true&type=js"></script> -->
-					<script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script>
+					<script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B+border%3A+white+3px+dashed%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script>
 					<script src="scripts/anime_img_script.js"></script>
 				</div>
 
@@ -236,8 +260,8 @@
 			<div id="Music">
 				<span style="font-size: 69px;">the world would become a better place without me so i'm staying</span>
 				<br>
-				<a href="#Extras" onclick="viewSC()"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
-				<a href="#Extras" onclick="viewYT()"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
+				<a href="javascript:void(0)" onclick="viewSC()"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
+				<a href="javascript:void(0)" onclick="viewYT()"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
 				<a href="https://newgrounds.com/audio/listen/1182595" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
 
 				<div id="sc">
@@ -256,19 +280,43 @@
 
 			<!-- TODO -->
 			<div id="Games">
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 16px;">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
 					<a href="https://gdjkhp.github.io/NoobGPT/">
 						<img src="https://gdjkhp.github.io/NoobGPT/noob%20new.png" height="128">
 						<h1>NoobGPT</h1>
 					</a>
 					<span>A <b>very simple yet complicated</b> multi-purpose Discord bot that does pretty much nothing but insult you.</span>
 				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 16px;">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
 					<a href="https://gdjkhp.github.io/meeseeks-leaderboard-api/">
 						<img src="https://gdjkhp.github.io/meeseeks-leaderboard-api/mee6.png" height="128">
 						<h1>meeseeks-leaderboard-api</h1>
 					</a>
 					<span>Pointless efforts to brag your meeseeks rank instead of typing !rank that no one asked.</span>
+				</div>
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+					<a href="https://www.unknowncheats.me/forum/among-us/521567-amonguscosmetics.html">
+						<h1>AmongUsCosmetics</h1>
+					</a>
+					<span>Unlocks all in-game cosmetics for the popular Game Among Us.</span>
+				</div>
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+					<a href="https://github.com/GDjkhp/java-game-engine">
+						<h1>java-game-engine</h1>
+					</a>
+					<span>Simple rendering engine reworked with shaders.</span>
+				</div>
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+					<a href="https://github.com/GDjkhp/xt-audio-for-java-8">
+						<h1>xt-audio-for-java-8</h1>
+					</a>
+					<span>JRE8 port of old XT-Audio.</span>
+				</div>
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+					<a href="https://github.com/GDjkhp/weird-visualizer">
+						<h1>weird-visualizer</h1>
+					</a>
+					<span>Real-time audio visualization using XT-Audio.</span>
 				</div>
 				<h1>github contributions</h1>
 				<!-- Include the library. -->
@@ -291,7 +339,6 @@
 				<script>
 				GitHubCalendar(".calendar", "GDjkhp", { tooltips: true, responsive: true });
 				</script>
-				<h1>old works</h1>
 			</div>
 
 			<div id="AUM"></div>

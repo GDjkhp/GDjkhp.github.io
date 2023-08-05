@@ -11,7 +11,7 @@ function startTime() {
 	document.getElementById('txt').innerHTML = 
 	landscapeState ? strftime("%a %b %e %r %Y %Z", today) : (h < 13 ? h : h - 12) + ":" + m + ":" + s + (h < 13 ? " AM" : " PM");
 	
-	setTimeout(startTime, 500);
+	setTimeout(startTime, 1);
 }
 
 function checkTime(i) {

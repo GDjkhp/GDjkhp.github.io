@@ -222,3 +222,10 @@ a:hover {
 	width: 300px;
 	display: inline-block;
 } */
+
+.c {
+	display: flex;
+	align-items: center;
+	border: 3px white solid;
+	text-align: left;
+}

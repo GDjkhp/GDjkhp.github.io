@@ -48,7 +48,6 @@ async function updatepresence() {
     online.style.backgroundColor = getStatusColor(json.discord_status);
     activities = json.activities;
     let shouldContinue = true, rpc = false;
-    
     activities.forEach(element => {
         if (!shouldContinue) return;
         if (element.type == 4) {
@@ -75,14 +74,9 @@ async function updatepresence() {
             name.innerHTML = element.name;
             if (element.state) state.innerHTML = element.state; else state.innerHTML = "";
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
-            if (element.timestamps) {
-                clearInterval(time);
-                time = setInterval(() => timer(element, timestamp), 1);
-            }
-            else {
-                clearInterval(time);
-                timestamp.innerHTML = "";
-            }
+            clearInterval(time);
+            timestamp.innerHTML = "";
+            if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
             shouldContinue = false;
         }
     });

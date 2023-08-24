@@ -40,13 +40,15 @@ async function updatepresence() {
     var details = document.getElementById("details");
     var state = document.getElementById("state");
     var timestamp = document.getElementById("timestamp");
-
+    var d = document.getElementById("d");
+    var e = document.getElementById("e");
+    e.style.display = "flex";
     avatar.src = "https://cdn.discordapp.com/avatars/" + userid + "/" + json.discord_user.avatar;
     username.innerHTML = json.discord_user.username;
     online.style.backgroundColor = getStatusColor(json.discord_status);
     activities = json.activities;
     let shouldContinue = true, rpc = false;
-    var d = document.getElementById("d");
+    
     activities.forEach(element => {
         if (!shouldContinue) return;
         if (element.type == 4) {
@@ -73,7 +75,10 @@ async function updatepresence() {
             name.innerHTML = element.name;
             if (element.state) state.innerHTML = element.state; else state.innerHTML = "";
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
-            if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
+            if (element.timestamps) {
+                clearInterval(time);
+                time = setInterval(() => timer(element, timestamp), 1);
+            }
             else {
                 clearInterval(time);
                 timestamp.innerHTML = "";

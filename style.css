@@ -30,6 +30,10 @@ body {
 	background-color: #000000;
 }
 
+body *, :not(*) {
+	cursor: url(https://i.imgur.com/nCXdGsA.png), auto;
+}
+
 .social {
 	border: 5px solid white;
 }

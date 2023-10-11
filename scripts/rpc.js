@@ -80,7 +80,10 @@ async function updatepresence() {
             shouldContinue = false;
         }
     });
-    if (!rpc) d.style.display = "none";
+    if (!rpc) {
+        d.style.display = "none";
+        e.style.borderRadius = ".50rem .50rem .50rem .50rem";
+    } else e.style.borderRadius = ".50rem .50rem 0px 0px";
 }
 
 const onload = async () => {

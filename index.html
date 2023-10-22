@@ -72,7 +72,7 @@
 					clearInterval(timerIdGDjkhp);
 					timerIdGDjkhp = setInterval(() => countdown0(others, timerIdGDjkhp, "2023-10-26"), 1);
 				</script>
-				<a href="#Home" onclick="closeNav(); toggleAbout(); corrupt_website();">
+				<a href="#Home" onclick="closeNav(); toggleAbout(); toggleChildren(); corrupt_website();">
 					<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
 				</a>
 				<br>
@@ -411,6 +411,10 @@
 				function killChildren() {
 					for (var sel = 0; sel < extras.length; sel++)
 						extras[sel].style.display = "none";
+				}
+				function toggleChildren() {
+					for (var sel = 0; sel < extras.length; sel++)
+						extras[sel].style.display = "block";
 				}
 				function toggleAbout () {
 					killChildren();

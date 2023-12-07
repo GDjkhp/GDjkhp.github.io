@@ -55,19 +55,26 @@ async function updatepresence() {
         } else {
             rpc = true;
             d.style.display = "flex";
-            if (element.assets.large_image) {
+            if (element.assets) {
+                if (element.assets.large_image) {
+                    assetBig.style.display = "block";
+                    assetBig.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.large_image;
+                    if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
+                } else {
+                    assetBig.style.display = "none";
+                    assetBig.removeAttribute("title");
+                }
+                if (element.assets.small_image) {
+                    assetSmall.style.display = "block";
+                    assetSmall.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.small_image;
+                    if (element.assets.small_text) assetSmall.title = element.assets.small_text; else assetSmall.removeAttribute("title");
+                } else {
+                    assetSmall.style.display = "none";
+                    assetSmall.removeAttribute("title");
+                }
+            } else {
                 assetBig.style.display = "block";
-                assetBig.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.large_image;
-                if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
-            } else {
-                assetBig.style.display = "none";
-                assetBig.removeAttribute("title");
-            }
-            if (element.assets.small_image) {
-                assetSmall.style.display = "block";
-                assetSmall.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.small_image;
-                if (element.assets.small_text) assetSmall.title = element.assets.small_text; else assetSmall.removeAttribute("title");
-            } else {
+                assetBig.src = "../img/unknown.png";
                 assetSmall.style.display = "none";
                 assetSmall.removeAttribute("title");
             }

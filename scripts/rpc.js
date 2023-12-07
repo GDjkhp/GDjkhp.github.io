@@ -58,6 +58,7 @@ async function updatepresence() {
             if (element.assets) {
                 if (element.assets.large_image) {
                     assetBig.style.display = "block";
+                    assetBig.className = "";
                     assetBig.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.large_image;
                     if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
                 } else {
@@ -74,7 +75,8 @@ async function updatepresence() {
                 }
             } else {
                 assetBig.style.display = "block";
-                assetBig.src = "../img/unknown.png";
+                assetBig.className = "invert";
+                assetBig.src = "https://gdjkhp.github.io/img/unknown.png";
                 assetSmall.style.display = "none";
                 assetSmall.removeAttribute("title");
             }

@@ -62,8 +62,9 @@ async function updatepresence() {
                     assetBig.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.large_image;
                     if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
                 } else {
-                    assetBig.style.display = "none";
-                    assetBig.removeAttribute("title");
+                    assetBig.style.display = "block";
+                    assetBig.className = "invert";
+                    assetBig.src = "https://gdjkhp.github.io/img/unknown.png";
                 }
                 if (element.assets.small_image) {
                     assetSmall.style.display = "block";

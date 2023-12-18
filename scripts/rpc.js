@@ -41,7 +41,7 @@ async function updatepresence() {
     var d = document.getElementById("d");
     var e = document.getElementById("e");
     e.style.display = "flex";
-    avatar.src = json.discord_user.avatar ? "https://cdn.discordapp.com/avatars/" + userid + "/" + json.discord_user.avatar : "https://gdjkhp.github.io/img/dc.png";
+    avatar.src = json.discord_user.avatar ? `https://cdn.discordapp.com/avatars/${userid}/${json.discord_user.avatar}` : "https://gdjkhp.github.io/img/dc.png";
     username.innerHTML = json.discord_user.username;
     online.style.backgroundColor = getStatusColor(json.discord_status);
     activities = json.activities;

@@ -66,11 +66,16 @@ async function updatepresence() {
                 }
                 if (element.assets.small_image) {
                     assetSmall.style.display = "block";
-                    assetSmall.src = json.listening_to_spotify ? "https://gdjkhp.github.io/img/Spotify_App_Logo.svg.png" : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.small_image}`;
+                    assetSmall.src = `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.small_image}`;
                     if (element.assets.small_text) assetSmall.title = element.assets.small_text; else assetSmall.removeAttribute("title");
                 } else {
-                    assetSmall.style.display = "none";
-                    assetSmall.removeAttribute("title");
+                    if (json.listening_to_spotify) {
+                        assetSmall.style.display = "block";
+                        assetSmall.src = "https://gdjkhp.github.io/img/Spotify_App_Logo.svg.png";
+                    } else {
+                        assetSmall.style.display = "none";
+                        assetSmall.removeAttribute("title");
+                    }
                 }
             } else {
                 assetBig.style.display = "block";

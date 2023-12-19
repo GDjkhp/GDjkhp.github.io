@@ -1,4 +1,4 @@
-var userid = "729554186777133088", time;
+var userid = "729554186777133088";
 var formatTime = (ms) => {
     const seconds = Math.floor((ms / 1000) % 60);
     const minutes = Math.floor((ms / 1000 / 60) % 60);
@@ -26,42 +26,91 @@ function timer(element, timestamp) {
     }
 }
 
+function addRPC() {
+    const rpcHtml = `
+        <div class="c rpc" style="display: none;">
+            <div style="position: relative;">
+                <img class="assetBig" width="64" style="border-radius: 0.75rem;" src="https://gdjkhp.github.io/img/unknown.png">
+                <img class="assetSmall" width="16" style="border-radius: 9999px; position: absolute; bottom: 0px; right: 0px;" src="https://gdjkhp.github.io/img/unknown.png">
+            </div>
+            <div style="padding: 8px;">
+                <span class="name" style="font-weight: bold; font-size: 25px;"></span>
+                <br>
+                <span class="details"></span>
+                <br>
+                <span class="state"></span>
+                <br>
+                <span class="timestamp"></span>
+            </div>
+        </div>
+    `;
+    const body = document.getElementById('rpcdiv');
+    body.insertAdjacentHTML('beforeend', rpcHtml);
+}
+
+// unused
+function addProfile() {
+    const rpcHtml = `
+        <div class="c" id="e" style="display: none;"> 
+            <div style="position: relative; height: 64px;">
+                <img id="avatar" width="64" style="border-radius: 9999px;" src="https://gdjkhp.github.io/img/dc.png">
+                <span id="online" style="width: 16px; height: 16px; border-radius: 9999px; position: absolute; bottom: 0px; right: 0px; background-color: gray; border: black 2px solid;">
+            </div>
+            <div style="padding: 8px;">
+                <span id="username" style="font-weight: bold; font-size: 25px;"></span>
+                <br>
+                <span id="status"></span>
+            </div>
+        </div>
+    `;
+    const body = document.getElementById('rpcdiv');
+    body.insertAdjacentHTML('beforeend', rpcHtml);
+}
+
+function destroyRPC() {
+    const elements = document.getElementsByClassName('c rpc');
+    while(elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
+
 async function updatepresence() {
     var json = await lanyard({userId: userid});
     var avatar = document.getElementById("avatar");
     var online = document.getElementById("online");
     var username = document.getElementById("username");
     var status = document.getElementById("status");
-    var assetBig = document.getElementById("assetBig");
-    var assetSmall = document.getElementById("assetSmall");
-    var name = document.getElementById("name");
-    var details = document.getElementById("details");
-    var state = document.getElementById("state");
-    var timestamp = document.getElementById("timestamp");
-    var d = document.getElementById("d");
     var e = document.getElementById("e");
     e.style.display = "flex";
     avatar.src = json.discord_user.avatar ? `https://cdn.discordapp.com/avatars/${userid}/${json.discord_user.avatar}` : "https://gdjkhp.github.io/img/dc.png";
     username.innerHTML = json.discord_user.username;
     online.style.backgroundColor = getStatusColor(json.discord_status);
     activities = json.activities;
-    let shouldContinue = true, rpc = false;
+    rpc = false; number = 0;
+    destroyRPC();
     activities.forEach(element => {
-        if (!shouldContinue) return;
         if (element.type == 4) {
             if (element.state) status.innerHTML = element.state;
         } else {
             rpc = true;
+            addRPC();
+            var assetBig =      document.getElementsByClassName("assetBig")     [number];
+            var assetSmall =    document.getElementsByClassName("assetSmall")   [number];
+            var name =          document.getElementsByClassName("name")         [number];
+            var details =       document.getElementsByClassName("details")      [number];
+            var state =         document.getElementsByClassName("state")        [number];
+            var timestamp =     document.getElementsByClassName("timestamp")    [number];
+            var d =             document.getElementsByClassName("rpc")          [number];
             d.style.display = "flex";
+            number++;
             if (element.assets) {
                 if (element.assets.large_image) {
                     assetBig.style.display = "block";
-                    assetBig.className = "";
-                    assetBig.src = json.listening_to_spotify ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
+                    assetBig.src = element.type == 2 ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
                     if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
                 } else {
                     assetBig.style.display = "block";
-                    assetBig.className = "invert";
+                    assetBig.classList.add('invert');
                     assetBig.src = "https://gdjkhp.github.io/img/unknown.png";
                 }
                 if (element.assets.small_image) {
@@ -69,9 +118,10 @@ async function updatepresence() {
                     assetSmall.src = `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.small_image}`;
                     if (element.assets.small_text) assetSmall.title = element.assets.small_text; else assetSmall.removeAttribute("title");
                 } else {
-                    if (json.listening_to_spotify) {
+                    if (element.type == 2) {
                         assetSmall.style.display = "block";
                         assetSmall.src = "https://gdjkhp.github.io/img/Spotify_App_Logo.svg.png";
+                        assetSmall.title = "Spotify";
                     } else {
                         assetSmall.style.display = "none";
                         assetSmall.removeAttribute("title");
@@ -79,7 +129,7 @@ async function updatepresence() {
                 }
             } else {
                 assetBig.style.display = "block";
-                assetBig.className = "invert";
+                assetBig.classList.add('invert');
                 assetBig.src = "https://gdjkhp.github.io/img/unknown.png";
                 assetSmall.style.display = "none";
                 assetSmall.removeAttribute("title");
@@ -87,10 +137,10 @@ async function updatepresence() {
             name.innerHTML = element.name;
             if (element.state) state.innerHTML = element.state; else state.innerHTML = "";
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
+            var time;
             clearInterval(time);
             timestamp.innerHTML = "";
             if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
-            shouldContinue = false;
         }
     });
     if (!rpc) {

@@ -57,7 +57,7 @@ async function updatepresence() {
                 if (element.assets.large_image) {
                     assetBig.style.display = "block";
                     assetBig.className = "";
-                    assetBig.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.large_image;
+                    assetBig.src = json.listening_to_spotify ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
                     if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
                 } else {
                     assetBig.style.display = "block";
@@ -66,7 +66,7 @@ async function updatepresence() {
                 }
                 if (element.assets.small_image) {
                     assetSmall.style.display = "block";
-                    assetSmall.src = "https://cdn.discordapp.com/app-assets/" + element.application_id + '/' + element.assets.small_image;
+                    assetSmall.src = json.listening_to_spotify ? "https://gdjkhp.github.io/img/Spotify_App_Logo.svg.png" : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.small_image}`;
                     if (element.assets.small_text) assetSmall.title = element.assets.small_text; else assetSmall.removeAttribute("title");
                 } else {
                     assetSmall.style.display = "none";
@@ -90,8 +90,8 @@ async function updatepresence() {
     });
     if (!rpc) {
         d.style.display = "none";
-        e.style.borderRadius = ".50rem .50rem .50rem .50rem";
-    } else e.style.borderRadius = ".50rem .50rem 0px 0px";
+        // e.style.borderRadius = ".50rem .50rem .50rem .50rem";
+    } // else e.style.borderRadius = ".50rem .50rem 0px 0px";
 }
 
 const onload = async () => {

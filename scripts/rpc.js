@@ -86,13 +86,14 @@ async function updatepresence() {
     username.innerHTML = json.discord_user.username;
     online.style.backgroundColor = getStatusColor(json.discord_status);
     activities = json.activities;
-    rpc = false; number = 0;
+    // rpc = false; 
+    number = 0;
     destroyRPC();
     activities.forEach(element => {
         if (element.type == 4) {
             if (element.state) status.innerHTML = element.state;
         } else {
-            rpc = true;
+            // rpc = true;
             addRPC();
             var assetBig =      document.getElementsByClassName("assetBig")     [number];
             var assetSmall =    document.getElementsByClassName("assetSmall")   [number];
@@ -137,16 +138,21 @@ async function updatepresence() {
             name.innerHTML = element.name;
             if (element.state) state.innerHTML = element.state; else state.innerHTML = "";
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
+            if (element.type == 2) {
+                var a = document.createElement('a');
+                a.href = `https://open.spotify.com/track/${json.spotify.track_id}`;
+                details.appendChild(a).appendChild(a.previousSibling);
+            }
             var time;
             clearInterval(time);
             timestamp.innerHTML = "";
             if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
         }
     });
-    if (!rpc) {
-        d.style.display = "none";
-        // e.style.borderRadius = ".50rem .50rem .50rem .50rem";
-    } // else e.style.borderRadius = ".50rem .50rem 0px 0px";
+    // if (!rpc) {
+    //     d.style.display = "none";
+    //     e.style.borderRadius = ".50rem .50rem .50rem .50rem";
+    // } else e.style.borderRadius = ".50rem .50rem 0px 0px";
 }
 
 const onload = async () => {

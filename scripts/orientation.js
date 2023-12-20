@@ -35,21 +35,20 @@ function portrait() {
 	
 	if (_w < _h && _w > 600) landscape();
 	
-	else {
-		const collection = document.getElementsByClassName("column");
-		
-		collection[0].style.height = "auto";
-		collection[1].style.height = "auto";
-		collection[2].style.height = "auto";
-	}
+	// legacy code for border layout on first page
+	// else {
+	// 	const collection = document.getElementsByClassName("column");
+	// 	collection[0].style.height = "auto";
+	// 	collection[1].style.height = "auto";
+	// 	collection[2].style.height = "auto";
+	// }
 }
 
 function landscape() {
 	landscapeState = true;
-	
-	const collection = document.getElementsByClassName("column");
-	
-	collection[0].style.height = "500px";
-	collection[1].style.height = "500px";
-	collection[2].style.height = "500px";
+	// legacy code for border layout on first page
+	// const collection = document.getElementsByClassName("column");
+	// collection[0].style.height = "500px";
+	// collection[1].style.height = "500px";
+	// collection[2].style.height = "500px";
 }

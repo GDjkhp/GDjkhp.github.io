@@ -136,7 +136,7 @@ async function updatepresence() {
                 assetSmall.removeAttribute("title");
             }
             name.innerHTML = element.name;
-            if (element.state) state.innerHTML = element.state; else state.innerHTML = "";
+            if (element.state) state.innerHTML = element.type == 2 ? `${element.state} • ${json.spotify.album}` : element.state; else state.innerHTML = "";
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
             if (element.type == 2) {
                 var a = document.createElement('a');

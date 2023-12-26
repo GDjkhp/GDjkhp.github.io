@@ -26,6 +26,18 @@ function timer(element, timestamp) {
     }
 }
 
+function spotify_timer(progress, timestamps) {
+    var start = timestamps.start;
+    var end = timestamps.end;
+
+    var current_time = Date.now();
+    var elapsed_time = current_time - start;
+    var total_time = end - start;
+
+    var progressPercent = (elapsed_time / total_time) * 100;
+    progress.style.width = `${Math.min(progressPercent, 100)}%`;
+}
+
 function addRPC() {
     const rpcHtml = `
         <div class="c rpc" style="display: none;">
@@ -40,6 +52,9 @@ function addRPC() {
                 <br>
                 <span class="state"></span>
                 <br>
+                <div class="progressbar" style="width: 200px; height: 4px; background-color: gray; display: none;">
+                    <div class="progress" style="width: 50%; height: 4px; background-color: white;"></div>
+                </div>
                 <span class="timestamp"></span>
             </div>
         </div>
@@ -48,7 +63,6 @@ function addRPC() {
     body.insertAdjacentHTML('beforeend', rpcHtml);
 }
 
-// unused
 function addProfile() {
     const rpcHtml = `
         <div class="c" id="e" style="display: none;"> 
@@ -75,6 +89,7 @@ function destroyRPC() {
 }
 
 async function updatepresence() {
+    addProfile();
     var json = await lanyard({userId: userid});
     var avatar = document.getElementById("avatar");
     var online = document.getElementById("online");
@@ -102,6 +117,8 @@ async function updatepresence() {
             var state =         document.getElementsByClassName("state")        [number];
             var timestamp =     document.getElementsByClassName("timestamp")    [number];
             var d =             document.getElementsByClassName("rpc")          [number];
+            var progressbar =   document.getElementsByClassName("progressbar")  [number];
+            var progress =      document.getElementsByClassName("progress")     [number];
             d.style.display = "flex";
             number++;
             if (element.assets) {
@@ -136,17 +153,22 @@ async function updatepresence() {
                 assetSmall.removeAttribute("title");
             }
             name.innerHTML = element.name;
-            if (element.state) state.innerHTML = element.type == 2 ? `${element.state} • ${json.spotify.album}` : element.state; else state.innerHTML = "";
+            if (element.state) state.innerHTML = element.type == 2 ? `${element.state} &bull; ${json.spotify.album}` : element.state; else state.innerHTML = "";
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
             if (element.type == 2) {
                 var a = document.createElement('a');
                 a.href = `https://open.spotify.com/track/${json.spotify.track_id}`;
                 details.appendChild(a).appendChild(a.previousSibling);
             }
-            var time;
+            var time, stime;
             clearInterval(time);
             timestamp.innerHTML = "";
             if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
+            if (element.type == 2) {
+                progressbar.style.display = "block";
+                clearInterval(stime);
+                stime = setInterval(() => spotify_timer(progress, json.spotify.timestamps), 1);
+            }
         }
     });
     // if (!rpc) {

@@ -34,6 +34,10 @@ function spotify_timer(progress, timestamps) {
     var elapsed_time = current_time - start;
     var total_time = end - start;
 
+    // var progressbar = progress.parentElement;
+    // var parent = progress.parentElement.parentElement;
+    // progressbar.style.width = parent.clientWidth/1.5;
+
     var progressPercent = (elapsed_time / total_time) * 100;
     progress.style.width = `${Math.min(progressPercent, 100)}%`;
 }
@@ -52,6 +56,9 @@ function addRPC() {
                 <br>
                 <span class="state"></span>
                 <br>
+                <div class="album" style="display: none;">
+                    <span class="albumreal"></span>
+                </div>
                 <div class="progressbar" style="width: 200px; height: 4px; background-color: gray; display: none;">
                     <div class="progress" style="width: 50%; height: 4px; background-color: white;"></div>
                 </div>
@@ -119,6 +126,8 @@ async function updatepresence() {
             var d =             document.getElementsByClassName("rpc")          [number];
             var progressbar =   document.getElementsByClassName("progressbar")  [number];
             var progress =      document.getElementsByClassName("progress")     [number];
+            var albumdiv =      document.getElementsByClassName("album")        [number];
+            var album =         document.getElementsByClassName("albumreal")    [number];
             d.style.display = "flex";
             number++;
             if (element.assets) {
@@ -153,7 +162,7 @@ async function updatepresence() {
                 assetSmall.removeAttribute("title");
             }
             name.innerHTML = element.name;
-            if (element.state) state.innerHTML = element.type == 2 ? `${element.state} &bull; ${json.spotify.album}` : element.state; else state.innerHTML = "";
+            if (element.state) state.innerHTML = element.state; else state.innerHTML = ""; // element.type == 2 ? `${element.state} &bull; ${json.spotify.album}` : 
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
             if (element.type == 2) {
                 var a = document.createElement('a');
@@ -165,6 +174,8 @@ async function updatepresence() {
             timestamp.innerHTML = "";
             if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
             if (element.type == 2) {
+                albumdiv.style.display = "block";
+                album.innerHTML = json.spotify.album;
                 progressbar.style.display = "block";
                 clearInterval(stime);
                 stime = setInterval(() => spotify_timer(progress, json.spotify.timestamps), 1);

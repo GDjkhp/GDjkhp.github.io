@@ -89,13 +89,14 @@ function addProfile() {
 }
 
 function destroyRPC() {
-    const elements = document.getElementsByClassName('c rpc');
+    const elements = document.getElementsByClassName('c', 'rpc');
     while(elements.length > 0) {
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
 
 async function updatepresence() {
+    destroyRPC();
     addProfile();
     var json = await lanyard({userId: userid});
     var avatar = document.getElementById("avatar");
@@ -110,7 +111,6 @@ async function updatepresence() {
     activities = json.activities;
     // rpc = false; 
     number = 0;
-    destroyRPC();
     activities.forEach(element => {
         if (element.type == 4) {
             if (element.state) status.innerHTML = element.state;
@@ -167,6 +167,7 @@ async function updatepresence() {
             if (element.type == 2) {
                 var a = document.createElement('a');
                 a.href = `https://open.spotify.com/track/${json.spotify.track_id}`;
+                a.target = "spotify"; // bug: doesn't reuse the loaded tab
                 details.appendChild(a).appendChild(a.previousSibling);
             }
             var time, stime;

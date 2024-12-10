@@ -31,5 +31,7 @@ document.body.appendChild(donutDiv);
 
 var donutScript = document.createElement("script");
 donutScript.setAttribute("src", "https://GDjkhp.github.io/scripts/donut.js");
+donutScript.onload = function() {
+    anim2();
+};
 document.body.appendChild(donutScript);
-anim2();

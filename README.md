@@ -1,7 +1,7 @@
 # PERSONAL WEBSITE
 Welcome to the repository of my website!
 \
-![:GDjkhp](https://count.getloli.com/get/@:GDjkhp?theme=rule34)
+![:GDjkhp](https://count.getloli.com/get/@:GDjkhp?theme=rule34&darkmode=0)
 
 # Useful Links
 [Home](https://gdjkhp.github.io)

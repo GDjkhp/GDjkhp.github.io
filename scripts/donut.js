@@ -52,10 +52,10 @@ anim1 = function() {
 // This is a reimplementation according to my math derivation on the page
 var R1 = 1;
 var R2 = 2;
-var K1 = 150;
+var K1 = 1500;
 var K2 = 5;
 var canvasframe=function() {
-	var ctx = canvastag.getContext('2d');
+	var ctx = canvastag2.getContext('2d');
 	ctx.fillStyle='#000';
 	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -76,8 +76,8 @@ var canvasframe=function() {
 			var x = ox*(cB*cp + sA*sB*sp) - oy*cA*sB; // final 3D x coordinate
 			var y = ox*(sB*cp - sA*cB*sp) + oy*cA*cB; // final 3D y
 			var ooz = 1/(K2 + cA*ox*sp + sA*oy); // one over z
-			var xp=(150+K1*ooz*x); // x' = screen space coordinate, translated and scaled to fit our 320x240 canvas element
-			var yp=(120-K1*ooz*y); // y' (it's negative here because in our output, positive y goes down but in our 3D space, positive y goes up)
+			var xp=(canvastag2.width/2+K1*ooz*x); // x' = screen space coordinate, translated and scaled to fit our 320x240 canvas element
+			var yp=(canvastag2.height/2-K1*ooz*y); // y' (it's negative here because in our output, positive y goes down but in our 3D space, positive y goes up)
 			// luminance, scaled back to 0 to 1
 			var L=0.7*(cp*ct*sB - cA*ct*sp - sA*st + cB*(cA*st - ct*sA*sp));
 			if(L > 0) {
@@ -210,4 +210,4 @@ anim3 = function() {
 
 //anim1();
 //anim2();
-anim3();
+//anim3();

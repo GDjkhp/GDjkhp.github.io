@@ -25,9 +25,9 @@ tr, th, td {
 `;
 document.head.appendChild(style);
 
-var donutDiv = document.createElement("div");
-donutDiv.setAttribute("id", "canvasdonut2");
-document.body.appendChild(donutDiv);
+var donutCanvas = document.createElement("canvas");
+donutCanvas.setAttribute("id", "canvasdonut2");
+document.body.appendChild(donutCanvas);
 
 var donutScript = document.createElement("script");
 donutScript.setAttribute("src", "https://GDjkhp.github.io/scripts/donut.js");

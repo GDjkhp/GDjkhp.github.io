@@ -2,8 +2,6 @@ var style = document.createElement("style");
 style.innerHTML = `
 #canvasdonut2 { 
     position: fixed;
-    width: 1500;
-    height: 1500;
 	z-index: -1;
     left: 50%;
 	top: 50%;
@@ -27,6 +25,8 @@ document.head.appendChild(style);
 
 var donutCanvas = document.createElement("canvas");
 donutCanvas.setAttribute("id", "canvasdonut2");
+donutCanvas.setAttribute("width", "1500");
+donutCanvas.setAttribute("height", "1500");
 document.body.appendChild(donutCanvas);
 
 var donutScript = document.createElement("script");

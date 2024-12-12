@@ -31,6 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(particlesScript);
 
     var configScript = document.createElement("script");
-    configScript.setAttribute("src", "https://gdjkhp.github.io/meeseeks-leaderboard-api/particlesjs-config.js");
+    configScript.setAttribute("src", "https://gdjkhp.github.io/scripts/particlesjs-config.js");
     document.body.appendChild(configScript);
 });

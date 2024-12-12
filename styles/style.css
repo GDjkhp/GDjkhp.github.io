@@ -17,12 +17,12 @@ html {
 
 @font-face {
 	font-family: font;
-	src: url(./fonts/AmaticSC-Regular.ttf);
+	src: url(../fonts/AmaticSC-Regular.ttf);
 }
 
 body {
 	font-family: font;
-	-webkit-animation: mymove 3s infinite alternate;
+	/* -webkit-animation: mymove 3s infinite alternate; */
 	
 	border-radius: 22px;
 	/* border: 5px solid white; */
@@ -31,15 +31,18 @@ body {
 }
 
 body *, :not(*) {
-	cursor: url(https://i.imgur.com/nCXdGsA.png), auto;
+	cursor: url(../img/cursorsmol.png), auto;
 }
 
 .social {
 	border: 5px solid white;
 }
 
+img {
+    position: relative;
+}
+
 .imgtest {
-	
 	/* border-radius: 25px;
 	border: 5px solid white; */
 	
@@ -191,9 +194,10 @@ a {
 	color: #fff;
 }
 
+/* FIXME: only selected <a> tags work */
 a:hover {
-	/* TODO: Find a better hover effect */
-	/* opacity: 0.7; */
+	animation: shake 0.5s;
+	animation-iteration-count: infinite;
 }
 
 .stats {

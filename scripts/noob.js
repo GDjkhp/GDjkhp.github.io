@@ -27,8 +27,9 @@ document.body.appendChild(particlesDiv);
 
 var particlesScript = document.createElement("script");
 particlesScript.setAttribute("src", "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js");
+particlesScript.onload = function() {
+    var configScript = document.createElement("script");
+    configScript.setAttribute("src", "https://gdjkhp.github.io/meeseeks-leaderboard-api/particlesjs-config.js");
+    document.body.appendChild(configScript);
+};
 document.body.appendChild(particlesScript);
-
-var configScript = document.createElement("script");
-configScript.setAttribute("src", "https://gdjkhp.github.io/meeseeks-leaderboard-api/particlesjs-config.js");
-document.body.appendChild(configScript);

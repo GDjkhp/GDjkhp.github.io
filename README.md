@@ -6,7 +6,7 @@ Welcome to the repository of my website!
 # TODO
 * [Anime](https://myanimelist.net/animelist/GDjkhp): [full anime list](https://myanimelist.net/forum/?topicid=1973077)
 * GoldSrc Collection
-* [Cubeshots](gdjkhp.github.io/cubeshots-html) and [Cubeshots](https://gdjkhp.github.io/cubeshots)
+* [Cubeshots](https://gdjkhp.github.io/cubeshots-html) and [Cubeshots](https://gdjkhp.github.io/cubeshots)
 * Beginning Words
 * Punchface
 * Music Downloads, maybe? spotify when

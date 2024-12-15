@@ -31,7 +31,7 @@ body {
 }
 
 body {
-	--character: url(https://i.imgur.com/iAX6lEJ.gif);
+	--character: url(https://gdjkhp.github.io/img/mona-loading-dark.gif);
 }
 
 :root {
@@ -2195,7 +2195,7 @@ html:not(.dark-mode) #fancybox-frame {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-image: url("https://i.imgur.com/rwi7yn1.png");
+	background-image: url("https://gdjkhp.github.io/img/Heart_(icon)_1000.png");
 	background-size: 75%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -2224,16 +2224,14 @@ footer:after {
 /* Left Render */
 footer:before {
 	right: calc(100% - (50% - 538px));
-
-	background-image: url(https://i.imgur.com/ZbnJAHI.gif);
+	background-image: url(https://gdjkhp.github.io/img/tama-anim-walk----Copy.gif);
 	background-position: left bottom;
 }
 
 /* Right Render */
 footer:after {
 	left: calc(100% - (50% - 538px));
-
-	background-image: url(https://i.imgur.com/8UCIav5.gif);
+	background-image: url(https://gdjkhp.github.io/img/kagura-yay-hd.gif);
 	background-position: right bottom;
 }
 
@@ -2316,7 +2314,6 @@ Colors on Row Hover (OPTIONAL)
 	--text-dim-h: white;
 	--text-dark: white;
 	--btn-bg: black;
-
 }
 
 body *,

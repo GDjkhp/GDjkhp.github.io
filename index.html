@@ -1,503 +1,86 @@
-<!DOCTYPE HTML>
-<HTML>
-	<HEAD>
-		<TITLE> this is kennedy's website, do not enter! </TITLE>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
-		<link rel="icon" href="./img/42247211_1895555103813303_6679866282172481536_n.jpg">
-		<link rel="stylesheet" href="./styles/style.css">
-		<script src="scripts/strftime.js"></script>
-		<script src="scripts/clock.js"></script>
-		<script src="scripts/snow.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/0x5841524f4e/js-lanyard/lanyard.js"></script>
-        <script src="scripts/rpc.js"></script>
-		<script src="scripts/corrupt.js"></script>
-	</head>
-
-	<BODY id="Home" onload="startTime(); anim3();">
-		<canvas class="back" id="canvasdonut2" width="1500" height="1500"></canvas>
-		<script src="scripts/donut.js"></script>
-
-		<div class="header">
-			<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
-				<!-- TODO -->
-				<a href="#Home" onclick="closeNav(); toggleAbout();">Home</a>
-				<a href="#Extras" onclick="toggleGames(); closeNav();">Extras</a>
-				<a href="#Anime" onclick="toggleAnime(); closeNav();">Anime</a>
-				<a href="#Music" onclick="toggleMusic(); closeNav();">Music</a>
-				<!-- <a href="#About" onclick="closeNav(); toggleAbout();">About</a> -->
-				<a href="#Home" onclick="closeNav(); toggleAbout(); toggleChildren();">Burst</a>
-				<a href="#Home" onclick="closeNav(); toggleAbout(); toggleChildren(); corrupt_website();">Destroy</a>
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">NSFW</a>
-				<a href="https://gdbrowser.com/u/gdjkhp" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEmUExURUxpcQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/dAP/uEQAAAP/MAP+7AP/dEf/uAP+qAP//Iu6ZAP+ZAO6IAP+IAP//EbtmALtVAO53AMx3AO6qAMxmAO67ALt3AP93AP/uIv/MEe7MAMxVAN2IAJl3AIhmAP//MzMiAKqIAJmIACIRAJlVAIhVAIhEADMzAIh3AMyIAEQzAGZVAN2ZALuIAN13AFVEAHdmAKp3AKpmAHdVACIiAGZEAP//ABEAAJlmAN27AKqZABERALuZAKpVAN1mAJlEAMyqAEQiAFVVAN2qAMyZAO5mAAARAGYzAO7MEe7dADMRAEREALuqAKqIEVUzAN3MEf+7EZmIEbuqEXd3AC+GSKsAAAAPdFJOUwAiZt0ziHfuuxGZVcxEqtH0bKEAAAqBSURBVGjerZoHW9vIGoWBxJRQZhhpZDXbcgE7xsH0vhBI723b7ff+/z9xvzaSbJzFWXYkyCaP/fr4zJlvinZmZqo2u7pcmXfX3OrszF/UluYqiwvrY21hsTK3dF/y7PzK+nfbyvzsfTQ/WL+jPfiT+pcqC+tTtIXK0l+APvx0eLJ9cnhy+Om++OWyIdunV2+NZ1xTRr0dnm6XzVn+kW5cLJGvvnhegVb5z6vhYfGqxam7di53ZPfag2ZKolF3fpnL3dybuencfpSjB4weFe4+AG+ljnL8oymcX1oZVT1CLpQTmvC5+pU76Q9dT540x9mOX8ZjM39z/frwDrbYvXvF6DHdo5bkf7x9I8Y/nIa9TbK90fwVjejlfzInd9Md+5mXW0J4ZTU2q61v1eT2+S66Yw9G0EprQWuFdK0mfsDWH9OXpC+3PK8wBdEpXCwcwH7OLvli4RpKr07OjAzL/cITo6q6mm4yWzvZJWsK1wF/KYN1ElvGzk8l2RrYQK46W4Du28IVlxr6J/DsVEbThDFf7kuRXa0KWWxRxCBcbozgqSeEfqsSLHFn3hQZ1IDeROlV54r2t14iw94OJHYGfDiXsoWliYa/KNjVqghPNZmOrny5enoGzpQDT0nlT0T67iTbl/kLned2I3kTlMMvMgV/7FUYXlllR6TzsOWUKv2KOcsTTLkue1JlPmjfZF9srx+G/R6ZXvKcGpkOn6CPbhszz4M+HzspkaubKXrukqi/hs0wPLa3igB+gibx8PMToeZvCT938Xa6gU7S2XN1HAL9uJzzsnYaBlb3xqXPu4Qbmhsgg08QDsLTkvJeH4SH/Vd5FAuyo+PLjkali/CmTDuK0SC8rFzr8ybaEnbGhLtPUFwgrD8qfS4XTkHZrLqmKTGSFnWM6DDMxoIuzTM+9aiT7kbSigg3I8JReUrSOS2vwiZLPxt1XD7A85QUCZ+mjhWptIXjhhMueE1xkZqoz0NWHnbG0uKke5bLvkjn2luh/z6WaUc74aRdiy+p/q0vwjHqY9LZFs+4KkHACsG5jBtxPNeNlYWrIin/Smikx8dqzHNFwj1Ps/SUSswDWl5JNZS5ktA5noRTlx43nXLs0lvCUbnnJq3XhJzNszI0446T9Nzz3plDgy9f7ARbSLpUoTzqa7krJLxkeclzCDkJJ37cGSMrR9dCP3GTBln+yQ2zJ0h/4oRDrvDy/d9QuFMeZj3DV7tIIsEVj4nNS2e61ENTysrHnf/s7GzhlbczpzwC5fHeAK79/T24Puwf7B8cHNQCpBuezdP/EnRmZpX+3IsjnNgMCf/XznAH76udrfPz82Hn/Oo8I3bktNeeYnv37h3QD/bgOjh470wHG30u66syTdTjjTgJxHLd7sF3bvfa0prtJjdBx3hxa7j2LWZf0k0fNPpSAXgIxQldnoRF96B5cAub6G745+iGY7//FliF7MAQ2qgTjgvDmZ0YnUpOTK/XJrSXKw/CQnqBjxsXjRhmIhAeJY3AGF91lb/NcaGZeRfASRwlhgsg4hVoF3TQbnrFEApLpoD0i0YjUtZ4EX2NCFQDW13zPE3w7YTpPne2tmma2rbXG/e8Oar8gvCeMkHSiDcacMWABrY/KMF/R1OiJKacygroue0fn0ECS55TbYkK5RfvW49bgRdEgAY4tET54IuvBiPK4ySKI1BOsmmRovXzIMuyTpYd97OzPreL/kV2AXfWatXq2BrQi9hbjaSByiNCK/9y1JYQb5WKL1g4cc2cUWvB3WnVWjW5a3Um1+sRdiPBkQ6/fHJFHZVtiZxyIcua9rk9A+lwtfgidL1Vrz0m/PsAOzIqhEPfYnf6/mBcObxMadejOJXjAs16qJqFi/bHLPxxPTFeAO+jFIPnMSunq6x8Fz4+CjmKz2VaUxpfhsuVLKtlLByveg2Vg36QHcDbErGc4hIw29LSaE3WLIBOoig0nBab4jxrWYXt1zLypZaNKG+BJfCuMHF0aBsBvgPeesITHY9QRIPnQeqyiMsEWtD6pkPKHRq1k+n1CFoidIk5ZJ7pNzz8uXDVEA3w3HJRDmN5C+BARzjyAVxn6S/BSMA7z6nSGNLtW1nrcsl9Ci/Dl5YGEXuu1AA7NMuFA13Ssh/ht4WLXSHp6Dck4VcpuTxZ/ELoKMIhmpLlzvP2U0GTN+h4DV2H9qGPGYhi0k6eb4TwJqS/lcmCp7ltQoeRcUsgyaLyrzDlWac0iOrsTP3dU5JeRBHC4tOmiZdFD/JdHLsSiOkl5QMsAS0xnQdRjfrzMfqSCB0s3yDL0U2tD90EPS89imzo0THP2y87WTmKLZdFkH4QQxWTmYCGaEyGu4XufLEoYnaESedhRF/QH3ZEOd2eR6YDHaTX39VwDEXOFii+GBR467BYLJLpb5AdonSb8kIbLYfaiaWF6Z0EVytJLc9ifS+ksHDOY6y3uBaxvHV5UFqIdtBxuJUssSx53n6ZUUVEPC4NYYXgtXgMQTsI3fAn0yP6tvCdSwtRXkL/E00JAupSGkTk+ZBqImYxAtVymhaT6cD/kIU0RBEOHUp9CV/6H6UlNPvyIkQ0/BgZ/tQ5A67nnQuUTfM7Lm+CFshGY/ZczhuQdM8XUbuFKy4v16I8oC7lmJutjJTDFKxkrQmzGqweYueLK7mNjcSnCcbKGtftuJZ42xsG3Hg5SVl5S55kxlpBMx3Uk3jwRUzfiGMjkwwLL/aKPI6uHdyklm2hEZRF1qp8qQlobPD3BuUlkuXURkA7RetyWJyLcNRf9JkdBL5mWzTAj5W1vjH/FjgJJwUmAGtgjUk1F5KiJQc/5yv/0e25KIetk9gCfyE0r7+FTi0CvJd8a0gSE83Dx8qJzvztg4X9gHXR7gZz/hz8UaprTHdMOOcKPlFmIuWL8I8TTlx4IL04YzTcFETIFuj2i01PYTqOClhXBFS5oi4PapD/8y3h+Ub3pknKeJPAlasLW4duwXZ0ZEdSciNKILXDiWdoPEzXf2Ey/vJ5fgY62VJKS04PaRINfCszQMqGL8x+5wDt2ikH7eh6t7SJLdsSsXaY2D2XE613vnOAlh8rvvTyRus+9Jxs6Y6azsphN5LnJH393aM/l5icTmcvxAbtXTMqHNk4dXnad4eOTvfkY3R3lPvTyDGxrygu3ngWKS3ujAXnLzlUXPjOEb0c0RF95Oi8e9t0YCMaixVLP73rGNrRn8kZHfzipIwMIh7GNOtYpzw9vfsAfVmcuRHdXVbuy3/KBxi3rnIp0fpG2KvTHP2/2XIPWbqI9dl6nxZ4Pi8jZX+A9+upHisU9PVn7ZJwxXs0XmUqKgxKzIYkfl6fjl2i7w5EN2mGTCoZs1Rz/DwnOzdTs6G45w+hToasm/aWiKZ1vc+ncOL23/NnaI+me4JWKR7MbflGdPtKlNvCc/v6Jn9pZdqHc6vF49sXp19pMy97HXRaaZ7mP16WHuqu/sBzxUr5gefl8FXOVmzJr8PL8isqP/ZAtPzUEr/A4bPB4PJo8L/B0eDo88no09bFH38U/XBtfaq29nDmz7TZR3c+hV54dI8H6HNrf8BfWJubuV9bWq5MfPS/Ulm+9/9VINmcn18stcrcdMn7P/IxUwA/DsgeAAAAAElFTkSuQmCC" 
-					style="width:32px;height:32px;"></a>
-				<a href="https://paypal.me/GDjkhp" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp2PSJodHRwczovL3ZlY3RhLmlvL25hbm8iIHdpZHRoPSI1ODQuNzk4IiBoZWlnaHQ9IjcyMCIgdmlld0JveD0iMCAwIDE1NC43MjggMTkwLjUiPjxTQ1JJUFQgeG1sbnM9IiIgaWQ9ImFsbG93LWNvcHlfc2NyaXB0Ij4oZnVuY3Rpb24gYWdlbnQoKSB7CiAgICBsZXQgdW5sb2NrID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2FsbG93X2NvcHknLCAoZXZlbnQpID0mZ3Q7IHsKICAgICAgdW5sb2NrID0gZXZlbnQuZGV0YWlsLnVubG9jawogICAgfSkKCiAgICBjb25zdCBjb3B5RXZlbnRzID0gWwogICAgICAnY29weScsCiAgICAgICdjdXQnLAogICAgICAnY29udGV4dG1lbnUnLAogICAgICAnc2VsZWN0c3RhcnQnLAogICAgICAnbW91c2Vkb3duJywKICAgICAgJ21vdXNldXAnLAogICAgICAnbW91c2Vtb3ZlJywKICAgICAgJ2tleWRvd24nLAogICAgICAna2V5cHJlc3MnLAogICAgICAna2V5dXAnLAogICAgXQogICAgY29uc3QgcmVqZWN0T3RoZXJIYW5kbGVycyA9IChlKSA9Jmd0OyB7CiAgICAgIGlmICh1bmxvY2spIHsKICAgICAgICBlLnN0b3BQcm9wYWdhdGlvbigpCiAgICAgICAgaWYgKGUuc3RvcEltbWVkaWF0ZVByb3BhZ2F0aW9uKSBlLnN0b3BJbW1lZGlhdGVQcm9wYWdhdGlvbigpCiAgICAgIH0KICAgIH0KICAgIGNvcHlFdmVudHMuZm9yRWFjaCgoZXZ0KSA9Jmd0OyB7CiAgICAgIGRvY3VtZW50LmRvY3VtZW50RWxlbWVudC5hZGRFdmVudExpc3RlbmVyKGV2dCwgcmVqZWN0T3RoZXJIYW5kbGVycywgewogICAgICAgIGNhcHR1cmU6IHRydWUsCiAgICAgIH0pCiAgICB9KQogIH0pKCk8L1NDUklQVD48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4OTguMTkyIDI3Ni4wNzEpIj48cGF0aCBjbGlwLXBhdGg9Im5vbmUiIGQ9Ik0tODM3LjY2My0yMzcuOTY4YTUuNDkgNS40OSAwIDAgMC01LjQyMyA0LjYzM2wtOS4wMTMgNTcuMTUtOC4yODEgNTIuNTE0LS4wMDUuMDQ0LjAxLS4wNDQgOC4yODEtNTIuNTE0Yy40MjEtMi42NjkgMi43MTktNC42MzMgNS40Mi00LjYzM2gyNi40MDRjMjYuNTczIDAgNDkuMTI3LTE5LjM4NyA1My4yNDYtNDUuNjU4LjMxNC0xLjk5Ni40ODItMy45NzMuNTItNS45MjR2LS4wMDNoLS4wMDNjLTYuNzUzLTMuNTQzLTE0LjY4My01LjU2NS0yMy4zNzItNS41NjV6IiBmaWxsPSIjMDAxYzY0Ii8+PHBhdGggY2xpcC1wYXRoPSJub25lIiBkPSJNLTc2Ni41MDYtMjMyLjQwMmMtLjAzNyAxLjk1MS0uMjA3IDMuOTMtLjUyIDUuOTI2LTQuMTE5IDI2LjI3MS0yNi42NzMgNDUuNjU4LTUzLjI0NiA0NS42NThoLTI2LjQwNGMtMi43MDEgMC00Ljk5OSAxLjk2NC01LjQyIDQuNjMzbC04LjI4MSA1Mi41MTQtNS4xOTcgMzIuOTQ3YTQuNDYgNC40NiAwIDAgMCA0LjQwNSA1LjE1M2gyOC42NmE1LjQ5IDUuNDkgMCAwIDAgNS40MjMtNC42MzNsNy41NS00Ny44ODFjLjQyMy0yLjY2OSAyLjcyMi00LjYzNiA1LjQyMy00LjYzNmgxNi44NzZjMjYuNTczIDAgNDkuMTI0LTE5LjM4NiA1My4yNDMtNDUuNjU1IDIuOTI0LTE4LjY0OS02LjQ2LTM1LjYxNC0yMi41MTEtNDQuMDI2eiIgZmlsbD0iIzAwNzBlMCIvPjxwYXRoIGNsaXAtcGF0aD0ibm9uZSIgZD0iTS04NzAuMjI1LTI3Ni4wNzFhNS40OSA1LjQ5IDAgMCAwLTUuNDIzIDQuNjM2bC0yMi40ODkgMTQyLjYwOGE0LjQ2IDQuNDYgMCAwIDAgNC40MDUgNS4xNTZoMzMuMzUxbDguMjgxLTUyLjUxNCA5LjAxMy01Ny4xNWE1LjQ5IDUuNDkgMCAwIDEgNS40MjMtNC42MzNoNDcuNzgyYzguNjkxIDAgMTYuNjIxIDIuMDI1IDIzLjM3NSA1LjU2My40Ni0yMy45MTctMTkuMjc1LTQzLjY2Ni00Ni40MTItNDMuNjY2eiIgZmlsbD0iIzAwMzA4NyIvPjwvZz48c3R5bGUgeG1sbnM9IiIgY2xhc3M9ImRhcmtyZWFkZXIgZGFya3JlYWRlci0tZmFsbGJhY2siPmh0bWwsIGJvZHksIGJvZHkgOm5vdChpZnJhbWUpIHsKICAgIGJhY2tncm91bmQtY29sb3I6ICMxODFhMWIgIWltcG9ydGFudDsKICAgIGJvcmRlci1jb2xvcjogIzc3NmU2MiAhaW1wb3J0YW50OwogICAgY29sb3I6ICNlOGU2ZTMgIWltcG9ydGFudDsKfTwvc3R5bGU+PC9zdmc+"
-					style="width:32px;height:32px;"></a>
-			</div>
-			<span style="font-size: 30px;" onclick="openNav()"> &#9776 </span>
-
-			<script>
-				function openNav() {
-					document.getElementById("mySidenav").style.width = "250px";
-				}
-				function closeNav() {
-					document.getElementById("mySidenav").style.width = "0";
-				}
-			</script>
-
-			<span id="txt" style="float: right; font-size: 30px;"> TIME TO YOUR DEATH </span>
-			<div class="logo">
-			<!--
-				<img class="invert" src="img/creeper face.png" width=100 height=100>
-				<h2> WELCOME TO MY WEBSITE!!! </h2>
-			-->
-				<span id="ban" style="float: right; font-size: 30px;"></span>
-				<script>
-					// APPEAL COOLDOWN
-					function countdown0(timerElBan, timerId, date) {
-						// Calculate time difference between now and end time
-						const timeDiff = new Date(date) - new Date();
-						// Calculate days, hours, minutes, seconds, and milliseconds
-						const days = String(Math.floor(timeDiff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-						const hours = String(Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-						const minutes = String(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-						const seconds = String(Math.floor((timeDiff % (1000 * 60)) / 1000)).padStart(2, '0');
-						const milliseconds = String(Math.floor((timeDiff % 1000) / 10)).padStart(2, '0');
-						const displayTime = `${days}:${hours}:${minutes}:${seconds}.${milliseconds}`;
-						// Update timer display
-						timerElBan.innerText = displayTime;
-						// Stop the countdown when timeLeft reaches 0
-						if (timeDiff <= 0) {
-							clearInterval(timerId);
-							timerElBan.innerText = `00:00:00:00.00`;
-						}
-					}
-					let timerIdGDjkhp, others = document.getElementById('ban');
-					clearInterval(timerIdGDjkhp);
-					timerIdGDjkhp = setInterval(() => countdown0(others, timerIdGDjkhp, "2025-06-17"), 1);
-				</script>
-				<a href="#Home" onclick="closeNav(); toggleAbout(); toggleChildren();">
-					<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
-				</a>
-				<br>
-				<a href="https://count.getloli.com/">
-					<img class="imgtest" src="https://count.getloli.com/get/@:GDjkhp?theme=rule34&darkmode=0" alt="Rule34 visitor counter broke. We'll be right back!" title="No, this is not a direct link to Rule34.">
-				</a>
-			</div>
-		</div>
-		<!--
-		<div class="header">
-		
-			
-		
-		</div>
-		
-		<div class="headertwo">
-		
-			
-		
-		</div>
-		
-		-->
-		<div id="Extras" class="footer">
-			<div id="About" class="row">
-				<div class="column">
-					<!--
-					<img src="IMG_20181108_185015.jpg" width=60 height=80>
-					-->
-					<h2> My Personal Information </h2>
-					<table>
-						<tr>
-							<th> Full Name </th>
-							<td> John Kennedy Haringa Peña </td>
-						</tr>
-						<tr>
-							<th> Age </th>
-							<td id="age"> -1 </td>
-						</tr>
-						<tr>
-							<th> Sex </th>
-							<td> Male </td>
-						</tr>
-						<tr>
-							<th> Date of Birth </th>
-							<td> January 29, 2003 </td>
-						</tr>
-						<tr>
-							<th> Place of Birth </th>
-							<td> Mayao Crossing, Lucena City </td>
-						</tr>
-						<tr>
-							<th> Religion </th>
-							<td> Christianity </td>
-						</tr>
-						<tr>
-							<th> Citizenship </th>
-							<td> Filipino </td>
-						</tr>
-					</table>
-				</div>
-				
-				<div class="column">
-					<!-- <a href="https://discord.com/users/729554186777133088">
-					<img src="https://lanyard.cnrad.dev/api/729554186777133088?bg=000000" style="width: 100%;" alt="Discord RPC isn't working!" title="Click here to visit my Discord Profile!"> </img>
-					</a> -->
-					<!-- border-radius: .75rem; -->
-					<div id="rpcdiv" style="border: 3px white solid;">
-						<!-- border-radius: .50rem .50rem 0px 0px; -->
-						<!-- border-radius: 0px 0px .50rem .50rem; -->
-					</div>
-					<h2> Social Links </h2>
-					<a href="https://facebook.com/GDjkhp" target="_blank"><img class="social" src="img/fb.png" style="width:64px;height:64px;"></a>
-					<a href="https://discord.com/users/729554186777133088" target="_blank"><img class="social" src="img/dc.png" style="width:64px;height:64px;"></a>
-					<a href="https://steamcommunity.com/id/GDjkhp" target="_blank"><img class="social" src="img/steam-square.png" style="width:64px;height:64px;"></a>
-					<a href="https://myanimelist.net/profile/GDjkhp" target="_blank"><img class="social" src="img/MyAnimeList_Logo.png" style="width:64px;height:64px;"></a>
-					<br>
-					<a href="https://youtube.com/channel/UCDGRP1W4QbkDlweqoykRgmw" target="_blank"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
-					<a href="https://reddit.com/user/GDjkhp" target="_blank"><img class="social" src="img/reddit-logo-2436.png" style="width:64px;height:64px;"></a>
-					<a href="https://jkhp.newgrounds.com" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>	
-					<a href="https://github.com/GDjkhp" target="_blank"><img class="social" src="img/git.png" style="width:64px;height:64px;"></a>
-					<br>
-					<a href="https://soundcloud.com/john-kennedy-pena" target="_blank"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
-					<a href="https://twitter.com/GDjkhp" target="_blank"><img class="social" src="img/Twitter social icons - square - blue.png" style="width:64px;height:64px;"></a>
-					<a href="https://open.spotify.com/user/31wbon77dep63fpl2hi3e4df4rja" target="_blank"><img class="social" src="img/Spotify_App_Logo.svg.png" style="width:64px;height:64px;"></a>
-					<a href="https://www.last.fm/user/GDjkhp" target="_blank"><img class="social" src="img/lastfm.png" style="width:64px;height:64px;"></a>
-					<!-- remove this cringe ass shit
-					<h3> :::::DJ🎧 Pianist🎹 Hacker😈::::: <br> -----🎮Plays🎮----- <br> Geometry Dash🔥 <br> Minecraft⛏ <br> Tekken🥋 <br> GTA👊 <br> CS🔫 </h3>
-					-->
-				</div>
-				
-				<div class="column">
-					<h2> My PC Specifications </h2>
-					<!--
-					<img src="acer.png" width=120 height=67.5>
-					-->					
-					<table>
-						<tr>
-							<th> System Manufacturer </th>
-							<td> Acer </td>
-						</tr>
-						<tr>
-							<th> System Model </th>
-							<td> Aspire ES1-132 </td>
-						</tr>
-						<tr>
-							<th> Operating System </th>
-							<td> Windows 10 (64bit) </td>
-						</tr>
-						<tr>
-							<th> Processor </th>
-							<td> Intel Celeron N3450 1.10Ghz </td>
-						</tr>
-						<tr>
-							<th> Video Card </th>
-							<td> Intel HD Graphics </td>
-						</tr>
-						<tr>
-							<th> Sound Card </th>
-							<td> Realtek High Definition Audio </td>
-						</tr>
-						<tr>
-							<th> Memory </th>
-							<td> 10 GB (2 GB + 8 GB) </td>
-						</tr>
-						<tr>
-							<th> Storage </th>
-							<td> 500 GB (System) + 1 TB (External) </td>
-						</tr>
-						<tr>
-							<th> Display </th>
-							<td> 1366x768 </td>
-						</tr>
-						<tr>
-							<th> DirectX Version </th>
-							<td> 12 </td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<script src="scripts/orientation.js"></script>
-
-			<div id="Anime">
-				<span style="font-size: 25px; font-weight: bold;"> GDjkhp's MyAnimeList Heatmap </span>
-				<br>
-				<a href="https://malheatmap.com/users/GDjkhp" target="_blank"> 
-					<img class="invert" src="https://malheatmap.com/users/GDjkhp/images/calendar" width="100%" alt="malheatmap.com is down!" title="Fuck you! I'm not a fucking weeb! Fuck you DarkGamma!"></img> 
-				</a>
-				<br>
-				<a href="https://myanimelist.net/animelist/GDjkhp?status=1" style="text-decoration: none;" target="mal"> 
-					<span class="stats"> Watching... </span>
-				</a>
-				<a href="https://myanimelist.net/animelist/GDjkhp?status=2" style="text-decoration: none;" target="mal"> 
-					<span class="stats"> Completed... </span>
-				</a>
-				<a href="https://myanimelist.net/animelist/GDjkhp?status=3" style="text-decoration: none;" target="mal"> 
-					<span class="stats"> On-Hold... </span>
-				</a>
-				<a href="https://myanimelist.net/animelist/GDjkhp?status=4" style="text-decoration: none;" target="mal"> 
-					<span class="stats"> Dropped... </span>
-				</a>
-				<a href="https://myanimelist.net/animelist/GDjkhp?status=6" style="text-decoration: none;" target="mal"> 
-					<span class="stats"> Plan to Watch... </span>
-				</a>
-				<br>
-				<a href="https://myanimelist.net/animelist/GDjkhp" style="text-decoration: none;" target="mal"> 
-					<span class="stats2"> Total Entries... </span>
-					<span class="stats2"> Rewatched... </span>
-					<span class="stats2"> Episodes... </span>
-					<span class="stats2"> Mean Score... </span>
-				</a>
-				<script src="scripts/anime_stats_script.js"></script>
-				<br>
-				<!-- <a href="javascript:void(0)" onclick="openRecent()" style="font-size: 25px;">GDjkhp's Recent Anime</a> -->
-				<div id="recent">
-					<!-- Deprecated -->
-					<!-- <script src="https://rss2html.gdjkhp.repl.co/?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&showicon=true&type=js"></script> -->
-					<!-- <script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B+border%3A+white+3px+dashed%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script> -->
-					<script src="https://embeds.rss2html.net/embed.js?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&amp;item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B+border%3A+white+3px+dashed%3B+border-radius%3A+25px%3B%22"></script>
-					<script src="scripts/anime_img_script.js"></script>
-				</div>
-
-				<script>
-					var recent = document.getElementById("recent");
-					// recent.style.display = "none";
-					function openRecent() {
-						if (recent.style.display === "none") {
-							recent.style.display = "block";
-						} else {
-							recent.style.display = "none";
-						}
-					}
-				</script>
-			</div>
-
-			<div id="Music">
-				<span style="font-size: 69px;">the world would become a better place without me so i'm staying</span>
-				<br>
-				<a href="javascript:void(0)" onclick="viewSC()"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
-				<a href="javascript:void(0)" onclick="viewYT()"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
-				<a href="https://newgrounds.com/audio/listen/1182595" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
-
-				<div id="sc">
-					<iframe width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1576921747&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/john-kennedy-pena" title="GDjkhp" target="_blank" style="color: #cccccc; text-decoration: none;">GDjkhp</a> · <a href="https://soundcloud.com/john-kennedy-pena/sets/the-world-would-become-a" title="the world would become a better place without me so i&#x27;m staying" target="_blank" style="color: #cccccc; text-decoration: none;">the world would become a better place without me so i&#x27;m staying</a></div>
-				</div>
-
-				<div id="yt">
-					<iframe width="100%" height="480" src="https://www.youtube.com/embed/Z51gqcSM8EI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-
-				<br>
-				<canvas id="canvas" width="1500" height="1250" style="width: 100%;"></canvas>
-				<script src="scripts/perlin.js"></script>
-				<script src="scripts/terrain.js"></script>
-			</div>
-
-			<!-- TODO -->
-			<div id="Games">
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://gdjkhp.github.io/NoobGPT">
-						<img src="https://gdjkhp.github.io/img/noob_old.png" height="128">
-						<h1>NoobGPT</h1>
-					</a>
-					<span>A <b>very simple yet complicated</b> multi-purpose Discord bot that does pretty much nothing but insult you.</span>
-				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://gdjkhp.github.io/meeseeks-leaderboard-api">
-						<img src="https://gdjkhp.github.io/img/mee6.png" height="128">
-						<h1>meeseeks-leaderboard-api</h1>
-					</a>
-					<span>Pointless efforts to brag your meeseeks rank instead of typing !rank that no one asked.</span>
-				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://gdjkhp.github.io/ama-facial-recognition">
-						<h1>ama-facial-recognition</h1>
-					</a>
-					<span>free to use AI face recognition O_O</span>
-				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://www.unknowncheats.me/forum/among-us/521567-amonguscosmetics.html">
-						<h1>AmongUsCosmetics</h1>
-					</a>
-					<span>Unlocks all in-game cosmetics for the popular Game Among Us.</span>
-				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://github.com/GDjkhp/java-game-engine">
-						<h1>java-game-engine</h1>
-					</a>
-					<span>Simple rendering engine reworked with shaders.</span>
-				</div>
-				<!-- <div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://github.com/GDjkhp/xt-audio-for-java-8">
-						<h1>xt-audio-for-java-8</h1>
-					</a>
-					<span>JRE8 port of old XT-Audio.</span>
-				</div> -->
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
-					<a href="https://github.com/GDjkhp/weird-visualizer">
-						<h1>weird-visualizer</h1>
-					</a>
-					<span>Real-time audio visualization using XT-Audio.</span>
-				</div>
-				<h1>github contributions</h1>
-				<img width="100%" src="https://raw.githubusercontent.com/GDjkhp/GDjkhp/output-test/profile-3d-contrib/profile-night-green.svg">
-				<br>
-				<img src="https://api.githubtrends.io/user/svg/GDjkhp/langs?time_range=all_time&theme=dark">
-  				<img src="https://api.githubtrends.io/user/svg/GDjkhp/repos?time_range=all_time&theme=dark">
-				<br>
-				<img width="100%" src="https://raw.githubusercontent.com/GDjkhp/GDjkhp/output/github-contribution-grid-snake-dark.svg">
-				<br>
-				<img width="100%" src="https://ssr-contributions-svg.vercel.app/_/GDjkhp?chart=3dbar&gap=0.6&scale=2&animation=wave&animation_duration=1&animation_delay=0.05&animation_amplitude=20&animation_frequency=0.5&animation_wave_center=0_0&weeks=50&theme=green&dark=true&format=svg">
-				<!-- Include the library. -->
-				<!-- <script
-				src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"
-				></script> -->
-
-				<!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
-				<!-- <link
-				rel="stylesheet"
-				href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
-				/> -->
-
-				<!-- Prepare a container for your calendar. -->
-				<!-- <div class="calendar"> -->
-				<!-- Loading stuff -->
-				<!-- Loading the data just for you.
-				</div>
-
-				<script>
-				GitHubCalendar(".calendar", "GDjkhp", { tooltips: true, responsive: true });
-				</script> -->
-			</div>
-
-			<div id="AUM"></div>
-
-			<!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/964763980&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/john-kennedy-pena" title="GDjkhp" target="_blank" style="color: #cccccc; text-decoration: none;">GDjkhp</a> · <a href="https://soundcloud.com/john-kennedy-pena/cicada-3301-the-instar-emergence-traphip-hop-remix" title="Cicada 3301 - The Instar Emergence (Trap/Hip-Hop Remix)" target="_blank" style="color: #cccccc; text-decoration: none;">Cicada 3301 - The Instar Emergence (Trap/Hip-Hop Remix)</a></div> -->
-			
-			<!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1184788333&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-			<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-				<a href="https://soundcloud.com/john-kennedy-pena" title="GDjkhp" target="_blank" style="color: #cccccc; text-decoration: none;">GDjkhp</a> · <a href="https://soundcloud.com/john-kennedy-pena/limegd-x-gdjkhp-x-whitefiregd-fire-ft-maria-mitisor" title="LIMEGD x GDJKHP x WHITEFIREGD - FIRE ft. Maria Mitisor" target="_blank" style="color: #cccccc; text-decoration: none;">LIMEGD x GDJKHP x WHITEFIREGD - FIRE ft. Maria Mitisor</a>
-			</div> -->
-			
-			<!-- <iframe src="https://discord.com/widget?id=838360905916874802&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
-			
-			<!-- <iframe src="https://www.whatismybrowser.com/feature/iframe?bgcolor=000000&size=small&version_check=true&capabilities=true&screen=true&ip_address=true&viewmore=true"></iframe> -->
-	
-			<!--
-			<a href="https://www.a1k0n.net/2011/07/20/donut-math.html" title="Click here to learn how the fuck this work!">
-			<div class="container">
-			<canvas id="canvasdonut" width="300" height="240"></canvas>
-			</div>
-			</a>
-			-->
-			
-			<!-- DONUT CODE START 
-			<a href="https://www.youtube.com/watch?v=sW9npZVpiMI" style="text-decoration: none;" title="Based from the JomaTech video.">
-			<div class="container">
-			<pre class="center" id="d"></pre>
-			</div>
-			
-			<script src="scripts/donut.js"></script>
-			</a>
-			DONUT CODE END -->
-
-			<!--
-			<button onclick="anim1();">toggle animation</button>
-			<button onclick="anim2();">toggle animation</button>
-			-->
-		
-		</div>
-
-		<div class="footertwo">
-			<!-- TODO: make this dynamic -->
-			<marquee> <a href="https://discord.gg/geometrydash"> JOIN THE OFFICIAL GEOMETRY DASH DISCORD SERVER!!! </a> </marquee>
-			<a href="https://facebook.com/GDjkhp"> © The Karakters Kompany, <span id="year">201X</span> </a>
-		</div>
-
-		<!-- script hell -->
-		<script src="scripts/utility.js"></script>
-
-		<!-- Responsible for music page -->
-		<script>
-			var sc = document.getElementById('sc');
-			var yt = document.getElementById('yt');
-
-			function hideEmbed() {
-				sc.style.display = "none";
-				yt.style.display = "none";
-			}
-			hideEmbed();
-
-			function viewSC() {
-				hideEmbed();
-				sc.style.display = "block";
-			}
-
-			function viewYT() {
-				hideEmbed();
-				yt.style.display = "block";
-			}
-		</script>
-
-		<!-- Responsible for extras pages -->
-		<script>
-			var extras = document.getElementById('Extras').children;
-			var moosic = document.getElementById('Music');
-			var anime = document.getElementById('Anime');
-			var games = document.getElementById('Games');
-			var aum = document.getElementById('AUM');
-			var about = document.getElementById('About');
-
-			function killChildren() {
-				for (var sel = 0; sel < extras.length; sel++)
-					extras[sel].style.display = "none";
-			}
-			function toggleChildren() {
-				for (var sel = 0; sel < extras.length; sel++)
-					extras[sel].style.display = "block";
-			}
-			function toggleAbout() {
-				killChildren();
-				about.style.display = "block";
-			}
-			toggleAbout();
-			function toggleMusic() {
-				killChildren();
-				moosic.style.display = "block";
-			}
-			function toggleAnime() {
-				killChildren();
-				anime.style.display = "block";
-			}
-			// TODO
-			function toggleGames() {
-				killChildren();
-				games.style.display = "block";
-			}
-			function toggleAUM() {
-				killChildren();
-				aum.style.display = "block";
-			}
-
-			if(window.location.hash) {
-				// The URL contains an id value after the # symbol
-				var id = window.location.hash.substr(1); // Get the id value without the # symbol
-				console.log('The URL contains the id ' + id);
-
-				switch(id) {
-					case 'Music': 
-						toggleMusic();
-						break;
-					case 'Anime':
-						toggleAnime();
-						break;
-					case 'Extras':
-						toggleGames();
-						break;
-				}
-			} else {
-				// The URL does not contain an id value after the # symbol
-				console.log('The URL does not contain an id');
-			}
-		</script>
-	</BODY>
-</HTML>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>hey what's up! its the sky. how are you? i dont think i can continue with this facade any longer.</p>
+<br>
+<p>i am done. screw this pretentious dream. i feel like im some billionaire who wants to build the all in one app.</p>
+<br>
+<p>what the fuck is this steamworks ubisoft drm crap all about?</p>
+<br>
+<p>punchtuation</p>
+<br>
+<p>life update: im losing everythingggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</p>
+<br>
+<p>going insane is such an understatement atp</p>
+<br>
+<p>im losing my mind so much, i became normal.</p>
+<br>
+<p>remember the album? i don't</p>
+<br>
+<p>i wish i was noobgpt</p>
+<br>
+<p>radiohead is yucky</p>
+<script>
+sex = "what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? notices bulge OwO what's this? ";
+while (true) console.log(sex.slice(0, Math.floor(Math.random() * sex.length)));
+</script>
+<marquee>from mental breakdown to reaching enlightenment</marquee>
+<p>i want to become a priest sometimes.</p>
+<br>
+<p>life is pointless. i hate myself so much, i want to live longer just to torture myself with more problems. i dont think im going away any time soon, in fact i want to become immortal.</p>
+<br>
+<p>fuck the point of life. there is <b>ONE</b> bug that i can't fix, and it's my self confidence and communication skills.</p>
+<br>
+<p>inanganak na torpe</p>
+<br>
+<p>naaalalakitapagumuulansembreak</p>
+<br>
+<h1>HOY HOY HOY BATO NANAMAN</h1>
+<br>
+<p>walang magbabasa nito ganon ito ka irrelevant</p>
+<a href="https://myanimelist.net/profile/GDjkhp">baka nanonood nanaman ako ng anime</a>

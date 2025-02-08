@@ -2203,6 +2203,9 @@ html:not(.dark-mode) #fancybox-frame {
 
 /*------------------------E-N-D-*/
 
+.data.tags {
+    width: 0px;
+}
 
 /*-S-T-A-R-T--------------------*\
 | Character Renders R0.3         |

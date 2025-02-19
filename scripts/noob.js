@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     @media (min-width: 820px) {
         .right {
-            display: block;
-            margin-left: auto;
+            float: right;
         }
     `;
     document.head.appendChild(style);

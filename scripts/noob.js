@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     h1 {
         text-align: center;
     }
-    @media (max-width: 820px) {
+    @media (min-width: 820px) {
         .right {
             display: block;
             margin-left: auto;

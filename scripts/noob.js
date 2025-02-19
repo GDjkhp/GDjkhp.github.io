@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .right {
             float: right;
         }
+        .br {
+            display: none;
+        }
     `;
     document.head.appendChild(style);
 

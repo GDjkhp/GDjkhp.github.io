@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
     tr, th, td {
         background-color: black;
     }
+    h1 {
+        text-align: center;
+    }
+    @media (max-width: 820px) {
+        .right {
+            position: absolute;
+            right: 0px;
+        }
     `;
     document.head.appendChild(style);
 

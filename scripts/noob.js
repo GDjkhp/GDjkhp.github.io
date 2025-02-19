@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
     h1 {
         text-align: center;
     }
+    .github {
+        display: none;
+    }
     @media (min-width: 820px) {
         .right {
             float: right;

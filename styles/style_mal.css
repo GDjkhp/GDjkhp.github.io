@@ -2224,18 +2224,42 @@ footer:after {
 	background: transparent no-repeat center bottom / contain scroll;
 }
 
+@keyframes randomHue {
+	0% { filter: hue-rotate(0deg); }
+	25% { filter: hue-rotate(90deg); }
+	50% { filter: hue-rotate(180deg); }
+	75% { filter: hue-rotate(270deg); }
+	100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(3px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(3px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(1px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
 /* Left Render */
 footer:before {
 	right: calc(100% - (50% - 538px));
 	background-image: url(https://gdjkhp.github.io/img/tama-anim-walk----Copy.gif);
 	background-position: left bottom;
+	animation: randomHue 3s infinite linear, shake 0.5s infinite;
 }
 
 /* Right Render */
 footer:after {
 	left: calc(100% - (50% - 538px));
-	background-image: url(https://gdjkhp.github.io/img/kagura-yay-hd.gif);
+	background-image: url(https://gdjkhp.github.io/img/kagura-walk-hdfix.gif);
 	background-position: right bottom;
+	animation: randomHue 2s infinite linear, shake 0.5s infinite;
 }
 
 /*------------------------E-N-D-*/

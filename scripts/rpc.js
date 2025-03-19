@@ -71,11 +71,18 @@ function addRPC() {
 }
 
 function addProfile() {
+    // NOTE: there are lots of magic numbers here, because pixels
+    // 144px - 120px = 24px
+    // 24px ÷ 2 = 12px (-12px)
+    avatar = 80;
+    deco = 96;
+    offset = -(deco - avatar)/2;
     const rpcHtml = `
-        <div class="c" id="e" style="display: none;"> 
-            <div style="position: relative; height: 64px;">
-                <img id="avatar" width="64" style="border-radius: 9999px;" src="https://gdjkhp.github.io/img/dc.png">
-                <span id="online" style="width: 16px; height: 16px; border-radius: 9999px; position: absolute; bottom: 0px; right: 0px; background-color: gray; border: black 2px solid;">
+        <div class="c" id="e" style="display: none;">
+            <div style="position: relative; height: ${avatar}px;">
+                <img id="avatar" width="${avatar}" style="border-radius: 9999px;" src="https://gdjkhp.github.io/img/dc.png">
+                <img id="deco" width="${deco}" style="position: absolute; top: ${offset}px; left: ${offset}px;" src="https://gdjkhp.github.io/img/dc.png">
+                <span id="online" style="width: 24px; height: 24px; border-radius: 9999px; position: absolute; bottom: 0px; right: 0px; background-color: gray; border: black 4px solid;">
             </div>
             <div style="padding: 8px;">
                 <span id="username" style="font-weight: bold; font-size: 25px;"></span>
@@ -100,12 +107,15 @@ async function updatepresence() {
     addProfile();
     var json = await lanyard({userId: userid});
     var avatar = document.getElementById("avatar");
+    var deco = document.getElementById("deco");
     var online = document.getElementById("online");
     var username = document.getElementById("username");
     var status = document.getElementById("status");
     var e = document.getElementById("e");
     e.style.display = "flex";
     avatar.src = json.discord_user.avatar ? `https://cdn.discordapp.com/avatars/${userid}/${json.discord_user.avatar}` : "https://gdjkhp.github.io/img/dc.png";
+    deco.src = json.discord_user.avatar_decoration_data ? `https://cdn.discordapp.com/avatar-decoration-presets/${json.discord_user.avatar_decoration_data.asset}` : "https://gdjkhp.github.io/img/dc.png";
+    deco.style.opacity = json.discord_user.avatar_decoration_data ? 1 : 0;
     username.innerHTML = json.discord_user.username;
     online.style.backgroundColor = getStatusColor(json.discord_status);
     activities = json.activities;

@@ -46,8 +46,8 @@ function addRPC() {
     const rpcHtml = `
         <div class="c rpc" style="display: none;">
             <div style="position: relative;">
-                <img class="assetBig" width="64" style="border-radius: 0.75rem;" src="https://gdjkhp.github.io/img/unknown.png">
-                <img class="assetSmall" width="16" style="border-radius: 9999px; position: absolute; bottom: 0px; right: 0px;" src="https://gdjkhp.github.io/img/unknown.png">
+                <img class="assetBig" width="80" style="border-radius: 0.75rem;" src="https://gdjkhp.github.io/img/unknown.png">
+                <img class="assetSmall" width="24" style="border-radius: 9999px; position: absolute; bottom: 0px; right: 0px;" src="https://gdjkhp.github.io/img/unknown.png">
             </div>
             <div style="padding: 8px;">
                 <span class="name" style="font-weight: bold; font-size: 25px;"></span>

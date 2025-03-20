@@ -59,7 +59,7 @@ function addRPC() {
                 <div class="album" style="display: none;">
                     <span class="albumreal"></span>
                 </div>
-                <div class="progressbar" style="width: 200px; height: 4px; background-color: gray; display: none;">
+                <div class="progressbar" style="width: 180px; height: 4px; background-color: gray; display: none;">
                     <div class="progress" style="width: 50%; height: 4px; background-color: white;"></div>
                 </div>
                 <span class="timestamp"></span>

@@ -257,3 +257,15 @@ img:hover {
 	90% { transform: translate(1px, 2px) rotate(0deg); }
 	100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+.track {
+	display: flex;
+	align-items: center;
+	border: 3px white solid;
+	text-align: left;
+	padding: 8px;
+}
+
+.lastfm {
+	border: 3px white solid;
+}

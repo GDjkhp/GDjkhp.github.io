@@ -28,6 +28,8 @@ body {
 	/* border: 5px solid white; */
 	color: #ffffff;
 	background-color: #000000;
+	max-width: 100%;
+    overflow-x: hidden;
 }
 
 body *, :not(*) {

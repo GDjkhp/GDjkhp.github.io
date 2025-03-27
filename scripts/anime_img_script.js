@@ -8,29 +8,34 @@ async function getAllLink() {
 		const res = str.split("?"); 
 		const id = res[0].slice(30, res[0].lastIndexOf("/"));
 		
-		const result = await fetch(`https://api.jikan.moe/v4/anime/${id}`).then(res => res.json());
-		const seriesData = result.data;
-		
-		const img = document.createElement("img");
-		img.src = seriesData.images.jpg.image_url;
-		
-		// airing, duration, episodes, genres[0].name, rank, rating, score, season, source, status, studios[0].name, synopsis, title, type, year
-		img.title = seriesData.title + "\n" + seriesData.type + ", " + seriesData.episodes + " episode/s";
-		img.title += nullDate(seriesData);
-		img.title += "\n" + joinStrings(seriesData.studios);
-		img.title += "\n" + joinStrings(seriesData.genres);
-		img.title += "\n" + seriesData.duration;
-		img.title += "\n" + seriesData.rating;
-		img.title += "\nRank: #" + seriesData.rank + ", Score: " + seriesData.score;
-		img.title += "\n\n" + seriesData.synopsis;
-		
-		const tag = document.createElement("a"); 
-		tag.href = res;
-		tag.appendChild(img);
-		
-		data[x].insertBefore(tag, title[x]);
-		
-		await delay();
+		try {
+			const result = await fetch(`https://api.jikan.moe/v4/anime/${id}`).then(res => res.json());
+			const seriesData = result.data;
+			
+			const img = document.createElement("img");
+			img.src = seriesData.images.jpg.image_url;
+			
+			// airing, duration, episodes, genres[0].name, rank, rating, score, season, source, status, studios[0].name, synopsis, title, type, year
+			img.title = seriesData.title + "\n" + seriesData.type + ", " + seriesData.episodes + " episode/s";
+			img.title += nullDate(seriesData);
+			img.title += "\n" + joinStrings(seriesData.studios);
+			img.title += "\n" + joinStrings(seriesData.genres);
+			img.title += "\n" + seriesData.duration;
+			img.title += "\n" + seriesData.rating;
+			img.title += "\nRank: #" + seriesData.rank + ", Score: " + seriesData.score;
+			img.title += "\n\n" + seriesData.synopsis;
+			
+			const tag = document.createElement("a"); 
+			tag.href = res;
+			tag.appendChild(img);
+			
+			data[x].insertBefore(tag, title[x]);
+			
+			await delay();
+		} catch (error) {
+			console.log(error);
+			continue;
+		}
 	}
 	// Initiate scrollhack after loading all images
 	createScrollAnimation('rss2html-embed-item');

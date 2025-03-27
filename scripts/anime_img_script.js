@@ -32,6 +32,14 @@ async function getAllLink() {
 		
 		await delay();
 	}
+	// Initiate scrollhack after loading all images
+	createScrollAnimation('rss2html-embed-item');
+	createScrollAnimation('track');
+	createScrollAnimation('works');
+	// Reinitialize on window resize to ensure responsiveness
+	window.addEventListener('resize', createScrollAnimation('rss2html-embed-item'));
+	window.addEventListener('resize', createScrollAnimation('track'));
+	window.addEventListener('resize', createScrollAnimation('works'));
 }
 
 getAllLink();

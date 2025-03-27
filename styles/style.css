@@ -261,9 +261,10 @@ img:hover {
 .track {
 	display: flex;
 	align-items: center;
-	border: 3px white solid;
+	border: 3px white dashed;
 	text-align: left;
 	padding: 8px;
+	margin: 8px;
 }
 
 .lastfm {

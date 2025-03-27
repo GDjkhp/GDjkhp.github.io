@@ -50,7 +50,7 @@ async function mainfm() {
     data.recenttracks.track.forEach(async t => {
         await delay(1);
         song_template();
-        let img =   document.getElementsByClassName("track-cover") [number];
+        let img   = document.getElementsByClassName("track-cover") [number];
         let title = document.getElementsByClassName("track-title") [number];
         let artist= document.getElementsByClassName("track-artist")[number];
         let album = document.getElementsByClassName("track-album") [number];

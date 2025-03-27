@@ -5,10 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- width device fix -->
 		<link rel="icon" href="./img/42247211_1895555103813303_6679866282172481536_n.jpg">
 		<link rel="stylesheet" href="./styles/style.css">
+		<script src="https://cdn.jsdelivr.net/gh/0x5841524f4e/js-lanyard/lanyard.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 		<script src="scripts/strftime.js"></script>
 		<script src="scripts/clock.js"></script>
 		<script src="scripts/snow.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/0x5841524f4e/js-lanyard/lanyard.js"></script>
         <script src="scripts/rpc.js"></script>
 		<script src="scripts/corrupt.js"></script>
 	</head>
@@ -254,7 +256,8 @@
 					<!-- Deprecated -->
 					<!-- <script src="https://rss2html.gdjkhp.repl.co/?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&showicon=true&type=js"></script> -->
 					<!-- <script src="https://embeds.rss2html.net/embed.js?item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B+border%3A+white+3px+dashed%3B%22&amp;url%5B%5D=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp"></script> -->
-					<script src="https://embeds.rss2html.net/embed.js?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&amp;item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B+border%3A+white+3px+dashed%3B+border-radius%3A+25px%3B%22"></script>
+					<script src="https://embeds.rss2html.net/embed.js?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&amp;item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B+border%3A+white+3px+dashed%3B%22"></script>
+					<script src="scripts/scrollhack.js"></script>
 					<script src="scripts/anime_img_script.js"></script>
 				</div>
 
@@ -281,13 +284,8 @@
 				<a href="javascript:void(0)" onclick="viewYT()"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
 				<a href="https://newgrounds.com/audio/listen/1182595" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
 
-				<div id="sc">
-					<iframe width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1576921747&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/john-kennedy-pena" title="GDjkhp" target="_blank" style="color: #cccccc; text-decoration: none;">GDjkhp</a> · <a href="https://soundcloud.com/john-kennedy-pena/sets/the-world-would-become-a" title="the world would become a better place without me so i&#x27;m staying" target="_blank" style="color: #cccccc; text-decoration: none;">the world would become a better place without me so i&#x27;m staying</a></div>
-				</div>
-
-				<div id="yt">
-					<iframe width="100%" height="480" src="https://www.youtube.com/embed/Z51gqcSM8EI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
+				<div id="sc"></div>
+				<div id="yt"></div>
 
 				<br>
 				<canvas id="canvas" width="1500" height="1250" style="width: 100%;"></canvas>
@@ -297,14 +295,14 @@
 
 			<!-- TODO -->
 			<div id="Games">
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;" class="works">
 					<a href="https://gdjkhp.github.io/NoobGPT">
 						<img src="https://gdjkhp.github.io/img/noob_old.png" height="128">
 						<h1>NoobGPT</h1>
 					</a>
 					<span>A <b>very simple yet complicated</b> multi-purpose Discord bot that does pretty much nothing but insult you.</span>
 				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;" class="works">
 					<a href="https://gdjkhp.github.io/meeseeks-leaderboard-api">
 						<img src="https://gdjkhp.github.io/img/mee6.png" height="128">
 						<h1>meeseeks-leaderboard-api</h1>
@@ -312,13 +310,13 @@
 					<span>Pointless efforts to brag your meeseeks rank instead of typing !rank that no one asked.</span>
 				</div>
                 <br>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;" class="works">
 					<a href="https://gdjkhp.github.io/ama-facial-recognition">
 						<h1>ama-facial-recognition</h1>
 					</a>
 					<span>Free to Use AI Face Recognition (O_O)</span>
 				</div>
-				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;">
+				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;" class="works">
 					<a href="https://www.unknowncheats.me/forum/among-us/521567-amonguscosmetics.html">
 						<h1>Among<wbr>Us<wbr>Cosmetics</h1>
 					</a>
@@ -422,6 +420,8 @@
 
 		<!-- Responsible for music page -->
 		<script>
+			let loadSC = false;
+			let loadTY = false;
 			var sc = document.getElementById('sc');
 			var yt = document.getElementById('yt');
 
@@ -434,11 +434,18 @@
 			function viewSC() {
 				hideEmbed();
 				sc.style.display = "block";
+				if (!loadSC) {
+					loadSC = true;
+					sc.innerHTML = '<iframe width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1576921747&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/john-kennedy-pena" title="GDjkhp" target="_blank" style="color: #cccccc; text-decoration: none;">GDjkhp</a> · <a href="https://soundcloud.com/john-kennedy-pena/sets/the-world-would-become-a" title="the world would become a better place without me so i&#x27;m staying" target="_blank" style="color: #cccccc; text-decoration: none;">the world would become a better place without me so i&#x27;m staying</a></div>'
+				}
 			}
-
 			function viewYT() {
 				hideEmbed();
 				yt.style.display = "block";
+				if (!loadTY) {
+					loadTY = true;
+					yt.innerHTML = '<iframe width="100%" height="480" src="https://www.youtube.com/embed/Z51gqcSM8EI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+				}
 			}
 		</script>
 

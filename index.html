@@ -13,6 +13,7 @@
 		<script src="scripts/snow.js"></script>
         <script src="scripts/rpc.js"></script>
 		<script src="scripts/corrupt.js"></script>
+		<script src="scripts/toggle_states.js"></script>
 	</head>
 
 	<BODY id="Home">
@@ -79,7 +80,7 @@
 					clearInterval(timerIdGDjkhp);
 					timerIdGDjkhp = setInterval(() => countdown0(others, timerIdGDjkhp, "2025-06-17"), 1);
 				</script>
-				<a href="#Home" onclick="closeNav(); toggleAbout(); toggleChildren();">
+				<a href="#Home" onclick="closeNav(); toggleAbout(); toggleChildren(); resetGSAP();">
 					<img src="img/logo cropped.png" style="width: 100%;" title="I love how outrageously huge this thing is!">
 				</a>
 				<br>
@@ -370,6 +371,10 @@
 				GitHubCalendar(".calendar", "GDjkhp", { tooltips: true, responsive: true });
 				</script> -->
 			</div>
+			<script>
+				createScrollAnimation('works');
+				window.addEventListener('resize', createScrollAnimation('works'));
+			</script>
 
 			<div id="AUM"></div>
 
@@ -457,37 +462,7 @@
 			var games = document.getElementById('Games');
 			var aum = document.getElementById('AUM');
 			var about = document.getElementById('About');
-
-			function killChildren() {
-				for (var sel = 0; sel < extras.length; sel++)
-					extras[sel].style.display = "none";
-			}
-			function toggleChildren() {
-				for (var sel = 0; sel < extras.length; sel++)
-					extras[sel].style.display = "block";
-			}
-			function toggleAbout() {
-				killChildren();
-				about.style.display = "block";
-			}
 			toggleAbout();
-			function toggleMusic() {
-				killChildren();
-				moosic.style.display = "block";
-			}
-			function toggleAnime() {
-				killChildren();
-				anime.style.display = "block";
-			}
-			// TODO
-			function toggleGames() {
-				killChildren();
-				games.style.display = "block";
-			}
-			function toggleAUM() {
-				killChildren();
-				aum.style.display = "block";
-			}
 
 			if(window.location.hash) {
 				// The URL contains an id value after the # symbol

@@ -48,7 +48,6 @@ async function mainfm() {
 
     number = 0;
     data.recenttracks.track.forEach(async t => {
-        await delay(1);
         song_template();
         let img   = document.getElementsByClassName("track-cover") [number];
         let title = document.getElementsByClassName("track-title") [number];
@@ -64,6 +63,8 @@ async function mainfm() {
         album.innerHTML = t.album["#text"];
         time.innerHTML = t["@attr"] ? "Now playing" : strftime("%a %b %e %r %Y %Z", new Date(t.date["uts"]*1000));
     });
+	createScrollAnimation('track');
+	window.addEventListener('resize', createScrollAnimation('track'));
 }
 
 mainfm();

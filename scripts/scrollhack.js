@@ -12,7 +12,7 @@ function createScrollAnimation(item) {
         // Create scroll-triggered animation
         ScrollTrigger.create({
             trigger: item,
-            start: 'top center',
+            start: 'top bottom',
             end: 'bottom top',
             onEnter: () => {
                 // Animation when entering view

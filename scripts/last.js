@@ -3,7 +3,7 @@ function song_template() {
         <div class="track" style="display: flex;">
             <img src="https://lastfm.freetls.fastly.net/i/u/300x300/d30cca7a97dc4686b74a9128eb597d2a.png" width=80 class="track-cover">
             <div style="padding: 8px;">
-                <span class="track-title">title</span><br>
+                <a class="track-title">title</a><br>
                 <span class="track-artist">artist</span><br>
                 <span class="track-album">album</span><br>
                 <span class="track-date">01/29/2003</span>
@@ -58,9 +58,11 @@ async function mainfm() {
         number++;
         img.src = t.image[3]["#text"];
         title.innerHTML = t.name;
+        title.href = t.url;
+        title.target = "_blank";
         artist.innerHTML = t.artist["#text"];
         album.innerHTML = t.album["#text"];
-        time.innerHTML = t["@attr"] ? "Now playing" : t.date["#text"];
+        time.innerHTML = t["@attr"] ? "Now playing" : strftime("%a %b %e %r %Y %Z", new Date(t.date["uts"]*1000));
     });
 }
 

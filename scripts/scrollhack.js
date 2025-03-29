@@ -18,7 +18,7 @@ function createScrollAnimation(item) {
                 gsap.fromTo(
                     item,
                     {
-                        x: startX,
+                        x: -startX,
                         rotation: rotationStart,
                         opacity: 0,
                         scale: 0.8
@@ -67,7 +67,7 @@ function createScrollAnimation(item) {
             // Exit transition when scrolling back up
             onLeaveBack: () => {
                 gsap.to(item, {
-                    x: startX,
+                    x: -startX,
                     rotation: rotationStart,
                     opacity: 0,
                     scale: 0.8,

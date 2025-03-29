@@ -1,22 +1,20 @@
-// Create advanced scroll animation for items
 function createScrollAnimation(item) {
     ScrollTrigger.refresh();
     const items = document.getElementsByClassName(item);
     gsap.registerPlugin(ScrollTrigger);
     Array.from(items).forEach((item, index) => {
-        // Alternate start positions (left and right)
-        const startX = index % 2 === 0 ? window.innerWidth : -window.innerWidth;
-        
-        // Rotation direction alternates
-        const rotationStart = index % 2 === 0 ? 15 : -15;
+        // Starting position (either left or right of screen)
+        pos = index % 2 === 0; // Math.random() > 0.5; 
+        const startX = pos ? window.innerWidth : -window.innerWidth;
+        const rotationStart = pos ? 15 : -15; // Rotation direction alternates
         
         // Create scroll-triggered animation
         ScrollTrigger.create({
             trigger: item,
             start: 'top bottom',
             end: 'bottom top',
+            // Animation when entering view
             onEnter: () => {
-                // Animation when entering view
                 gsap.fromTo(
                     item,
                     {
@@ -35,8 +33,8 @@ function createScrollAnimation(item) {
                     }
                 );
             },
+            // Exit transition when scrolling down
             onLeave: () => {
-                // Exit transition when scrolling down
                 gsap.to(item, {
                     x: startX,
                     rotation: rotationStart,
@@ -46,8 +44,8 @@ function createScrollAnimation(item) {
                     ease: 'power2.in'
                 });
             },
+            // Re-enter when scrolling back up
             onEnterBack: () => {
-                // Re-enter when scrolling back up
                 gsap.fromTo(
                     item,
                     {
@@ -66,8 +64,8 @@ function createScrollAnimation(item) {
                     }
                 );
             },
+            // Exit transition when scrolling back up
             onLeaveBack: () => {
-                // Exit transition when scrolling back up
                 gsap.to(item, {
                     x: startX,
                     rotation: rotationStart,

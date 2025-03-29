@@ -4,7 +4,7 @@ function createScrollAnimation(item) {
     gsap.registerPlugin(ScrollTrigger);
     Array.from(items).forEach((item, index) => {
         // Starting position (either left or right of screen)
-        pos = index % 2 === 0; // Math.random() > 0.5; 
+        pos = index % 2 === 0; // Math.random() > 0.5;
         const startX = pos ? window.innerWidth : -window.innerWidth;
         const rotationStart = pos ? 15 : -15; // Rotation direction alternates
         

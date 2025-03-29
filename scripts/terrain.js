@@ -1,6 +1,6 @@
 // canvas
 var canvastag = document.getElementById('canvas');
-var WIDTH = canvastag.width, HEIGHT = canvastag.height;
+var WIDTH = canvastag.width, HEIGHT = 1250; // constant to trick the camera of the terrain floor
 
 // classes
 function map(valueCoord1, startCoord1, endCoord1, startCoord2, endCoord2) {
@@ -128,20 +128,6 @@ function zoomOut() {
     localScale /= zoomFactor;
 }
 
-// p5js terrain
-var scl = 20;
-var unit = 1000;
-var limit = unit / scl;
-var flying = 0;
-var terrain = new Array(limit);
-for (var i = 0; i < terrain.length; i++) {
-    terrain[i] = new Array(limit);
-}
-noise.seed(Math.random());
-var xDif = 45, yDif = 0, zDif = -90;
-var range = 100;
-var col = "255,255,255,1";
-
 function darw() {
     var ctx = canvastag.getContext('2d');
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -152,9 +138,9 @@ function darw() {
         var xoff = 0;
         for (var x = 0; x < limit; x++) {
             terrain[x][y] = map(noise.simplex2(xoff, yoff), 0, 1, -range, range);
-            xoff += 0.2;
+            xoff += smth;
         }
-        yoff += 0.2;
+        yoff += smth;
     }
 
     var triangles = [];
@@ -184,9 +170,25 @@ function darw() {
     // TODO: add transform codes
     triangleStrip.rotate(true, -xDif, -yDif, -zDif);
     triangleStrip.render(ctx);
+    zDif -= zRot;
 }
 
-range = 25;
+// p5js terrain
+var scl = 20;
+var unit = 2000; // 1000
+var limit = unit / scl;
+var flying = 0;
+var terrain = new Array(limit);
+for (var i = 0; i < terrain.length; i++) {
+    terrain[i] = new Array(limit);
+}
+noise.seed(Math.random());
+var xDif = 0, yDif = 0, zDif = -90;
+zRot = 0.1;
+smth = 0.05; // 0.2
+// var range = 100;
+// var col = "255,255,255,1";
+range = 100;
 var r = Math.floor(Math.random() * 256), g = Math.floor(Math.random() * 256), b = Math.floor(Math.random() * 256), a = 1;
 col = r + "," + g + "," + b + "," + a;
 

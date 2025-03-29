@@ -1,5 +1,6 @@
 // Create advanced scroll animation for items
 function createScrollAnimation(item) {
+    ScrollTrigger.refresh();
     const items = document.getElementsByClassName(item);
     gsap.registerPlugin(ScrollTrigger);
     Array.from(items).forEach((item, index) => {

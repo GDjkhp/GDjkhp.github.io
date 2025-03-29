@@ -5,32 +5,35 @@ function killChildren() {
 function toggleChildren() {
 	for (var sel = 0; sel < extras.length; sel++)
 		extras[sel].style.display = "block";
+    resetGSAP();
 }
 function toggleAbout() {
 	killChildren();
 	about.style.display = "block";
+    resetGSAP();
 }
 function toggleMusic() {
     killChildren();
     moosic.style.display = "block";
-    createScrollAnimation('track');
+    resetGSAP();
 }
 function toggleAnime() {
     killChildren();
     anime.style.display = "block";
-    createScrollAnimation('rss2html-embed-item');
+    resetGSAP();
 }
 // TODO
 function toggleGames() {
     killChildren();
     games.style.display = "block";
-    createScrollAnimation('works');
+    resetGSAP();
 }
 function toggleAUM() {
     killChildren();
     aum.style.display = "block";
 }
 function resetGSAP() {
+    createScrollAnimation('rss2html-embed-item');
     createScrollAnimation('track');
     createScrollAnimation('works');
 }

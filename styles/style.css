@@ -208,6 +208,7 @@ a:hover {
 	font-weight: bold;
 	font-size: 25px;
 	white-space: nowrap;
+	border: 3px white solid; padding: 3px;
 }
 
 .stats2 {
@@ -228,10 +229,11 @@ a:hover {
 
 /* item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B%22 */
 
-/* .rss2html-embed-item {
-	width: 300px;
-	display: inline-block;
-} */
+.rss2html-embed-item {
+	/* width: 300px;
+	display: inline-block; */
+	border: white 3px dashed;
+}
 
 .c {
 	display: flex;
@@ -269,6 +271,12 @@ img:hover {
 	margin: 8px;
 }
 
-.lastfm {
-	border: 3px white solid;
+.track:hover, .rss2html-embed-item:hover {
+	border: 3px black dashed;
+	background-color: white;
+	color: black;
+}
+
+.track:hover a, .rss2html-embed-item:hover a {
+	color: black;
 }

@@ -297,16 +297,22 @@ img:hover {
 	100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-.track {
-	display: flex;
+.track, .seemore {
 	align-items: center;
 	border: 3px white dashed;
-	text-align: left;
 	padding: 8px;
 	margin: 8px;
 }
 
-.track:hover, .rss2html-embed-item:hover {
+.track {
+	text-align: left;
+}
+
+.seemore {
+	text-align: center;
+}
+
+.track:hover, .rss2html-embed-item:hover, .seemore:hover {
 	border: 3px black dashed;
 	background-color: white;
 	color: black;

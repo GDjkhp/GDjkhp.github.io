@@ -15,6 +15,7 @@
 		<script src="scripts/corrupt.js"></script>
 		<script src="scripts/toggle_states.js"></script>
 		<script src="scripts/scrollhack.js"></script>
+		<script src="scripts/perlin.js"></script>
 	</head>
 
 	<BODY id="Home">
@@ -247,22 +248,27 @@
 			</div>
 
 			<div id="Music">
-				<span style="font-size: 25px; font-weight: bold;"> Last.fm Recent Scrobbles </span>
-				<div id="lastfm" style="border: 3px white solid;"></div>
-				<script src="scripts/last.js"></script>
-				<span style="font-size: 69px; font-family: font;">the world would become a better place without me so i'm staying</span>
-				<br>
-				<a href="javascript:void(0)" onclick="viewSC()"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
-				<a href="javascript:void(0)" onclick="viewYT()"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
-				<a href="https://newgrounds.com/audio/listen/1182595" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
-
-				<div id="sc"></div>
-				<div id="yt"></div>
-
-				<br>
-				<canvas id="canvas" width="1500" height="720" style="width: 100%;" class="imgtest"></canvas>
-				<script src="scripts/perlin.js"></script>
-				<script src="scripts/terrain.js"></script>
+				<div class="scrobble">
+					<span style="font-size: 25px; font-weight: bold;"> Last.fm Recent Scrobbles </span>
+					<div class="scrobdiv" style="border: 3px white solid;">
+						<div id="lastfm"></div>
+						<div class="seemore" onclick="mainfm();">
+							<span>+100</span>
+						</div>
+					</div>
+					<script src="scripts/last.js"></script>
+				</div>
+				<div class="badalbum">
+					<span style="font-size: 69px; font-family: font;">the world would become a better place without me so i'm staying</span>
+					<br>
+					<a href="javascript:void(0)" onclick="viewSC()"><img class="social" src="img/soundcloud-icon.png" style="width:64px;height:64px;"></a>
+					<a href="javascript:void(0)" onclick="viewYT()"><img class="social" class="social" src="img/771384-512.png" style="width:64px;height:64px;"></a>
+					<a href="https://newgrounds.com/audio/listen/1182595" target="_blank"><img class="social" src="img/dl-tank.gif" style="width:64px;height:64px;"></a>
+					<div id="sc"></div>
+					<div id="yt"></div>
+					<canvas id="canvas" width="1500" height="720" style="width: 100%;" class="imgtest"></canvas>
+					<script src="scripts/terrain.js"></script>
+				</div>
 			</div>
 
 			<!-- TODO -->

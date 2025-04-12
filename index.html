@@ -23,7 +23,6 @@
 
 		<div class="header">
 			<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times; </a>
 				<!-- TODO -->
 				<a href="#Home" onclick="closeNav(); toggleAbout();">Home</a>
 				<a href="#Extras" onclick="toggleGames(); closeNav();">Extras</a>
@@ -36,7 +35,14 @@
 				<a href="https://gdbrowser.com/u/gdjkhp" target="_blank"><img src="img/gdcoin.png" style="width:32px;height:32px;"></a>
 				<a href="https://paypal.me/GDjkhp" target="_blank"><img src="img/pp.svg" style="width:32px;height:32px;"></a>
 			</div>
-			<span style="font-size: 30px;" onclick="openNav()"> &#9776 </span>
+			<!-- <span onclick="openNav()" class="navbutton"> &#9776 </span> -->
+
+			<div class="hamburger-menu navbutton" onclick="openNav()">
+				<div class="line line-1"></div>
+				<div class="line line-2"></div>
+				<div class="line line-3"></div>
+			</div>
+
 			<script src="scripts/nav.js"></script>
 
 			<span id="txt" style="float: right; font-size: 30px;"> TIME TO YOUR DEATH </span>

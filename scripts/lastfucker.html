@@ -1,0 +1,57 @@
+<head>
+    <style>
+        body {
+            font-family: "Comic Sans MS";
+            /* -webkit-animation: mymove 3s infinite alternate; */
+            
+            border-radius: 22px;
+            /* border: 5px solid white; */
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        .track {
+            display: flex;
+            align-items: center;
+            border: 3px white dashed;
+            text-align: left;
+            padding: 8px;
+            margin: 8px;
+        }
+
+        .track:hover, .rss2html-embed-item:hover {
+            border: 3px black dashed;
+            background-color: white;
+            color: black;
+        }
+
+        .track:hover a, .rss2html-embed-item:hover a {
+            color: black;
+        }
+
+        #lastfm {
+            border: 3px white solid;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .rss2html-embed-item {
+            /* width: 300px;
+            display: inline-block; */
+            border: white 3px dashed;
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="strftime.js"></script>
+    <script src="scrollhack.js"></script>
+</head>
+<body>
+    <script src="https://embeds.rss2html.net/embed.js?url=https%3A%2F%2Fmyanimelist.net%2Frss.php%3Ftype%3Drwe%26u%3DGDjkhp&amp;item_tag=div+style%3D%22width%3A+300px%3B+display%3A+inline-block%3B+margin%3A+8px%3B+padding%3A+32px%3B%22"></script>
+	<script src="anime_img_script.js"></script>
+    <div id="lastfm"></div>
+    <script src="last.js"></script>
+</body>

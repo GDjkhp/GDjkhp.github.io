@@ -118,10 +118,11 @@ async function updatepresence() {
     deco.style.opacity = json.discord_user.avatar_decoration_data ? 1 : 0;
     username.innerHTML = json.discord_user.username;
     online.style.backgroundColor = getStatusColor(json.discord_status);
-    activities = json.activities;
+    let activities = json.activities;
     // rpc = false; 
     number = 0;
     activities.forEach(element => {
+        let sp = element.id == "spotify:1";
         if (element.type == 4) {
             if (element.state) status.innerHTML = element.state;
         } else {
@@ -143,7 +144,7 @@ async function updatepresence() {
             if (element.assets) {
                 if (element.assets.large_image) {
                     assetBig.style.display = "block";
-                    assetBig.src = element.type == 2 ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
+                    assetBig.src = sp ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
                     if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
                 } else {
                     assetBig.style.display = "block";
@@ -155,7 +156,7 @@ async function updatepresence() {
                     assetSmall.src = `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.small_image}`;
                     if (element.assets.small_text) assetSmall.title = element.assets.small_text; else assetSmall.removeAttribute("title");
                 } else {
-                    if (element.type == 2) {
+                    if (sp) {
                         assetSmall.style.display = "block";
                         assetSmall.src = "https://gdjkhp.github.io/img/Spotify_App_Logo.svg.png";
                         assetSmall.title = "Spotify";
@@ -174,7 +175,7 @@ async function updatepresence() {
             name.innerHTML = element.name;
             if (element.state) state.innerHTML = element.state; else state.innerHTML = ""; // element.type == 2 ? `${element.state} &bull; ${json.spotify.album}` : 
             if (element.details) details.innerHTML = element.details; else details.innerHTML = "";
-            if (element.type == 2) {
+            if (sp) {
                 var a = document.createElement('a');
                 a.href = `https://open.spotify.com/track/${json.spotify.track_id}`;
                 a.target = "spotify"; // bug: doesn't reuse the loaded tab
@@ -185,11 +186,15 @@ async function updatepresence() {
             timestamp.innerHTML = "";
             if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
             if (element.type == 2) {
-                albumdiv.style.display = "block";
-                album.innerHTML = json.spotify.album;
-                progressbar.style.display = "block";
-                clearInterval(stime);
-                stime = setInterval(() => spotify_timer(progress, json.spotify.timestamps), 1);
+                if (sp) {
+                    albumdiv.style.display = "block";
+                    album.innerHTML = json.spotify.album;
+                }
+                if (element.timestamps.start && element.timestamps.end) {
+                    progressbar.style.display = "block";
+                    clearInterval(stime);
+                    stime = setInterval(() => spotify_timer(progress, element.timestamps), 1);
+                }
             }
         }
     });

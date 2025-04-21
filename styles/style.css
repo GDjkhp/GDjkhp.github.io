@@ -1,5 +1,6 @@
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 .container {
@@ -29,7 +30,8 @@ body {
 	color: #ffffff;
 	background-color: #000000;
 	max-width: 100%;
-    overflow-x: hidden;
+	overflow-x: hidden;
+	position: relative;
 }
 
 body *, :not(*) {

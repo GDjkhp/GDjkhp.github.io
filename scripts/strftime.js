@@ -852,15 +852,3 @@
     }
 
 }());
-
-setTimeout(function() {
-  const strftimeUTC = strftime.timezone(0);
-  const timeElements = document.querySelectorAll("p.rss2html-embed-item-published time:not(.processed)");
-
-  for(const timeElement of timeElements) {
-    const date = new Date(timeElement.getAttribute("datetime"));
-    timeElement.title = strftimeUTC("%a %b %e %r %Y %Z", date);
-    timeElement.textContent = strftime("%a %b %e %r %Y %Z", date);
-    timeElement.classList.add("processed");
-  }
-}, 13);

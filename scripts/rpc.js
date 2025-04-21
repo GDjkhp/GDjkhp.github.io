@@ -11,7 +11,7 @@ const getStatusColor = status => ({
     idle: "orange"
 }[status] || "gray");
 
-function timer(element, timestamp) {
+function normal_timer(element, timestamp) {
     if (element.timestamps.start) {
         var current_time = element.timestamps.start,
         exp_time = Math.floor(Date.now() / 1000),
@@ -184,7 +184,7 @@ async function updatepresence() {
             var time, stime;
             clearInterval(time);
             timestamp.innerHTML = "";
-            if (element.timestamps) time = setInterval(() => timer(element, timestamp), 1);
+            if (element.timestamps) time = setInterval(() => normal_timer(element, timestamp), 1);
             if (element.type == 2) {
                 if (sp) {
                     albumdiv.style.display = "block";

@@ -16,10 +16,8 @@ function closeNav() {
     document.querySelector(".hamburger-menu").classList.remove("active");
 }
 
-// TODO: add a function to close the nav when clicking outside of it
 function closeNavOnClick() {
-    // Add an event listener to the document body
-    document.addEventListener('click', function(event) {
+    document.addEventListener('mousedown', function(event) {
         const sidenav = document.getElementById("mySidenav");
         const hamburgerMenu = document.querySelector(".hamburger-menu");
         
@@ -34,7 +32,4 @@ function closeNavOnClick() {
         }
     });
   }
-  
-  // Call the function to initialize the event listener
-  // This should be added at the end of your nav.js file
-  closeNavOnClick();
+closeNavOnClick();

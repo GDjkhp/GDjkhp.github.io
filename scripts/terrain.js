@@ -1,4 +1,5 @@
 // canvas
+var musicDiv = document.getElementById('Music');
 var canvastag = document.getElementById('canvas');
 var WIDTH = canvastag.width, HEIGHT = 1250; // constant to trick the camera of the terrain floor = 1250
 
@@ -266,48 +267,50 @@ function zoomOut() {
 }
 
 function darw() {
-    var ctx = canvastag.getContext('2d');
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    if (musicDiv.style.display == 'block') {
+        var ctx = canvastag.getContext('2d');
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    flying -= 0.1;
-    var yoff = flying;
-    for (var y = 0; y < limit; y++) {
-        var xoff = 0;
-        for (var x = 0; x < limit; x++) {
-            terrain[x][y] = map(noise.simplex2(xoff, yoff), 0, 1, -range, range);
-            xoff += smth;
-        }
-        yoff += smth;
-    }
-
-    var triangles = [];
-
-    for (var y = 0; y < limit; y++) {
-        for (var x = 0; x < limit; x++) {
-            var v1, v2, v3;
-
-            v1 = new Point(x*scl, y*scl, terrain[x][y]);
-            v2 = new Point(x*scl, (y+1)*scl, terrain[x][y+1]);
-
-            if (x + 1 < limit) {
-                v3 = new Point((x + 1) * scl, y * scl, terrain[x + 1][y]);
-            } else {
-                v3 = new Point(x * scl, y * scl, terrain[x][y]); // FIXME: end triangles are unclosed
+        flying -= 0.1;
+        var yoff = flying;
+        for (var y = 0; y < limit; y++) {
+            var xoff = 0;
+            for (var x = 0; x < limit; x++) {
+                terrain[x][y] = map(noise.simplex2(xoff, yoff), 0, 1, -range, range);
+                xoff += smth;
             }
-
-            // center test
-            v1 = new Point(v1.x - unit / 2, v1.y - unit / 2, v1.z);
-            v2 = new Point(v2.x - unit / 2, v2.y - unit / 2, v2.z);
-            v3 = new Point(v3.x - unit / 2, v3.y - unit / 2, v3.z);
-
-            triangles.push(new Polygon(v1, v2, v3));
+            yoff += smth;
         }
+
+        var triangles = [];
+
+        for (var y = 0; y < limit; y++) {
+            for (var x = 0; x < limit; x++) {
+                var v1, v2, v3;
+
+                v1 = new Point(x*scl, y*scl, terrain[x][y]);
+                v2 = new Point(x*scl, (y+1)*scl, terrain[x][y+1]);
+
+                if (x + 1 < limit) {
+                    v3 = new Point((x + 1) * scl, y * scl, terrain[x + 1][y]);
+                } else {
+                    v3 = new Point(x * scl, y * scl, terrain[x][y]); // FIXME: end triangles are unclosed
+                }
+
+                // center test
+                v1 = new Point(v1.x - unit / 2, v1.y - unit / 2, v1.z);
+                v2 = new Point(v2.x - unit / 2, v2.y - unit / 2, v2.z);
+                v3 = new Point(v3.x - unit / 2, v3.y - unit / 2, v3.z);
+
+                triangles.push(new Polygon(v1, v2, v3));
+            }
+        }
+        var triangleStrip = new Tetrahedron(triangles);
+        // TODO: add transform codes
+        triangleStrip.rotate(true, -xDif, -yDif, -zDif);
+        triangleStrip.render(ctx);
+        zDif -= zRot;
     }
-    var triangleStrip = new Tetrahedron(triangles);
-    // TODO: add transform codes
-    triangleStrip.rotate(true, -xDif, -yDif, -zDif);
-    triangleStrip.render(ctx);
-    zDif -= zRot;
     
     // Request next frame
     requestAnimationFrame(darw);

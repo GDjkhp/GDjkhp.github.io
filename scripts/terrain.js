@@ -1,5 +1,6 @@
 // canvas
 var musicDiv = document.getElementById('Music');
+var albumDiv = document.querySelector('.badalbum');
 var canvastag = document.getElementById('canvas');
 var WIDTH = canvastag.width, HEIGHT = 1250; // constant to trick the camera of the terrain floor = 1250
 
@@ -265,9 +266,18 @@ function zoomIn() {
 function zoomOut() {
     localScale /= zoomFactor;
 }
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom > 0 &&
+        rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.right > 0
+    );
+}
 
 function darw() {
-    if (musicDiv.style.display == 'block') {
+    if (musicDiv.style.display == 'block' && isElementInViewport(albumDiv)) {
         var ctx = canvastag.getContext('2d');
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 

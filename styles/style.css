@@ -192,8 +192,7 @@ th {
 	padding-right: 10px;
 	z-index: 3;
 	position: fixed;
-	width: 64px;
-	height: 64px;
+	width: 69px;
 }
 
 .hamburger-menu:hover .line-1, .hamburger-menu:hover .line-2, .hamburger-menu:hover .line-3 {

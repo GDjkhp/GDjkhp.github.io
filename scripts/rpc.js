@@ -144,7 +144,10 @@ async function updatepresence() {
             if (element.assets) {
                 if (element.assets.large_image) {
                     assetBig.style.display = "block";
-                    assetBig.src = sp ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
+                    if (element.assets.large_image.includes("mp:external/"))
+                        assetBig.src = `https://media.discordapp.net/external/${element.assets.large_image.replace("mp:external/", "")}`;
+                    else
+                        assetBig.src = sp ? json.spotify.album_art_url : `https://cdn.discordapp.com/app-assets/${element.application_id}/${element.assets.large_image}`;
                     if (element.assets.large_text) assetBig.title = element.assets.large_text; else assetBig.removeAttribute("title");
                 } else {
                     assetBig.style.display = "block";

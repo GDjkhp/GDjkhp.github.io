@@ -50,7 +50,7 @@ function addRPC() {
                 <img class="assetSmall" width="24" style="border-radius: 9999px; position: absolute; bottom: 0px; right: 0px;" src="https://gdjkhp.github.io/img/unknown.png">
             </div>
             <div style="padding: 8px;">
-                <span class="name" style="font-weight: bold; font-size: 25px;"></span>
+                <span class="name" style="font-weight: bold; font-size: 24px;"></span>
                 <br>
                 <span class="details"></span>
                 <br>
@@ -79,15 +79,22 @@ function addProfile() {
     offset = -(deco - avatar)/2;
     const rpcHtml = `
         <div class="c" id="e" style="display: none;">
-            <div style="position: relative; height: ${avatar}px;">
+            <div style="position: relative; height: ${avatar}px; margin-right: 8px">
                 <img id="avatar" width="${avatar}" style="border-radius: 9999px;" src="https://gdjkhp.github.io/img/dc.png">
                 <img id="deco" width="${deco}" style="position: absolute; top: ${offset}px; left: ${offset}px;" src="https://gdjkhp.github.io/img/dc.png">
                 <span id="online" style="width: 24px; height: 24px; border-radius: 9999px; position: absolute; bottom: 0px; right: 0px; background-color: gray; border: black 4px solid;">
             </div>
             <div style="padding: 8px;">
-                <span id="username" style="font-weight: bold; font-size: 25px;"></span>
+                <span id="globalname" style="font-weight: bold; font-size: 24px; display: inline-block; vertical-align: middle;"></span>
+                <span id="clan-span" style="font-size: 16px; display: none; vertical-align: middle;">
+                    [<img id="clan-badge" style="width: 16px; vertical-align: middle; margin-right: 2px";></img><span id="clan-name"></span>]
+                </span>
                 <br>
-                <span id="status"></span>
+                <span id="username" style="font-size: 20px;"></span>
+                <br>
+                <span id="status-emoji" style="font-size: 24px;"></span>
+                <img id="status-nitro" style="display: none; width: 24px; vertical-align: middle;"></img>
+                <span id="status" style="font-size: 16px;"></span>
             </div>
         </div>
     `;
@@ -109,14 +116,27 @@ async function updatepresence() {
     var avatar = document.getElementById("avatar");
     var deco = document.getElementById("deco");
     var online = document.getElementById("online");
+    var globalname = document.getElementById("globalname");
+    var username = document.getElementById("username");
+    var clanbadge = document.getElementById("clan-badge");
+    var clanname = document.getElementById("clan-name");
+    var clanspan = document.getElementById("clan-span");
     var username = document.getElementById("username");
     var status = document.getElementById("status");
+    var emoji = document.getElementById("status-emoji");
+    var nitro = document.getElementById("status-nitro");
     var e = document.getElementById("e");
     e.style.display = "flex";
     avatar.src = json.discord_user.avatar ? `https://cdn.discordapp.com/avatars/${userid}/${json.discord_user.avatar}` : "https://gdjkhp.github.io/img/dc.png";
     deco.src = json.discord_user.avatar_decoration_data ? `https://cdn.discordapp.com/avatar-decoration-presets/${json.discord_user.avatar_decoration_data.asset}` : "https://gdjkhp.github.io/img/dc.png";
     deco.style.opacity = json.discord_user.avatar_decoration_data ? 1 : 0;
-    username.innerHTML = json.discord_user.username;
+    globalname.innerHTML = `${json.discord_user.global_name}`;
+    username.innerHTML = `${json.discord_user.username}`;
+    if (json.discord_user.primary_guild.tag) {
+        clanspan.style.display = "inline-block";
+        clanbadge.src = `https://cdn.discordapp.com/clan-badges/${json.discord_user.primary_guild.identity_guild_id}/${json.discord_user.primary_guild.badge}`;
+        clanname.innerHTML = `${json.discord_user.primary_guild.tag}`;
+    }
     online.style.backgroundColor = getStatusColor(json.discord_status);
     let activities = json.activities;
     // rpc = false; 
@@ -125,6 +145,14 @@ async function updatepresence() {
         let sp = element.id == "spotify:1";
         if (element.type == 4) {
             if (element.state) status.innerHTML = element.state;
+            if (element.emoji) {
+                if (element.emoji.id) {
+                    nitro.src = `https://cdn.discordapp.com/emojis/${element.emoji.id}`;
+                    nitro.style.display = "inline-block";
+                    nitro.style.verticalAlign = "middle";
+                }
+                else emoji.innerHTML = element.emoji.name;
+            }
         } else {
             // rpc = true;
             addRPC();

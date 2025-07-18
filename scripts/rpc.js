@@ -87,7 +87,7 @@ function addProfile() {
             <div style="padding: 8px;">
                 <span id="globalname" style="font-weight: bold; font-size: 24px; display: inline-block; vertical-align: middle;"></span>
                 <span id="clan-span" style="font-size: 16px; display: none; vertical-align: middle;">
-                    [<img id="clan-badge" style="width: 16px; vertical-align: middle; margin-right: 2px";></img><span id="clan-name"></span>]
+                    [<img id="clan-badge" style="width: 16px; vertical-align: middle;"></img><span id="clan-name"></span>]
                 </span>
                 <br>
                 <span id="username" style="font-size: 20px;"></span>

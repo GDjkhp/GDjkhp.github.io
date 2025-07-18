@@ -46,4 +46,25 @@ document.addEventListener('DOMContentLoaded', function() {
     var configScript = document.createElement("script");
     configScript.setAttribute("src", "https://gdjkhp.github.io/scripts/particlesjs-config.js");
     document.body.appendChild(configScript);
+
+    updateServerCounts();
 });
+
+async function updateServerCounts() {
+    try {
+        const table_zero = document.getElementsByTagName("table")[0];
+        const tbody = table_zero.getElementsByTagName('tbody')[0];
+        const rows = tbody.getElementsByTagName('tr');
+
+        for (let row of rows) {
+            const botName = row.cells[0].textContent.trim();
+            const serverCell = row.cells[1];
+
+            const response = await fetch(`https://45600.site.bot-hosting.net/bot/${botName}`);
+            const data = await response.json();
+            serverCell.textContent = `${data.guild_count || '?'}/100`;
+        }
+    } catch (error) {
+        console.error('Error updating server counts:', error);
+    }
+}

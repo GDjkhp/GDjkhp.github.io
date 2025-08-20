@@ -48,30 +48,36 @@ let trackperiod = "12month";
 let trackapi = "a564a411fff98ed4362d09de1af9710f";
 
 async function mainfm() {
-    trackpage++;
-    var url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${trackuser}&period=${trackperiod}&page=${trackpage}&limit=${tracklimit}&api_key=${trackapi}&format=json`;
-    data = await fetch(url).then(res => res.json());
-    // console.log(data);
-    // console.log(data.recenttracks.track);
-
-    let tracknumber = document.getElementsByClassName("track").length;
-    data.recenttracks.track.forEach(async trackdata => {
-        if (trackdata["@attr"]) return;
-        song_template();
-        let img   = document.getElementsByClassName("track-cover") [tracknumber];
-        let title = document.getElementsByClassName("track-title") [tracknumber];
-        let artist= document.getElementsByClassName("track-artist")[tracknumber];
-        let album = document.getElementsByClassName("track-album") [tracknumber];
-        let time  = document.getElementsByClassName("track-date")  [tracknumber];
-        let link  = document.getElementsByClassName("track-link")  [tracknumber];
-        tracknumber++;
-        img.src = trackdata.image[3]["#text"];
-        title.innerHTML = trackdata.name;
-        link.href = trackdata.url;
-        artist.innerHTML = trackdata.artist["#text"];
-        album.innerHTML = trackdata.album["#text"];
-        time.innerHTML = strftime("%a %b %e %r %Y %Z", new Date(trackdata.date["uts"]*1000));
-    });
+    trackpage++; // every +100 click
+    let tracknumber = 0; // reset
+    // destroy all
+    const elements = document.getElementsByClassName('track-link');
+    while(elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+    for (let indexpage = 1; indexpage < trackpage + 1; indexpage++) {
+        var url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${trackuser}&period=${trackperiod}&page=${indexpage}&limit=${tracklimit}&api_key=${trackapi}&format=json`;
+        data = await fetch(url).then(res => res.json());
+        // console.log(data);
+        // console.log(data.recenttracks.track);
+        data.recenttracks.track.forEach(async trackdata => {
+            if (trackdata["@attr"]) return;
+            song_template();
+            let img   = document.getElementsByClassName("track-cover") [tracknumber];
+            let title = document.getElementsByClassName("track-title") [tracknumber];
+            let artist= document.getElementsByClassName("track-artist")[tracknumber];
+            let album = document.getElementsByClassName("track-album") [tracknumber];
+            let time  = document.getElementsByClassName("track-date")  [tracknumber];
+            let link  = document.getElementsByClassName("track-link")  [tracknumber];
+            tracknumber++;
+            img.src = trackdata.image[3]["#text"];
+            title.innerHTML = trackdata.name;
+            link.href = trackdata.url;
+            artist.innerHTML = trackdata.artist["#text"];
+            album.innerHTML = trackdata.album["#text"];
+            time.innerHTML = strftime("%a %b %e %r %Y %Z", new Date(trackdata.date["uts"]*1000));
+        });
+    }
 	createScrollAnimation('track');
 	window.addEventListener('resize', createScrollAnimation('track'));
 }

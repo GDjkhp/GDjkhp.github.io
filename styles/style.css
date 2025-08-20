@@ -322,3 +322,12 @@ img:hover {
 .track:hover a, .rss2html-embed-item:hover a {
 	color: black;
 }
+
+.track-title {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.track-date {
+	font-size: 12px;
+}

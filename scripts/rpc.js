@@ -216,16 +216,14 @@ async function updatepresence() {
             clearInterval(time);
             timestamp.innerHTML = "";
             if (element.timestamps) time = setInterval(() => normal_timer(element, timestamp), 1);
-            if (element.type == 2) {
-                if (sp) {
-                    albumdiv.style.display = "block";
-                    album.innerHTML = json.spotify.album;
-                }
-                if (element.timestamps.start && element.timestamps.end) {
-                    progressbar.style.display = "block";
-                    clearInterval(stime);
-                    stime = setInterval(() => spotify_timer(progress, element.timestamps), 1);
-                }
+            if (sp) {
+                albumdiv.style.display = "block";
+                album.innerHTML = json.spotify.album;
+            }
+            if (element.timestamps.start && element.timestamps.end) {
+                progressbar.style.display = "block";
+                clearInterval(stime);
+                stime = setInterval(() => spotify_timer(progress, element.timestamps), 1);
             }
         }
     });

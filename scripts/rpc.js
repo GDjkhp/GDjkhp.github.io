@@ -220,7 +220,7 @@ async function updatepresence() {
                 albumdiv.style.display = "block";
                 album.innerHTML = json.spotify.album;
             }
-            if (element.timestamps.start && element.timestamps.end) {
+            if (element.timestamps && element.timestamps.start && element.timestamps.end) {
                 progressbar.style.display = "block";
                 clearInterval(stime);
                 stime = setInterval(() => spotify_timer(progress, element.timestamps), 1);

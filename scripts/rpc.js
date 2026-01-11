@@ -196,6 +196,11 @@ async function updatepresence() {
                         assetSmall.removeAttribute("title");
                     }
                 }
+            } else if (element.emoji) {
+                assetBig.src = `https://cdn.discordapp.com/emojis/${element.emoji.id}`;
+                assetBig.title = `:${element.emoji.name}:`;
+                assetSmall.style.display = "none";
+                assetSmall.removeAttribute("title");
             } else {
                 assetBig.style.display = "block";
                 assetBig.classList.add('invert');

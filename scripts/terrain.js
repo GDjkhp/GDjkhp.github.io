@@ -1,14 +1,14 @@
 // canvas
-var musicDiv = document.getElementById('Music');
 var albumDiv = document.querySelector('.badalbum');
 var canvastag = document.getElementById('canvas');
-var WIDTH = canvastag.width, HEIGHT = 1250; // constant to trick the camera of the terrain floor = 1250
+var WIDTH = canvastag.width, HEIGHT = canvastag.height; // constant to trick the camera of the terrain floor = 1250
 
 // Global flags
 let cullingEnabled = true;
-let useViewport = true;
+let useViewport = false;
 let debugMode = false;
 let devMode = false;
+let showButtons = false;
 
 // FPS
 let frameCount = 0;
@@ -18,10 +18,10 @@ let animationInterval;
 
 // Define camera viewport
 const cameraViewport = {
-    x: 0, // WIDTH * 0.25
-    y: 0, // HEIGHT * 0.25
-    width: WIDTH, // WIDTH * 0.5
-    height: HEIGHT * 0.75 // HEIGHT * 0.5
+    x: WIDTH * 0.25,
+    y: HEIGHT * 0.25,
+    width: WIDTH * 0.5,
+    height: HEIGHT * 0.5
 };
 
 // Full screen viewport
@@ -277,7 +277,7 @@ function isElementInViewport(el) {
 }
 
 function darw() {
-    if (musicDiv.style.display == 'block' && isElementInViewport(albumDiv)) {
+    if (isElementInViewport(albumDiv)) {
         var ctx = canvastag.getContext('2d');
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -346,6 +346,22 @@ var r = Math.floor(Math.random() * 256), g = Math.floor(Math.random() * 256), b 
 col = r + "," + g + "," + b + "," + a;
 
 function setupControls() {
+    // key bindings
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'c') {
+            cullingEnabled = !cullingEnabled;
+            cullingButton.innerText = `Culling: ${cullingEnabled ? 'ON' : 'OFF'}`;
+        } else if (e.key === 'v') {
+            useViewport = !useViewport;
+            viewportButton.innerText = `Viewport: ${useViewport ? 'Custom' : 'Fullscreen'}`;
+        } else if (e.key === 'd') {
+            debugMode = !debugMode;
+            debugButton.innerText = `Debug: ${debugMode ? 'ON' : 'OFF'}`;
+        } else if (e.key === 'x') devMode = !devMode;
+    });
+
+    if (!showButtons) return;
+
     // Container for controls
     const controlsContainer = document.createElement('div');
     controlsContainer.style.position = 'absolute';
@@ -395,20 +411,6 @@ function setupControls() {
     
     // Add container to body
     document.body.appendChild(controlsContainer);
-    
-    // Also add key bindings
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'c') {
-            cullingEnabled = !cullingEnabled;
-            cullingButton.innerText = `Culling: ${cullingEnabled ? 'ON' : 'OFF'}`;
-        } else if (e.key === 'v') {
-            useViewport = !useViewport;
-            viewportButton.innerText = `Viewport: ${useViewport ? 'Custom' : 'Fullscreen'}`;
-        } else if (e.key === 'd') {
-            debugMode = !debugMode;
-            debugButton.innerText = `Debug: ${debugMode ? 'ON' : 'OFF'}`;
-        }
-    });
 }
 
 function startAnimation() {
@@ -427,7 +429,7 @@ function startAnimation() {
 }
 
 window.addEventListener('load', () => {
-    if (devMode) setupControls();
+    setupControls();
     startAnimation();
 });
 

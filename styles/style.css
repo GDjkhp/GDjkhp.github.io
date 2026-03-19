@@ -331,3 +331,24 @@ img:hover {
 .track-date {
 	font-size: 12px;
 }
+
+/* wow */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-container {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: inline-block;
+	animation: marquee 10s linear infinite;
+}

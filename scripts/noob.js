@@ -60,7 +60,7 @@ async function updateServerCounts() {
             const botName = row.cells[0].textContent.trim();
             const serverCell = row.cells[1];
 
-            const response = await fetch(`https://45600.site.bot-hosting.net/bot/${botName}`);
+            const response = await fetch(`https://noobgpt.gdjkhp.com/bot/${botName}`);
             const data = await response.json();
             serverCell.textContent = `${data.guild_count || '?'}/100`;
         }

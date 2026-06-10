@@ -50,6 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
     updateServerCounts();
 });
 
+function formatUptime(unixTimestamp) {
+    const startMs = unixTimestamp * 1000;
+    const elapsedMs = Date.now() - startMs;
+    const totalSeconds = Math.floor(elapsedMs / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
 async function updateServerCounts() {
     try {
         const table_zero = document.getElementsByTagName("table")[0];
@@ -59,10 +72,18 @@ async function updateServerCounts() {
         for (let row of rows) {
             const botName = row.cells[0].textContent.trim();
             const serverCell = row.cells[1];
+            const latencyCell = row.cells[2];
+            const uptimeCell = row.cells[3];
 
             const response = await fetch(`https://noobgpt.gdjkhp.com/bot/${botName}`);
             const data = await response.json();
             serverCell.textContent = `${data.guild_count || '?'}/100`;
+            latencyCell.textContent = `${data.latency || '?ms'}`;
+            uptimeCell.textContent = `${formatUptime(data.start_time) || '??:??:??:??'}`;
+
+            setInterval(() => {
+                uptimeCell.textContent = formatUptime(data.start_time);
+            }, 1000);
         }
     } catch (error) {
         console.error('Error updating server counts:', error);

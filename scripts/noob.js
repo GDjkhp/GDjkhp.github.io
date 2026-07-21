@@ -77,7 +77,7 @@ async function updateServerCounts() {
 
             const response = await fetch(`https://noobgpt.gdjkhp.com/bot/${botName}`);
             const data = await response.json();
-            serverCell.textContent = `${data.guild_count || '?'}/100`;
+            serverCell.textContent = `${data.guild_count || '?'}`;
             latencyCell.textContent = `${data.latency || '?ms'}`;
             uptimeCell.textContent = `${formatUptime(data.start_time) || '??:??:??:??'}`;
 

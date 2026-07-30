@@ -1,0 +1,35 @@
+thank you for using my nodelink instance!
+my discord support server: ZbvhQYv9Ka
+i aint gonna sell you anything but if you still insist: paypal.me/gdjkhp
+pls don't abuse or attack the server - i use it for my work
+help me fix my config and join the nodelink development :)
+
+nodelink config:
+host: https://nodelink.gdjkhp.com:443
+pass: youshallnotpass
+api: youtube, spotify, deezer
+sources: a lot
+lyrics: youtube, genius, musixmatch, deezer, lrclib, letrasmus, bilibili, yandexmusic, monochrome
+filters: tremolo, vibrato, lowpass, highpass, rotation, karaoke, distortion, channelmix, equalizer, chorus, compressor, echo, phaser, timescale
+master decryption key: robots.txt
+
+todo/fixme:
+maxPlaylistLength: spotify - 1000, youtube - 200, ytmusic - 20
+metrics
+direct spotify streaming
+timed lyrics
+web dashboard (discord bot)
+standalone web frontend
+
+system specifications:
+server: hostinger kvm1 / ubuntu / pterodactyl
+cpu: amd epyc 9354p 32-core processor
+vcpu cores: 1
+disk: 50gb nvme
+ram: 4gb
+bandwidth: 4tb
+location: kuala lumpur
+sponsored by: it avenue - go buy your computers on itavenue.gdjkhp.com
+
+the information of research service of audio science laboratory in tokyo.
+gdjkhp / the karakters kompany - all rights reserved. copyright 2026

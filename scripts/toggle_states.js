@@ -33,7 +33,7 @@ function toggleAUM() {
     aum.style.display = "block";
 }
 function resetGSAP() {
-    // createScrollAnimation('rss2html-embed-item');
-    createScrollAnimation('track');
-    createScrollAnimation('works');
+    // createScrollAnimation('rss2html-embed-item', 'rss2html-embed');
+    createScrollAnimation('track', 'scrobble');
+    createScrollAnimation('works', 'gamesstage');
 }

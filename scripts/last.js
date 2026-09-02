@@ -78,7 +78,7 @@ async function mainfm() {
             time.innerHTML = strftime("%a %b %e %r %Y %Z", new Date(trackdata.date["uts"]*1000));
         });
     }
-	createScrollAnimation('track');
-	window.addEventListener('resize', createScrollAnimation('track'));
+	createScrollAnimation('track', 'scrobble');
+	window.addEventListener('resize', createScrollAnimation('track', 'scrobble'));
 }
 mainfm();

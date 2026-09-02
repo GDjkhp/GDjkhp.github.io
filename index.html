@@ -255,7 +255,7 @@
 				<div class="scrobble">
 					<span style="font-size: 25px; font-weight: bold;"> Last.fm Recent Scrobbles </span>
 					<div class="scrobdiv" style="border: 3px white solid;">
-						<div id="lastfm"></div>
+						<div id="lastfm" style="flex-direction: row;flex-wrap: wrap;justify-content: space-around;align-content: stretch;align-items: stretch;display: flex;"></div>
 						<div class="seemore" onclick="mainfm();">
 							<span>+100</span>
 						</div>
@@ -276,7 +276,7 @@
 			</div>
 
 			<!-- TODO -->
-			<div id="Games">
+			<div id="Games" class="gamesstage">
 				<div style="border: white 3px dashed; max-width: fit-content; padding: 32px; display: inline-block; margin: 8px;" class="works">
 					<a href="https://gdjkhp.github.io/NoobGPT">
 						<img src="https://gdjkhp.github.io/img/noob_old.png" height="128">
@@ -446,8 +446,8 @@
 			var about = document.getElementById('About');
 
 			toggleAbout();
-			createScrollAnimation('works');
-			window.addEventListener('resize', createScrollAnimation('works'));
+			createScrollAnimation('works', 'gamesstage');
+			window.addEventListener('resize', createScrollAnimation('works', 'gamesstage'));
 
 			if(window.location.hash) {
 				var id = window.location.hash.substr(1); // Get the id value without the # symbol

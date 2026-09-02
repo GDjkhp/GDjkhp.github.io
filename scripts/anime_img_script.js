@@ -36,8 +36,8 @@ async function getAllLink() {
 			continue;
 		}
 	}
-	createScrollAnimation('rss2html-embed-item');
-	window.addEventListener('resize', createScrollAnimation('rss2html-embed-item'));
+	createScrollAnimation('rss2html-embed-item', 'rss2html-embed');
+	window.addEventListener('resize', createScrollAnimation('rss2html-embed-item', 'rss2html-embed'));
 }
 
 getAllLink();

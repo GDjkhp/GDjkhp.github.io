@@ -4,12 +4,13 @@ async function getAllLink() {
 	data[data.length-1].parentNode.removeChild(data[data.length-1]); // remove credits
 	
 	for (x = 0; x < data.length; x++) {
+		await delay();
 		const str = data[x].getElementsByTagName('a')[0].href;
 		const res = str.split("?"); 
 		const id = res[0].slice(30, res[0].lastIndexOf("/"));
 		
 		try {
-			const result = await fetch(`https://api.jikan.moe/v4/anime/${id}`).then(res => res.json());
+			const result = await fetch(`https://api.tenrai.org/v1/anime/${id}`).then(res => res.json());
 			const seriesData = result.data;
 			
 			const img = document.createElement("img");
@@ -30,8 +31,6 @@ async function getAllLink() {
 			tag.appendChild(img);
 			
 			data[x].insertBefore(tag, title[x]);
-			
-			await delay();
 		} catch (error) {
 			console.log(error);
 			continue;
@@ -45,7 +44,7 @@ getAllLink();
 
 function delay() {
 	return new Promise((resolve, reject) => {
-		setTimeout(resolve, 500);
+		setTimeout(resolve, 250);
 	});
 }
 function capitalize(s) {

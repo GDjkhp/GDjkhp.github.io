@@ -75,7 +75,11 @@ i aint gonna sell you anything but if you still insist: paypal.me/gdjkhp
 pls don't abuse or attack the server - i use it for my work
 help me fix my config and join the nodelink development :)
 
-nodelink config:
+nodelink - performant lavalink alternative written in node.js
+the performanc organization / nodelink.js.org
+discord: uPveNfTuCJ
+
+# config
 host: https://nodelink.gdjkhp.com:443
 pass: youshallnotpass
 api: youtube, spotify, deezer, qobuz
@@ -83,16 +87,19 @@ sources: a lot
 lyrics: youtube, genius, musixmatch, deezer, lrclib, letrasmus, bilibili, yandexmusic, monochrome
 filters: tremolo, vibrato, lowpass, highpass, rotation, karaoke, distortion, channelmix, equalizer, chorus, compressor, echo, phaser, timescale
 master decryption key: robots.txt
-max playlist length: 1000
+maxPlaylistLength: 1000
+enableTrackStreamEndpoint: true
+enableLoadStreamEndpoint: true
+mirrorOfficialAlbums: true
 
-todo/fixme:
+# todo/fixme
 metrics
 direct spotify streaming
 timed lyrics
 web dashboard (discord bot)
 standalone web frontend
 
-system specifications:
+# system specifications
 server: hostinger kvm1 / ubuntu / pterodactyl
 cpu: amd epyc 9354p 32-core processor
 vcpu cores: 1

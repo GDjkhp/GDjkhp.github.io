@@ -74,10 +74,11 @@ my discord support server: ZbvhQYv9Ka
 i aint gonna sell you anything but if you still insist: paypal.me/gdjkhp
 pls don't abuse or attack the server - i use it for my work
 help me fix my config and join the nodelink development :)
+check out my nodelink webplayer: doopees.gdjkhp.com
 
 nodelink - performant lavalink alternative written in node.js
 the performanc organization / nodelink.js.org
-discord: uPveNfTuCJ
+their discord server: uPveNfTuCJ
 
 # config
 host: https://nodelink.gdjkhp.com:443
@@ -87,6 +88,8 @@ sources: a lot
 lyrics: youtube, genius, musixmatch, deezer, lrclib, letrasmus, bilibili, yandexmusic, monochrome
 filters: tremolo, vibrato, lowpass, highpass, rotation, karaoke, distortion, channelmix, equalizer, chorus, compressor, echo, phaser, timescale
 master decryption key: robots.txt
+uptime: not guaranteed :P
+cors: true
 maxPlaylistLength: 1000
 enableTrackStreamEndpoint: true
 enableLoadStreamEndpoint: true
@@ -97,7 +100,6 @@ metrics
 direct spotify streaming
 timed lyrics
 web dashboard (discord bot)
-standalone web frontend
 
 # system specifications
 server: hostinger kvm1 / ubuntu / pterodactyl

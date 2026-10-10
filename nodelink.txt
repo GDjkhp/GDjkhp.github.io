@@ -78,9 +78,9 @@ check out my nodelink webplayer: doopees.gdjkhp.com
 
 nodelink - performant lavalink alternative written in node.js
 the performanc organization / nodelink.js.org
-their discord server: uPveNfTuCJ
+discord server: uPveNfTuCJ
 
-# config
+# info
 host: https://nodelink.gdjkhp.com:443
 pass: youshallnotpass
 api: youtube, spotify, deezer, qobuz
@@ -89,16 +89,20 @@ lyrics: youtube, genius, musixmatch, deezer, lrclib, letrasmus, bilibili, yandex
 filters: tremolo, vibrato, lowpass, highpass, rotation, karaoke, distortion, channelmix, equalizer, chorus, compressor, echo, phaser, timescale
 master decryption key: robots.txt
 uptime: not guaranteed :P
+
+# config
 cors: true
-maxPlaylistLength: 1000
+maxConcurrentSockets: 999
+maxPlaylistLength: 9999
 enableTrackStreamEndpoint: true
 enableLoadStreamEndpoint: true
-mirrorOfficialAlbums: true
+enableHlsEndpoint: true
 
 # todo/fixme
 metrics
 direct spotify streaming
 timed lyrics
+translate lyrics
 web dashboard (discord bot)
 
 # system specifications

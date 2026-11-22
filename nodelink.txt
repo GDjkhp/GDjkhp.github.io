@@ -108,10 +108,10 @@ web dashboard (discord bot)
 # system specifications
 server: hostinger kvm1 / ubuntu / pterodactyl
 cpu: amd epyc 9354p 32-core processor
-vcpu cores: 1
-disk: 50gb nvme
-ram: 4gb
-bandwidth: 4tb
+vcpu cores: 4
+ram: 16gb
+disk: 200gb nvme
+bandwidth: 16tb
 location: kuala lumpur
 sponsored by: it avenue - go buy your computers on itavenue.gdjkhp.com
 
